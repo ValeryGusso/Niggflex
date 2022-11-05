@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+* {
+	/* font-family: 'Ruslan Display', cursive; */
+	font-family: 'Cormorant Infant', serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #acacac;
+}
+
+body {
+	overflow-x: hidden;
+	margin-right: 0.75vmax;
+	min-height: 100vh;
+	background: linear-gradient(45deg, #111315, #151719);
+}
+
+.container {
+	width: 100vw;
+	min-height: 100vh;
+}
+
+a {
+	text-decoration: none;
+}
+
+::-webkit-scrollbar {
+	width: 0.75vmax;
+}
+
+::-webkit-scrollbar-track {
+	background: #333536;
+}
+::-webkit-scrollbar-thumb {
+	background: rgb(189, 188, 188);
+	border-radius: 0.5vmin;
+}

@@ -1,0 +1,31 @@
+.container {
+	display: flex;
+	align-items: center;
+	column-gap: 1vmax;
+  padding: 2vmin;
+  border-radius: 1vmax;
+  box-shadow: 0 0 4vmin rgba(117, 172, 255, 0.25);
+}
+
+.container > img {
+	border-radius: 1vmin;
+	max-width: 8vmax;
+	max-height: 20vmin;
+}
+
+.description {
+	width: 35vmax;
+	display: flex;
+	flex-direction: column;
+	row-gap: 2vmin;
+}
+
+.description a {
+  font-weight: bold;
+  font-style: italic;
+	font-size: 3vmin;
+}
+
+.description h2 {
+	font-size: 2vmin;
+}

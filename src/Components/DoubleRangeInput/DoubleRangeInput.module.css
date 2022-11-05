@@ -1,0 +1,30 @@
+.field {
+	position: relative;
+	width: 20vmax;
+	height: 1vmin;
+	border-radius: 0.5vmin;
+	background: darkkhaki;
+}
+
+.min {
+	position: absolute;
+	top: -1vmin;
+	left: var(--xmin);
+	width: 3vmin;
+	height: 3vmin;
+	border-radius: 50%;
+	cursor: grab;
+	background: blueviolet;
+}
+
+.max {
+	position: absolute;
+	top: -1vmin;
+	left: var(--xmax);
+	width: 3vmin;
+	height: 3vmin;
+	border-radius: 50%;
+	cursor: grab;
+	background: blueviolet;
+}
+

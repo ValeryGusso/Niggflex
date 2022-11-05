@@ -1,0 +1,23 @@
+.container {
+	width: 85vmax;
+	margin-left: 7.5vmax;
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 1vmax;
+	row-gap: 5vmin;
+	margin-top: 5vmin;
+}
+
+.hidenLine {
+	width: 100%;
+	height: 5vmin;
+	/* background: darkgray; */
+}
+
+.loader {
+	width: 100%;
+	margin-top: 10vmin;
+	transform: scale(2);
+	display: flex;
+	justify-content: center;
+}

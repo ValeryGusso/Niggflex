@@ -1,0 +1,89 @@
+.container {
+	width: 20vmax;
+	position: relative;
+}
+
+.container p {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	z-index: -1;
+}
+
+.container img {
+	position: absolute;
+	width: 2vmax;
+	top: 1.5vmin;
+	right: 0.5vmax;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.container input {
+	position: relative;
+	font-family: 'Cormorant Infant', serif;
+	width: 20vmax;
+	height: 7vmin;
+	padding-left: 0.5vmax;
+	padding-right: 3vmax;
+	border: none;
+	border-radius: 1vmin;
+	color: #171921;
+	font-size: 4vmin;
+	font-style: italic;
+	font-weight: 600;
+	background: rgba(117, 172, 255, 0.65);
+}
+
+.error {
+	background: rgba(255, 84, 53, 0.5) !important;
+	animation: tremor 0.2s 2 alternate;
+}
+
+.container input::placeholder {
+	color: rgba(23, 25, 33, 0.75);
+}
+
+.container input:focus {
+	outline: none;
+	color: #171921;
+	background: #75acff;
+}
+
+.container p {
+	position: absolute;
+	top: 110%;
+	left: 10%;
+	width: 80%;
+	min-height: 5vmin;
+	border-radius: 1vmin;
+	font-size: 2.5vmin;
+	font-style: italic;
+	text-align: center;
+	color: #ff5435;
+	z-index: 100;
+}
+
+@keyframes tremor {
+	0% {
+		transform: translateX(0);
+	}
+
+	25% {
+		transform: translateX(-1vmax);
+	}
+
+	50% {
+		transform: translateX(0);
+	}
+
+	75% {
+		transform: translateX(1vmax);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}

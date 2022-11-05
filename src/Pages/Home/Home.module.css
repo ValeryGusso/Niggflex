@@ -1,0 +1,20 @@
+.container {
+	display: flex;
+}
+
+.result {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1vmin;
+}
+
+.placeholder {
+	text-align: center;
+	padding: 0 15vmax;
+}
+
+.placeholder h2 {
+	padding-top: 40%;
+	font-size: 4vmin;
+	font-style: italic;
+}

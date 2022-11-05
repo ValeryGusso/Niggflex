@@ -1,0 +1,96 @@
+.container {
+	width: 100%;
+	min-height: 100vmin;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	row-gap: 3vmin;
+	align-items: center;
+}
+
+.profile {
+	width: 60%;
+	margin-top: 10vmin;
+  display: flex;
+  row-gap: 2vmin;
+}
+
+.profile img {
+  width: 20%;
+  border-radius: 1vmax
+}
+
+.about {
+	width: 80%;
+	padding-left: 10vmax;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	row-gap: 2vmin;
+}
+
+.about > div {
+	display: flex;
+}
+
+.about p {
+	width: 20%;
+}
+
+.about span {
+	width: 70%;
+}
+
+.info {
+	width: 60%;
+	display: flex;
+	justify-content: center;
+	/* align-items: center; */
+  /* background: darkgreen */
+}
+
+.films {
+  width: 35%;
+	/* height: 15vmax; */
+	display: inline-flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	row-gap: 2vmin;
+  /* background: darkgray */
+}
+
+.films a {
+  font-size: 2vmin;
+  /* background: darkgray; */
+}
+
+.facts {
+  width: 65%;
+	height: 4.5vmin;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1vmax;
+	overflow: hidden;
+  row-gap: 2vmin;
+	transition: 2s;
+}
+
+.facts p {
+	font-size: 2vmin;
+}
+
+.facts button {
+	width: 20vmax;
+	border: none;
+	border-radius: 1vmax;
+	padding: 1vmin;
+	font-size: 2vmin;
+	background: #acff97;
+	color: #242628;
+	cursor: pointer;
+}
+
+.show {
+	height: auto;
+	transition: 2s;
+}

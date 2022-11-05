@@ -1,0 +1,39 @@
+.search {
+  width: 30vmax;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  /* background: darkgray */
+}
+
+.search input {
+  width: 0vmax;
+  height: 5vmin;
+  margin-top: 2.5vmin;
+  border: none;
+  border-radius: 2vmin;
+  color: #232527;
+  font-size: 2vmin;
+  transition: 0.5s;
+}
+
+.active {
+  padding-left: 0.5vmax!important;
+  width: 25vmax!important;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search input::placeholder {
+  color: #232527;
+}
+
+.search img {
+  width: 7vmin;
+  margin-top: 1.5vmin;
+  transform: rotateZ(270deg);
+  filter: invert(1);
+  cursor: pointer;
+}
