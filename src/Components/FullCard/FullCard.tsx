@@ -4,6 +4,8 @@ import { useParams } from 'react-router'
 import { filmMenu } from '../../Assets/constants'
 import { fakeFilm } from '../../Assets/fakeFilm'
 import { FilmResponce } from '../../Interfaces/Film'
+import Favorite from '../Buttons/Favorite'
+import Viewed from '../Buttons/Viewed'
 import Loader from '../Loader/Loader'
 import About from './About'
 import Actors from './Actors'
@@ -57,11 +59,21 @@ const FullCard: FC = () => {
 							{film ? <RatingBlock rating={film.rating} ageRating={film.ageRating} /> : ''}
 						</div>
 						<div className={cls.header}>
+							{film && (
+								<>
+									<div className={cls.favorite}>
+										<Favorite id={film.id} />
+									</div>
+									<div className={cls.viewed}>
+										<Viewed id={film.id} type={film.type} />
+									</div>
+								</>
+							)}
 							<h1>
 								{film?.name} ({film?.year})
 							</h1>
 							<h2>{film?.alternativeName}</h2>
-							<div>{film && <About film={film} />}</div>
+							<div className={cls.aboutDiv}>{film && <About film={film} />}</div>
 						</div>
 					</div>
 					<div className={cls.info}>

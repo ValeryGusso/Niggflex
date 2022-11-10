@@ -44,12 +44,15 @@ const Films: FC = () => {
 	return (
 		<InView>
 			<div className={cls.container}>
-				{films.length > 0 && films.map(film => <CardItem key={film.id} film={film} />)}
-				{loading && (
-					<div className={cls.loader}>
-						<Loader />
-					</div>
-				)}
+				<h1>Новинки кино, выбирай что тебе по душе!</h1>
+				<div>
+					{films.length > 0 && films.map(film => <CardItem key={film.id} film={film} />)}
+					{loading && (
+						<div className={cls.loader}>
+							<Loader />
+						</div>
+					)}
+				</div>
 				<div ref={ref} className={cls.hidenLine}></div>
 			</div>
 		</InView>

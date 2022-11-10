@@ -1,18 +1,39 @@
-import { FC, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { FC, useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { ActivateResponse } from '../../axios/types'
+import axiosUserAPI from '../../axios/userAPI'
 import Input from '../../Components/Input/Input'
+import { setUser } from '../../Redux/Slices/auth'
+import { ErrorState } from '../Registration/Registration'
 import cls from './Login.module.css'
 
-const passwordErrors = ['Пароли не совпадают!', 'Пароль не может быть короче 5 символов!', 'Введите пароль!']
-
 const Login: FC = () => {
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
 	const [login, setLogin] = useState('')
 	const [pass, setPass] = useState('')
-	const [error, setError] = useState(false)
+	const [loginError, setLoginError] = useState({} as ErrorState)
+	const [passError, setPassError] = useState({} as ErrorState)
 
-	function submit() {
-		console.log(login, pass)
+	async function submit() {
+		const request = { email: login, password: pass }
+		const res = await axiosUserAPI.post<ActivateResponse>('/login', request)
+
+		if (res?.data?.access) {
+			localStorage.setItem('access', res.data.access)
+			dispatch(setUser(res.data.user))
+			navigate('/')
+		} else {
+			setLoginError({ error: true, message: 'Неверное имя пользователя или пароль' })
+			setPassError({ error: true, message: 'Неверное имя пользователя или пароль' })
+		}
 	}
+
+	useEffect(() => {
+		setLoginError({} as ErrorState)
+		setPassError({} as ErrorState)
+	}, [login, pass])
 
 	return (
 		<div className={cls.container}>
@@ -25,8 +46,8 @@ const Login: FC = () => {
 							value={login}
 							onChange={setLogin}
 							type="text"
-							error={error}
-							errorText={passwordErrors[2]}
+							error={loginError.error}
+							errorText={loginError.message}
 							placeholder="Тут логин"
 						/>
 					</div>
@@ -36,8 +57,8 @@ const Login: FC = () => {
 							value={pass}
 							onChange={setPass}
 							type="password"
-							error={error}
-							errorText={passwordErrors[2]}
+							error={passError.error}
+							errorText={passError.message}
 							placeholder="А вот тут пароль"
 						/>
 					</div>

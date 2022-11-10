@@ -2,6 +2,19 @@
 	width: 85vmax;
 	margin-left: 7.5vmax;
 	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	row-gap: 2vmin;
+}
+
+.container > h1 {
+	font-size: 7vmin;
+	padding-top: 4vmin;
+	text-align: center;
+}
+
+.container > div {
+	display: flex;
 	flex-wrap: wrap;
 	column-gap: 1vmax;
 	row-gap: 5vmin;
@@ -11,7 +24,6 @@
 .hidenLine {
 	width: 100%;
 	height: 5vmin;
-	/* background: darkgray; */
 }
 
 .loader {

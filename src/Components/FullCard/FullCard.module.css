@@ -30,14 +30,17 @@
 }
 
 .header {
+	position: relative;
 	width: 70%;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	row-gap: 2vmin;
-	text-align: center;
 }
 
 .header h1 {
+	max-width: 26vmax;
+	text-align: center;
 	font-size: 4vmin;
 }
 
@@ -49,11 +52,29 @@
 	font-size: 2vmin;
 }
 
+/* Buttons */
+
+.favorite {
+	position: absolute;
+	top: 1vmin;
+	left: 0;
+}
+
+.viewed {
+	position: absolute;
+	top: -1vmin;
+	right: 0;
+}
+
 /* About */
 .about {
 	display: flex;
 	flex-direction: column;
 	row-gap: 1vmin;
+}
+
+.aboutDiv {
+	width: 100%;
 }
 
 .about h2 {
@@ -155,8 +176,10 @@
 	top: 1vmin;
 	left: 17vmax;
 	font-size: 3vmin;
+	font-style: italic;
+	font-weight: bold;
 	color: #ff4547;
-	padding: 0 0.5vmin;
+	padding: 0 1vmin;
 	z-index: 10;
 	border-radius: 1vmin;
 	background: #fffa95;
@@ -223,7 +246,7 @@
 	justify-content: center;
 	align-items: center;
 	background: rgba(0, 0, 0, 0.9);
-	z-index: 100;
+	z-index: 2000;
 }
 
 .content h2 {

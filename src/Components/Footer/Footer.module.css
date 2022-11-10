@@ -1,4 +1,94 @@
 .footer {
-  width: 100%;
-  height: 10vmin;
+	position: relative;
+	width: 100%;
+	height: 10vmin;
+	/* background: dimgray; */
+}
+
+.logo {
+	width: 15vmax;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo p {
+	text-align: center;
+	font-style: italic;
+	font-size: 2vmin;
+	color: #e50914;
+}
+
+.logo img {
+	width: 7vmax;
+}
+
+.description {
+	width: 30vmax;
+	position: absolute;
+	top: 2vmin;
+	left: calc(50% - 15vmax);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	/* background: darkslategrey */
+}
+
+.contacts {
+	width: 10vmax;
+	position: absolute;
+	top: 0%;
+	right: 2vmax;
+	display: flex;
+	flex-direction: column;
+	row-gap: 1vmin;
+	/* background: darkcyan */
+}
+
+.contacts > p {
+	position: absolute;
+	width: 8vmax;
+	top: 2vmin;
+	left: -9vmax;
+	text-align: center;
+	font-size: 2vmin;
+}
+
+.block {
+	display: flex;
+	align-items: center;
+	column-gap: 1vmax;
+}
+
+.block p {
+	font-size: 2vmin;
+	transition: 0.5s;
+}
+
+.block img {
+	width: 2vmax;
+	user-select: none;
+	cursor: pointer;
+	filter: grayscale(1);
+	transition: 0.5s;
+}
+
+.block img:hover {
+	filter: grayscale(0);
+}
+
+.block:hover p {
+	color: white;
+}
+
+.copy img {
+  width: 2vmax;
+	filter: grayscale(0) !important;
+}
+
+.copy P {
+	color: #5ffd9c !important;
 }

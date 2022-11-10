@@ -23,7 +23,7 @@
 	padding-top: 3vmin;
 	display: flex;
 	flex-direction: column;
-	row-gap: 5vmin;
+	row-gap: 3vmin;
 	align-items: center;
 	border-radius: 2vmax;
 	background: #353937;
@@ -51,6 +51,7 @@
 
 .footer a,
 .footer p {
+	margin-top: 4vmin;
 	font-size: 2vmin;
 }
 
@@ -62,6 +63,7 @@
 .content button {
 	padding: 2vmin 2vmax;
 	font-size: 3vmin;
+	background: #7d8286;
 	color: #171921;
 	border: none;
 	border-radius: 1vmin;
@@ -70,7 +72,7 @@
 }
 
 .content button:hover {
-	background: #75acff;
+	background: #57fa86;
 }
 
 .content::before {

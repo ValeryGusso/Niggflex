@@ -9,19 +9,21 @@ import Home from '../Pages/Home/Home'
 import Login from '../Pages/Login/Login'
 import Registration from '../Pages/Registration/Registration'
 import Series from '../Pages/Series/Series'
+import Settings from '../Pages/Settings/Settings'
 
 const NiggflexRouter: FC = () => {
 	return (
 		<Routes>
-			<Route path="/film/:id" element={<Film />} />
-			<Route path="/actor/:id" element={<Actor />} />
+			<Route path="/" element={<Home />} />
 			<Route path="/films" element={<Films />} />
 			<Route path="/series" element={<Series />} />
 			<Route path="/cartoon" element={<Cartoon />} />
 			<Route path="/favorite" element={<Favorite />} />
-			<Route path="/" element={<Home />} />
+			<Route path="/film/:id" element={<Film />} />
+			<Route path="/actor/:id" element={<Actor />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/registration" element={<Registration />} />
+			<Route path="/settings" element={<Settings />} />
 		</Routes>
 	)
 }

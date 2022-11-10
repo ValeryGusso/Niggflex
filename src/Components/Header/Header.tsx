@@ -1,19 +1,47 @@
-import { FC, useState } from 'react'
+import { FC, useState, useRef, useEffect } from 'react'
 import cls from './Header.module.css'
 import logo from '../../Assets/img/logo.png'
 import cross from '../../Assets/img/cross.svg'
 import menu from '../../Assets/img/menu.svg'
-import avatarDefaulf from '../../Assets/img/avatar_default.jpg'
+import avatarDefaulfMan from '../../Assets/img/avatar_default.jpg'
+import avatarDefaulfWoman from '../../Assets/img/avatar_default_woman.jpg'
+import avatarDefaulfHelicopter from '../../Assets/img/avatar_default_helicopter.png'
+import settings from '../../Assets/img/settings.svg'
+import logout from '../../Assets/img/logout.svg'
 import { Link } from 'react-router-dom'
 import Search from '../Search/Search'
 import classNames from 'classnames'
+import axiosUserAPI from '../../axios/userAPI'
 import { headerMenu } from '../../Assets/constants'
 import { useSelector } from 'react-redux'
-import { authSelector } from '../../Redux/Slices/auth'
+import { authSelector, removeUser } from '../../Redux/Slices/auth'
+import { useDispatch } from 'react-redux'
+
+const avatars = [avatarDefaulfMan, avatarDefaulfWoman, avatarDefaulfHelicopter]
+const genders = ['man', 'woman', 'helicopter']
 
 const Header: FC = () => {
+	const dispatch = useDispatch()
 	const [open, setOpen] = useState(false)
-	const { isAuth } = useSelector(authSelector)
+	const [openSettings, setOpenSettings] = useState(false)
+	const { isAuth, name, sex, avatar } = useSelector(authSelector)
+	const [defAva, setDefAva] = useState('')
+
+	useEffect(() => {
+		genders.forEach((gen, i) => {
+			if (gen === sex) {
+				setDefAva(avatars[i])
+			}
+		})
+	}, [])
+
+	function exit() {
+		axiosUserAPI.get('/logout').then(res => {
+			if (res.status === 200) dispatch(removeUser())
+			localStorage.removeItem('access')
+			setOpenSettings(false)
+		})
+	}
 
 	return (
 		<div className={cls.header}>
@@ -37,17 +65,32 @@ const Header: FC = () => {
 				<Search />
 			</div>
 			<div className={cls.rightMenu}>
-				<div className={cls.topBlock}>
+				<div
+					onMouseLeave={() => setOpenSettings(false)}
+					className={classNames(cls.topBlock, openSettings ? cls.showSettings : '')}
+				>
 					{isAuth ? (
-						<>
-							<p>User_01</p>
-							<img src={avatarDefaulf} alt="avatar" />
-						</>
+						<div onClick={() => setOpenSettings(true)} className={cls.userInfo}>
+							<p>{name}</p>
+							<img src={avatar || defAva} alt="avatar" />
+						</div>
 					) : (
-						<>
+						<div className={cls.userInfo}>
 							<Link to="/registration">Регистрация</Link>
 							<Link to="/login">Вход</Link>
-						</>
+						</div>
+					)}
+					{openSettings && (
+						<div className={cls.settings}>
+							<div>
+								<img src={settings} alt="gear" />
+								<Link to="/settings">Настройки</Link>
+							</div>
+							<div>
+								<img src={logout} alt="logout" />
+								<p onClick={exit}>Выйти</p>
+							</div>
+						</div>
 					)}
 				</div>
 			</div>

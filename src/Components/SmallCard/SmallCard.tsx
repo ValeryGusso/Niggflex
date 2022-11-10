@@ -1,8 +1,10 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import cls from './SmallCard.module.css'
 import { CardItemFilm } from '../../Interfaces/FilmsResponce'
 import { Link } from 'react-router-dom'
 import noimage from '../../Assets/img/noimage.png'
+import Viewed from '../Buttons/Viewed'
+import Favorite from '../Buttons/Favorite'
 
 interface SmallCardProps {
 	film: CardItemFilm
@@ -23,12 +25,18 @@ const SmallCard: FC<SmallCardProps> = ({ film }) => {
 				</h2>
 			</div>
 			<div className={cls.buttons}>
-				<div>
-					<p>Добавить в избранное</p>
+				<Favorite id={film.id} />
+				<Viewed id={film.id} type={film.type} />
+				{/* <div>
+					<p onClick={setFavorite} className={isFavorite ? cls.favorite : ''}>
+						{isFavorite ? 'Больше не интересно' : 'Добавить в избранное'}
+					</p>
 				</div>
 				<div>
-					<p>Уже смотрел</p>
-				</div>
+					<p onClick={setViewed} className={isViewed ? cls.viewed : ''}>
+						{isViewed ? 'Уже смотрел' : 'Буду смотреть!'}
+					</p>
+				</div> */}
 			</div>
 		</div>
 	)
