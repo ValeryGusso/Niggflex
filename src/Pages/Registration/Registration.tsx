@@ -37,7 +37,16 @@ const Registration: FC = () => {
 	const id = useRef('')
 
 	async function submit() {
+		if (!login) {
+			setLoginError({ error: true, message: 'Тут ничего нет :( а зря...' })
+			return
+		}
+
 		if (pass === confirm) {
+			if (!pass && !confirm) {
+				setPassError({ error: true, message: 'Тут ничего нет :( а зря...' })
+				return
+			}
 			setLoading(true)
 			const request = { email: login, password: pass }
 			const res = await axiosUserAPI
@@ -56,7 +65,7 @@ const Registration: FC = () => {
 					}
 				})
 				.finally(() => setLoading(false))
-				console.log(res)
+			console.log(res)
 
 			if (res && res.status === 200 && res.data.sended) {
 				id.current = res.data.id

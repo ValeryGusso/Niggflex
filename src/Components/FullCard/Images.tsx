@@ -1,71 +1,44 @@
-import axios from 'axios'
-import { FC, MutableRefObject, useCallback, useEffect, useRef, useState } from 'react'
-import { fakeImages } from '../../Assets/fakeImages'
-import { Doc } from '../../Interfaces/Images'
+import { FC, useEffect, useState } from 'react'
 import arrow from '../../Assets/img/arrow.svg'
 import close from '../../Assets/img/close.svg'
 import cls from './FullCard.module.css'
+import axiosKPunofficial from '../../axios/KPunofficial'
+import { Image, ImagesResponse } from '../../Interfaces/KPunofficial/images'
 
 interface ImagesProps {
 	id: number
 }
 
+interface Info {
+	total: number
+	page: number
+	totalPages: number
+}
+
 const Images: FC<ImagesProps> = ({ id }) => {
-	const leftRef = useRef(null)
-	const rightRef = useRef(null)
-	const [images, setImages] = useState([] as Doc[])
+	const [images, setImages] = useState([] as Image[])
 	const [current, setCurrent] = useState(0)
 	const [showModal, setShowModal] = useState(false)
-
-	// useEffect(() => {
-	// 	document.addEventListener('keydown', keydown)
-
-	// 	const query = new URL('https://api.kinopoisk.dev/image')
-
-	// 	query.searchParams.append('field', 'movieId')
-	// 	query.searchParams.append('search', `${id}`)
-	//   query.searchParams.append('field', 'type')
-	// 	query.searchParams.append('search', `frame`)
-	// 	query.searchParams.append('limit', '50')
-	// 	query.searchParams.append('token', '4KCTKW4-FNN45QN-NZFVTWV-XW8D358')
-
-	// 	axios.get(query.toString()).then(res => {
-	// 		setImages(res.data.docs)
-	// 		console.log(JSON.stringify(res.data))
-	// 	})
-
-	// 	return () => {
-	// 		document.removeEventListener('keydown', keydown)
-	// 	}
-	// }, [])
-
-	// const keydown = useCallback((e: KeyboardEvent) => {
-	// 	// console.log(e)
-	// 	if (e.keyCode === 37) {
-	// 		if (current > 0) {
-	// 			setCurrent(prev => prev - 1)
-	// 			console.log('Keydown: ', current)
-	// 		}
-	// 	}
-	// 	if (e.keyCode === 39) {
-	// 		if (current < images.length - 1) {
-	// 			setCurrent(prev => prev + 1)
-	// 			console.log('Keydown: ', current)
-	// 		}
-	// 	}
-	// }, [])
+	const [info, setInfo] = useState({ total: 0, page: 1, totalPages: 1 } as Info)
 
 	useEffect(() => {
-		setImages(fakeImages.docs)
-	}, [])
+		axiosKPunofficial
+			.get<ImagesResponse>(`/v2.2/films/${id}/images`, {
+				params: {
+					type: 'STILL',
+					page: info.page,
+				},
+			})
+			.then(res => {
+				const imgs: Image[] = images.length > 0 ? [...images, ...res.data.items] : [...res.data.items]
+				setImages(imgs)
 
-	// useEffect(() => {
-	// 	if (showModal) {
-	// 		document.addEventListener('keydown', keydown)
-	// 	} else {
-	// 		document.removeEventListener('keydown', keydown)
-	// 	}
-	// }, [showModal])
+				const updated = { ...info }
+				updated.total = res.data.total
+				updated.totalPages = res.data.totalPages
+				setInfo(updated)
+			})
+	}, [info.page])
 
 	function openModal(i: number) {
 		setCurrent(i)
@@ -75,39 +48,26 @@ const Images: FC<ImagesProps> = ({ id }) => {
 	function next() {
 		if (current < images.length - 1) {
 			setCurrent(prev => prev + 1)
-			// console.log('Click: ', current)
+			if (current === images.length - 2 && current !== info.total - 2) {
+				const updated = { ...info }
+				updated.page++
+				setInfo(updated)
+			}
 		}
 	}
 
 	function prev() {
 		if (current > 0) {
 			setCurrent(prev => prev - 1)
-			// console.log('Click: ', current)
 		}
 	}
-
-	// const next = useCallback(() => {
-	// 	if (current < images.length - 1) {
-	// 		setCurrent(prev => prev + 1)
-	// 		console.log('Click: ', current)
-	// 	}
-	// }, [showModal])
-
-	// const prev = useCallback(() => {
-	// 	if (current > 0) {
-	// 		setCurrent(prev => prev - 1)
-	// 		console.log('Click: ', current)
-	// 	}
-	// }, [showModal])
 
 	return (
 		<div>
 			<div className={cls.images}>
 				{images &&
 					images.length > 0 &&
-					images.map((img, i) => (
-						<img ref={leftRef} onClick={() => openModal(i)} src={img.previewUrl} alt="image" key={img.url}></img>
-					))}
+					images.map((img, i) => <img onClick={() => openModal(i)} src={img.previewUrl} alt="image" key={i}></img>)}
 			</div>
 			{showModal && (
 				<div className={cls.modal}>
@@ -115,14 +75,11 @@ const Images: FC<ImagesProps> = ({ id }) => {
 						<img className={current === 0 ? cls.disabledL : ''} onClick={prev} src={arrow} alt="move left" />
 					</div>
 					<div className={cls.content}>
-						{/* <img className={cls.prev} onClick={() => setShowModal(false)} src={images[current - 1].url} alt="image" /> */}
-						<img className={cls.cur} onClick={() => setShowModal(false)} src={images[current].url} alt="image" />
-						{/* <img className={cls.next} onClick={() => setShowModal(false)} src={images[current + 1].url} alt="image" /> */}
-						<h2>{`${current + 1} из ${images.length}`}</h2>
+						<img className={cls.cur} onClick={() => setShowModal(false)} src={images[current].imageUrl} alt="image" />
+						<h2>{`${current + 1} из ${info.total}`}</h2>
 					</div>
 					<div className={cls.right}>
 						<img
-							ref={rightRef}
 							className={current === images.length - 1 ? cls.disabledR : ''}
 							onClick={next}
 							src={arrow}

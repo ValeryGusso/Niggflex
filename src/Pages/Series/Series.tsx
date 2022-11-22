@@ -1,8 +1,13 @@
 import { FC } from 'react'
+import Novelty from '../../Components/Novelty/Novelty'
 import cls from './Series.module.css'
 
-const Series: FC = () => {
-	return <div></div>
+const Cartoon: FC = () => {
+	return (
+		<>
+			<Novelty type={2} />
+		</>
+	)
 }
 
-export default Series
+export default Cartoon

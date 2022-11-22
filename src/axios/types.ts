@@ -9,6 +9,10 @@ export interface RegistrationResponse {
 	sended: boolean
 }
 
+export interface UpdatedResponse {
+	user: User
+}
+
 export interface MeResponse {
 	id: string
 	email: string

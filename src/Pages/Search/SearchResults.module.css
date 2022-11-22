@@ -1,0 +1,87 @@
+.wrapper {
+	position: relative;
+	display: grid;
+	grid-template-rows: 83vmin 7vmin;
+}
+
+.wrapper > h2 {
+	padding-top: 1vmin;
+	text-align: center;
+	font-size: 4vmin;
+}
+
+.wrapper > a {
+	position: absolute;
+	top: 84.5vmin;
+	left: 15vmax;
+}
+
+.wrapper > a > h3 {
+	font-size: 3vmin;
+	cursor: pointer;
+	font-style: italic;
+	color: #efdc7a;
+	transition: 0.3s;
+}
+
+.wrapper > a:hover > h3 {
+	letter-spacing: 0.1rem;
+	color: #fefa81;
+	transform: translateX(-0.5rem);
+}
+
+.films {
+	display: flex;
+	width: 99%;
+	flex-direction: column;
+	overflow-y: auto;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.actors {
+	display: flex;
+	width: 99%;
+	flex-direction: column;
+	row-gap: 8vmin;
+	overflow-y: auto;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.contentFilms {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.contentFilms > div {
+	display: flex;
+	align-items: center;
+	padding: 1vmin 1vmax;
+	border-radius: 2vmax;
+	box-shadow: 0 0 1vmax white;
+}
+
+.contentActors {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	row-gap: 3vmin;
+	justify-content: space-around;
+}
+
+.hidenLine {
+	height: 1vmin;
+	width: 100%;
+}
+
+.loader {
+	height: 15vmin;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loader > div {
+	transform: scale(2);
+}

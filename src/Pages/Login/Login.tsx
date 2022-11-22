@@ -17,6 +17,12 @@ const Login: FC = () => {
 	const [passError, setPassError] = useState({} as ErrorState)
 
 	async function submit() {
+		if (!login || !pass) {
+			!login && setLoginError({ error: true, message: 'Тут ничего нет :( а зря...' })
+			!pass && setPassError({ error: true, message: 'Тут ничего нет :( а зря...' })
+			return
+		}
+
 		const request = { email: login, password: pass }
 		const res = await axiosUserAPI.post<ActivateResponse>('/login', request)
 

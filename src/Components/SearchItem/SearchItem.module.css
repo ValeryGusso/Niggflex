@@ -1,0 +1,74 @@
+/* FIlm */
+
+.containerFilm {
+	width: 30vmax;
+	height: 25vmin;
+	display: flex;
+	column-gap: 3vmax;
+	margin-top: 2vmin;
+}
+
+.block {
+	display: flex;
+	flex-direction: column;
+	row-gap: 3vmin;
+}
+
+.title {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.title > div {
+	margin-left: 2vmax;
+	width: 3vmax;
+}
+
+.containerFilm > img {
+	height: 20vmin;
+	border-radius: 1vmin;
+	cursor: pointer;
+}
+
+.containerFilm span {
+	padding: 0.5vmin 1vmax;
+	font-size: 3vmin;
+	font-weight: bold;
+	font-style: italic;
+	color: #232527;
+	margin-left: 1vmax;
+	border-radius: 1vmax;
+	cursor: default;
+}
+
+.containerFilm svg {
+	height: 5vmin;
+}
+
+/* Actor */
+
+.containerActor {
+	width: 18vmax;
+	height: 15vmin;
+	display: flex;
+	column-gap: 1vmax;
+	border-radius: 0.75vmax;
+	padding: 1vmin 0.5vmax;
+	box-shadow: 0 0 1vmax white;
+	margin-top: 2vmin;
+	transition: 0.3s;
+}
+
+.containerActor:hover {
+	box-shadow: 0 0 1vmax #5e8efe;
+	transform: scale(1.05);
+}
+
+.containerActor > div {
+	margin-top: 1vmin;
+}
+
+.containerActor > img {
+	border-radius: 1vmin;
+}

@@ -1,0 +1,149 @@
+.container {
+	width: 100%;
+	min-height: 100%;
+	margin-top: 5vmin;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	row-gap: 3vmin;
+}
+
+.block {
+	width: 40vmax;
+	min-height: 20vmin;
+	display: flex;
+	align-items: center;
+	column-gap: 2vmax;
+	border-radius: 10vmax;
+	transition: 0.25s;
+}
+
+.block:hover {
+	width: 60vmax;
+	padding-left: 10vmax;
+	box-shadow: 0 0 5vmin #5fa0ff;
+	transition: 0.5s;
+}
+
+.block p:nth-child(1) {
+	width: 7vmax;
+	font-size: 3vmin;
+	cursor: default;
+}
+
+.block p:nth-child(2) {
+	padding: 1vmin 2vmax;
+	font-size: 3vmin;
+	cursor: pointer;
+	color: wheat;
+}
+
+.block li {
+	display: flex;
+	align-items: center;
+	column-gap: 1vmax;
+	cursor: pointer;
+}
+
+.block li img {
+	width: 3vmax;
+	filter: invert(0.75);
+	transition: 0.3s;
+}
+
+.block input {
+	background: transparent;
+	border: none;
+	transition: 0.3s;
+	border-bottom: 3px solid wheat;
+}
+
+.name {
+	width: 20vmax;
+	height: 8vmin;
+	border-radius: 1vmax;
+	padding: 0 0.5vmax;
+	font-size: 4vmin;
+}
+
+.avatar {
+	width: 30vmax;
+	height: 12vmin;
+	border-radius: 1vmax;
+	padding: 0 0.5vmax;
+	text-align: left;
+	font-size: 3vmin;
+}
+
+.block input:focus {
+	background: wheat;
+	color: #232529;
+	outline: none;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	row-gap: 3vmin;
+	font-size: 3vmin;
+}
+
+.menu li p {
+	color: #dfdfdf !important;
+	transition: 0.3s;
+}
+
+.menu li:hover p {
+	color: white !important;
+}
+
+.menu li:hover img {
+	filter: invert(1);
+}
+
+.btn {
+	position: relative;
+	width: 20vmax;
+	height: 10vmin;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 1.5vmin;
+	overflow: hidden;
+	/* border: 1px solid white */
+}
+
+.btn::after {
+	content: '';
+	position: absolute;
+	width: 22vmax;
+	height: 12vmin;
+	z-index: -1;
+	background: #57fa86;
+	animation: blink 5s ease-in-out infinite;
+}
+
+@keyframes blink {
+	0% {
+		filter: opacity(1);
+	}
+
+	50% {
+		filter: opacity(0.25);
+	}
+
+	100% {
+		filter: opacity(1);
+	}
+}
+
+.btn button {
+	width: calc(20vmax - 2vmin);
+	height: 8vmin;
+	font-size: 3vmin;
+	border: none;
+	background: #151719;
+	border-radius: 1vmin;
+	cursor: pointer;
+}

@@ -7,22 +7,22 @@
 	column-gap: 1vmax;
 }
 
-.favorite img {
-	position: absolute;
-	top: 1.5vmin;
-	left: -2vmax;
-	width: 2vmax;
+.favorite > img {
+	position: absolute !important;
+	top: 1.5vmin !important;
+	left: -2vmax !important;
+	width: 2vmax !important;
+	transition: 1s !important;
+}
+
+.selectedF p {
+	background: #fc7d50 !important;
 	transition: 1s;
 }
 
-.selectedF p{
-	background: #fc7d50!important;
-  transition: 1s;
-}
-
-.selectedF img {
-	top: -3.5vmin;
-	left: 5vmax
+.selectedF > img {
+	top: -3.5vmin!important;
+	left: 5vmax!important;
 	/* animation: move 2s linear 0s 1 normal forwards; */
 }
 
@@ -66,23 +66,59 @@
 	user-select: none;
 }
 
+.heart {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.heart svg {
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.heart svg:hover {
+	transform: scale(1.05);
+}
+
+.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loader > div {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	transform: scale(0.5) translate(-25%, -50%);
+}
+
 /* Viewed */
 
 .viewed {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 2vmin;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	row-gap: 2vmin;
+	text-align: center;
 }
 
-.viewed p:nth-child(1){
-font-size: 3vmin;
-cursor: default
+.viewed p:nth-child(1) {
+	font-size: 3vmin;
+	cursor: default;
 }
 
-.viewed p:nth-child(2){
+.viewed p:nth-child(2) {
 	width: 9vmax;
 	padding: 2vmin 0;
 	background: #75acff;
@@ -96,5 +132,9 @@ cursor: default
 }
 
 .selectedV {
-  background: #2ffd7a!important
+	background: #2ffd7a !important;
+}
+
+.heart {
+	color: red;
 }

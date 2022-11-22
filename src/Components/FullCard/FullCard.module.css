@@ -6,6 +6,18 @@
 	align-items: center;
 }
 
+.loader {
+	width: 100%;
+	height: 90vmin;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loader > div {
+	transform: scale(3);
+}
+
 .container {
 	width: 70vmax;
 	margin-top: 5vmin;
@@ -286,7 +298,7 @@
 
 .left img {
 	width: 10vmax;
-	margin-left: 5vmax;
+	margin-left: 2vmax;
 	transform: translate(0, -50%) rotateZ(-90deg);
 	filter: invert(0.5);
 	transition: 0.3s;
@@ -308,7 +320,7 @@
 
 .right img {
 	width: 10vmax;
-	margin-left: -5vmax;
+	margin-left: -2vmax;
 	transform: translate(0, -50%) rotateZ(90deg);
 	filter: invert(0.5);
 	transition: 0.3s;
@@ -350,4 +362,137 @@
 
 .close img:hover {
 	filter: drop-shadow(0 0 1vmin rgba(255, 255, 255, 0.75));
+}
+
+/* Awards */
+
+.awards {
+	border-top: 2px solid white;
+	padding-top: 2vmin;
+}
+
+.searchAward {
+	height: 25vmin;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow-x: auto;
+	column-gap: 2vmax;
+}
+
+.searchAwardItem {
+	max-width: 12vmax;
+	height: 20vmin;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	cursor: pointer;
+	transition: 0.3s;
+	filter: blur(5px);
+}
+
+.searchAward:hover .searchAwardItem {
+	filter: blur(5px);
+}
+
+.searchAwardItem:hover {
+	filter: blur(0)!important;
+}
+
+.activeAward {
+	filter: blur(0);
+}
+
+.activeAward > h2 {
+	color: goldenrod;
+}
+
+.searchAwardItem > img {
+	height: 80%;
+}
+
+.awardsList {
+	height: 25vmin;
+	overflow-x: auto;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	column-gap: 1.5vmax;
+	padding: 1vmin 1vmax;
+}
+
+.awardPerson {
+	min-width: 25vmax;
+	height: 20vmin;
+	display: flex;
+	column-gap: 1vmax;
+	padding: 1vmin 1vmax;
+	border-radius: 1vmax;
+	box-shadow: 0 0 1vmax white;
+	transition: 0.3s;
+}
+
+.awardPerson > img {
+	border-radius: 1vmax;
+}
+
+.awardPerson > div {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1vmin;
+}
+
+.awardPerson > div > a {
+	font-size: 2.5vmin;
+	font-weight: bold;
+}
+
+.awardPerson > div > h2 {
+	font-size: 2vmin;
+}
+
+/* Similars */
+
+.similars {
+	width: 100%;
+}
+
+.similars > h2 {
+	font-size: 4vmin;
+	font-style: italic;
+}
+
+.similars > div {
+	overflow-x: auto;
+	overflow-y: hidden;
+	display: flex;
+	padding: 2vmin 2vmax;
+	column-gap: 1vmax;
+}
+
+.similar {
+	min-width: 10vmax;
+	height: 25vmin;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	padding: 1vmin 1vmax;
+	column-gap: 1vmin;
+	border-radius: 2vmax;
+	box-shadow: 0 0 1vmax white;
+	transition: 0.3s;
+}
+
+.similar:hover {
+	transform: scale(1.5) translateY(-1vmin);
+	background: #131517;
+	z-index: 10;
+}
+
+.similar > img {
+	height: 60%;
 }

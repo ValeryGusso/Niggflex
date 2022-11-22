@@ -1,0 +1,21 @@
+.content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+  column-gap: 2vmax;
+  row-gap: 5vmin;
+  margin-top: 5vmin;
+}
+
+.content > div {
+	width: 45vmax;
+  padding: 3vmin 2vmax;
+  border-radius: 2vmax;
+	display: flex;
+  box-shadow: 0 0 1vmax white;
+  transition: 0.3s;
+}
+
+.content > div:hover {
+  box-shadow: 0 0 2vmax #efae5c;
+}

@@ -1,37 +1,36 @@
-export interface FilmsResponce {
-	docs: CardItemFilm[]
+export interface FavoriteResponse {
+	docs: Film[]
 	total: number
 	limit: number
 	page: number
 	pages: number
 }
 
-export interface CardItemFilm {
+export interface Film {
 	externalId: ExternalId
 	logo: Logo
 	poster: Poster
 	rating: Rating
 	votes: Votes
 	watchability: Watchability
+	movieLength: number
 	id: number
 	type: string
 	name: string
 	description: string
 	year: number
-	alternativeName: string | null
-	color?: string | null
+	alternativeName: string
 	enName: string | null
 	names: Name[]
-	movieLength: number | null
 	shortDescription: string | null
-	releaseYears: any[]
+	releaseYears: ReleaseYear[] | null
 }
 
 export interface ExternalId {
-	_id: string
+	kpHD: string | null
 	imdb: string | null
-	kpHD?: string | null
-
+	tmdb: number | null
+	_id: string
 }
 
 export interface Logo {
@@ -55,20 +54,38 @@ export interface Rating {
 }
 
 export interface Votes {
-	_id: string
 	kp: number
 	imdb: number
 	filmCritics: number
 	russianFilmCritics: number
 	await: number
+	_id: string
 }
 
 export interface Watchability {
 	_id: string
-	items: any
+	items: Item[] | null
+}
+
+export interface Item {
+	logo: WatchabilityLogo
+	name: string
+	url: string
+	_id: string
+}
+
+export interface WatchabilityLogo {
+	url: string
+	_id: string
 }
 
 export interface Name {
 	_id: string
 	name: string
+}
+
+export interface ReleaseYear {
+	start: number
+	end: number
+	_id: string
 }

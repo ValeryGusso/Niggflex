@@ -7,7 +7,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	color: #acacac;
+	color: #dfdfdf;
 }
 
 body {
@@ -20,6 +20,11 @@ body {
 .container {
 	width: 100vw;
 	min-height: 100vh;
+}
+
+.content {
+	min-height: 90vmin;
+	margin-bottom: 5vmin;
 }
 
 a {

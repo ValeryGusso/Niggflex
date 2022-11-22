@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 import { User } from '../../axios/types'
@@ -19,9 +19,9 @@ const initialState: authSliceState = {
 	isAuth: false,
 	id: '',
 	email: '',
-	name: 'Unnamed User',
+	name: '',
 	avatar: '',
-	sex: 'helicopter',
+	sex: '',
 	isActivated: false,
 	favorite: [],
 	viewed: [],
@@ -46,15 +46,14 @@ export const authSlice = createSlice({
 			state.isAuth = false
 			state.id = ''
 			state.email = ''
-			state.name = 'Unnamed User'
+			state.name = ''
 			state.avatar = ''
-			state.sex = 'man'
+			state.sex = ''
 			state.isActivated = false
 			state.favorite = []
 			state.viewed = []
 		},
 	},
-	extraReducers: builder => {},
 })
 
 export const { setUser, removeUser } = authSlice.actions

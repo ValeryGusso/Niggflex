@@ -144,7 +144,7 @@
 }
 
 .open {
-	height: 50vmin;
+	height: 65vmin;
 	border-bottom-left-radius: 1vmax;
 	border-bottom-right-radius: 1vmax;
 	background: rgba(0, 0, 0, 0.95);
@@ -160,6 +160,7 @@
 }
 
 .menu > div:nth-child(1) {
+	margin-top: 12vmin;
 	animation: show 0.5s linear 0.2s 1 normal forwards;
 }
 
@@ -168,14 +169,21 @@
 }
 
 .menu > div:nth-child(3) {
-	animation: show 0.5s linear 0.6s 1 normal forwards;
+	animation: show 0.5s linear 0.5s 1 normal forwards;
 }
 
 .menu > div:nth-child(4) {
-	animation: show 0.5s linear 0.8s 1 normal forwards;
+	animation: show 0.5s linear 0.6s 1 normal forwards;
 }
 
 .menu > div:nth-child(5) {
+	animation: show 0.5s linear 0.7s 1 normal forwards;
+}
+
+.menu > div:nth-child(6) {
+	animation: show 0.5s linear 0.85s 1 normal forwards;
+}
+.menu > div:nth-child(7) {
 	animation: show 0.5s linear 1s 1 normal forwards;
 }
 
@@ -193,16 +201,25 @@
 	transition: 0.3s;
 }
 
-.menu > div a:hover {
+.menu > div > img {
+	width: 2vmax;
+	filter: invert(0.75);
+	transition: 0.3s;
+}
+/* .menu > div a:hover {
+	color: #fff;
+	transform: translate(0.5vmax, 0.25vmin);
+} */
+
+.menu > div:hover a {
 	color: #fff;
 	transform: translate(0.5vmax, 0.25vmin);
 }
 
-.menu > div img {
-	width: 2vmax;
-	filter: invert(0.75);
+.menu > div:hover img {
+	filter: invert(1);
+	transform: translate(0.5vmax, 0.25vmin) scale(1.2);
 }
-
 
 /* Settings */
 
@@ -233,6 +250,7 @@
 .settings > div > img {
 	width: 2vmax;
 	filter: invert(0.75);
+	transition: 0.5s;
 	cursor: default;
 }
 
@@ -252,8 +270,14 @@
 	animation: show 1s linear 0.75s 1 normal forwards;
 }
 
-.settings > div > a:hover,
-.settings > div > p:hover {
+.settings > div:hover a,
+.settings > div:hover p {
 	color: #fff;
 	transform: translate(0.5vmax, 0.25vmin);
+}
+
+.settings > div:hover img,
+.settings > div:hover img {
+	filter: invert(1);
+	transform: translate(0.5vmax, 0.25vmin) scale(1.2);
 }

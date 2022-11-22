@@ -1,19 +1,19 @@
 import { FC } from 'react'
-import { PersonResponse } from '../../Interfaces/Person'
+import { ActorResponse } from '../../Interfaces/KPunofficial/actor'
 import cls from './ActorBlock.module.css'
 
 interface AboutProps {
-	person: PersonResponse
+	person: ActorResponse
 }
 
 const About: FC<AboutProps> = ({ person }) => {
 	return (
 		<div className={cls.about}>
-			<h1>{person.name}</h1>
-			<h2>{person.enName}</h2>
+			<h1>{person.nameRu}</h1>
+			<h2>{person.nameEn}</h2>
 			<div>
 				<p>Пол:</p>
-				<span>{person.sex}</span>
+				<span>{person.sex === 'MALE' ? 'муж.' : 'жен.'}</span>
 			</div>
 			<div>
 				<p>Возраст:</p>
@@ -24,7 +24,7 @@ const About: FC<AboutProps> = ({ person }) => {
 			</div>
 			<div>
 				<p>Место рождения:</p>
-				<span>{person.birthPlace.map(el => el.value + ', ')}</span>
+				<span>{person.birthplace}</span>
 			</div>
 			<div>
 				<p>Рост:</p>
@@ -32,7 +32,7 @@ const About: FC<AboutProps> = ({ person }) => {
 			</div>
 			<div>
 				<p>Карьера:</p>
-				<span>{person.profession.map(prof => prof.value + ', ')}</span>
+				<span>{person.profession}</span>
 			</div>
 			<div>
 				<p>Супруга:</p>

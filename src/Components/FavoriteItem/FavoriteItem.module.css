@@ -1,0 +1,52 @@
+.wrapper {
+position: relative;
+height: 40vmin;
+display: flex;
+column-gap: 3vmax;
+}
+
+.wrapper > img {
+  border-radius: 1vmax
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vmin;
+}
+
+.title > h2,
+.title > h3 {
+  cursor: default;
+}
+
+.rating {
+  display: flex;
+  column-gap: 1vmax
+}
+
+.rating > h1 {
+  width: 4vmax;
+  text-align: center;
+  font-style: italic;
+  border-radius: 1vmax;
+  color: #232527;
+  cursor: default;
+}
+
+.rating > img {
+  height: 4vmin;
+}
+
+.button {
+  position: absolute;
+  top: 2vmin;
+  right: 1vmax;
+  width: 3vmax;
+  height: 6vmin;
+  transition: 0.3s;
+}
+
+.button:hover {
+  filter: drop-shadow(0 0 1vmax #d64a4c);
+}

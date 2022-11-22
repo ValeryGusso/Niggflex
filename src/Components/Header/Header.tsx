@@ -1,4 +1,4 @@
-import { FC, useState, useRef, useEffect } from 'react'
+import { FC, useState, useEffect } from 'react'
 import cls from './Header.module.css'
 import logo from '../../Assets/img/logo.png'
 import cross from '../../Assets/img/cross.svg'
@@ -12,13 +12,12 @@ import { Link } from 'react-router-dom'
 import Search from '../Search/Search'
 import classNames from 'classnames'
 import axiosUserAPI from '../../axios/userAPI'
-import { headerMenu } from '../../Assets/constants'
+import { genders, headerMenu } from '../../Assets/constants'
 import { useSelector } from 'react-redux'
 import { authSelector, removeUser } from '../../Redux/Slices/auth'
 import { useDispatch } from 'react-redux'
 
 const avatars = [avatarDefaulfMan, avatarDefaulfWoman, avatarDefaulfHelicopter]
-const genders = ['man', 'woman', 'helicopter']
 
 const Header: FC = () => {
 	const dispatch = useDispatch()
@@ -33,7 +32,7 @@ const Header: FC = () => {
 				setDefAva(avatars[i])
 			}
 		})
-	}, [])
+	}, [sex])
 
 	function exit() {
 		axiosUserAPI.get('/logout').then(res => {

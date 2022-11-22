@@ -1,39 +1,244 @@
 .search {
-  width: 30vmax;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  /* background: darkgray */
+	position: relative;
+	width: 30vmax;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	/* background: darkgray */
 }
 
 .search input {
-  width: 0vmax;
-  height: 5vmin;
-  margin-top: 2.5vmin;
-  border: none;
-  border-radius: 2vmin;
-  color: #232527;
-  font-size: 2vmin;
-  transition: 0.5s;
+	width: 0vmax;
+	height: 5vmin;
+	margin-top: 2.5vmin;
+	border: none;
+	border-radius: 2vmin;
+	padding-bottom: 0.5vmin;
+	color: #232527;
+	font-size: 3vmin;
+	font-weight: bold;
+	font-style: italic;
+	transition: 0.5s;
 }
 
 .active {
-  padding-left: 0.5vmax!important;
-  width: 25vmax!important;
+	padding-left: 0.5vmax !important;
+	width: 27vmax !important;
 }
 
 .search input:focus {
-  outline: none;
+	outline: none;
 }
 
 .search input::placeholder {
-  color: #232527;
+	color: #232527;
 }
 
-.search img {
-  width: 7vmin;
-  margin-top: 1.5vmin;
-  transform: rotateZ(270deg);
-  filter: invert(1);
-  cursor: pointer;
+.search > img {
+	width: 5vmin;
+	margin-top: 1.5vmin;
+	transform: rotateZ(270deg);
+	filter: invert(1) !important;
+	cursor: pointer;
+}
+
+.results {
+	position: absolute;
+	width: 200%;
+	top: 100%;
+	left: -50%;
+	z-index: 100;
+}
+
+/* Results */
+
+.wrapper {
+	width: 100%;
+	height: 75vmin;
+	border-bottom-left-radius: 1vmax;
+	border-bottom-right-radius: 1vmax;
+	background: rgba(0, 0, 0, 0.95);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
+	/* padding-bottom: 2vmin; */
+}
+
+.wrapper > div {
+	max-height: 100%;
+	width: 100%;
+
+	/* background: darkslategrey */
+}
+
+.films,
+.actors {
+	display: grid;
+	grid-template-rows: 5vmin 1fr 5vmin;
+	row-gap: 2vmin;
+	overflow: hidden;
+}
+
+.films > h2,
+.actors > h2 {
+	width: 100%;
+	text-align: center;
+	font-size: 4vmin;
+	padding-top: 1vmin;
+	cursor: default;
+}
+
+.films > div,
+.actors > div {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 1vmin;
+	overflow-y: auto;
+}
+
+.info {
+	flex-direction: row !important;
+	overflow: hidden !important;
+	align-items: center;
+	column-gap: 3vmax;
+	padding-left: 3vmax;
+	padding-bottom: 1vmin;
+	font-size: 2vmin;
+}
+
+.info h3 {
+	padding: 0.5vmin 1vmax;
+	color: #232527;
+	border-radius: 1vmin;
+	background: #efda4a;
+	user-select: none;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.info h3:hover {
+	background: #fffa7a;
+}
+
+.nothing {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	padding: 0 2vmax;
+	cursor: default;
+}
+
+.nothing h2 {
+	font-size: 3vmin;
+	color: #ed5f3e;
+}
+
+.loader {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loader > div {
+	transform: scale(3);
+}
+
+/* FilmItem */
+
+.film {
+	position: relative;
+	display: flex;
+	height: 17vmin;
+	align-items: center;
+	justify-content: flex-start;
+	padding-left: 1vmax;
+	column-gap: 2vmax;
+	border-bottom: 0.25vmin solid #dfdfdf;
+}
+
+.film > img {
+	width: 5vmax;
+	cursor: zoom-in;
+}
+
+.film h3 {
+	margin-top: 1vmin;
+	cursor: default;
+}
+
+.film span {
+	padding: 0.5vmin 1vmax;
+	font-size: 3vmin;
+	font-style: italic;
+	color: #232527;
+	margin-left: 1vmax;
+	border-radius: 1vmax;
+	cursor: default;
+}
+
+/* ActorItem */
+
+.actor {
+	position: relative;
+	display: flex;
+	height: 17vmin;
+	align-items: center;
+	justify-content: flex-start;
+	padding-left: 1vmax;
+	column-gap: 2vmax;
+	border-bottom: 0.25vmin solid #dfdfdf;
+}
+
+.actor img {
+	width: 5vmax;
+	cursor: zoom-in;
+}
+
+.actor h3 {
+	margin-top: 1vmin;
+	cursor: default;
+}
+/* Image */
+
+.cart {
+	position: fixed;
+	width: 23vmax;
+	height: 65vmin;
+	z-index: 1000;
+}
+
+.cart > div {
+	width: 100%;
+	height: 100%;
+}
+
+.cart img {
+	height: 100%;
+	width: 100%;
+	border-radius: 2vmax;
+	filter: drop-shadow(0 0 2vmax white);
+	cursor: default;
+}
+
+/* .image {
+	display: flex;
+	column-gap: 3vmax;
+} */
+
+.buttons {
+	position: absolute;
+	top: 0;
+	left: 15vmax;
+	/* height: 20vmin; */
+	display: flex;
+	/* flex-direction: column; */
+	justify-content: end;
+	align-items: end;
+	row-gap: 2vmin;
+	/* background: rgba(0, 0, 0, 0.95); */
 }

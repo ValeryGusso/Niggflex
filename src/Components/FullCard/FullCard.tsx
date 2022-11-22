@@ -1,78 +1,92 @@
-import axios from 'axios'
 import { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { filmMenu } from '../../Assets/constants'
-import { fakeFilm } from '../../Assets/fakeFilm'
-import { FilmResponce } from '../../Interfaces/Film'
+import axiosKPunofficial from '../../axios/KPunofficial'
+import { Fact, FactsResponse } from '../../Interfaces/KPunofficial/facts'
+import { FilmResponse } from '../../Interfaces/KPunofficial/film'
+import { StaffResponse } from '../../Interfaces/KPunofficial/staff'
 import Favorite from '../Buttons/Favorite'
 import Viewed from '../Buttons/Viewed'
 import Loader from '../Loader/Loader'
 import About from './About'
 import Actors from './Actors'
+import Awards from './Awards'
 import cls from './FullCard.module.css'
 import Images from './Images'
 import RatingBlock from './RatingBlock'
+import Similars from './Similars'
 
 const FullCard: FC = () => {
 	const [active, setActive] = useState('description')
 	const [loading, setLoading] = useState<boolean>(true)
-	const [film, setFilm] = useState<FilmResponce | null>(null)
+	const [film, setFilm] = useState<FilmResponse | null>(null)
+	const [staff, setStaff] = useState<StaffResponse | null>(null)
+	const [facts, setFacts] = useState<Fact[] | null>(null)
 	const params = useParams()
 
 	useEffect(() => {
-		// axios
-		// 	.get('https://api.kinopoisk.dev/movie', {
-		// 		params: {
-		// 			token: '4KCTKW4-FNN45QN-NZFVTWV-XW8D358',
-		// 			search: params.id,
-		// 			field: 'id',
-		// 		},
-		// 	})
-		// 	.then(res => {
-		// 		setFilm(res.data)
-		// 		setLoading(false)
-		// 	})
+		setLoading(true)
+		axiosKPunofficial.get<FilmResponse>(`/v2.2/films/${params.id}`).then(res => {
+			setFilm(res.data)
+			setLoading(false)
+		})
 
-		// axios
-		// 	.get('https://kinopoiskapiunofficial.tech/api/v2.2/films/326', {
-		// 		headers: {
-		// 			'X-API-KEY': '062b7bcf-9582-4713-bef9-1b0e908cfb6d',
-		// 		},
-		// 	})
-		// 	.then(res => {
-		// 		console.log(res.data)
-		// 	})
+		axiosKPunofficial.get<FactsResponse>(`/v2.2/films/${params.id}/facts`).then(res => {
+			setFacts(res.data.items)
+		})
 
-		setFilm(fakeFilm)
-		setLoading(false)
-	}, [])
+		axiosKPunofficial
+			.get<StaffResponse>(`/v1/staff`, {
+				params: {
+					filmId: params.id,
+				},
+			})
+			.then(res => {
+				setStaff(res.data)
+				const proff = new Set()
+				res.data.map(el => proff.add(el.professionKey))
+			})
+		window.scrollTo(0, 0)
+	}, [params.id])
 
 	return (
 		<div className={cls.card}>
 			{loading ? (
-				<Loader />
+				<div className={cls.loader}>
+					<Loader />
+				</div>
 			) : (
 				<div className={cls.container}>
 					<div className={cls.mainInfo}>
 						<div className={cls.poster}>
-							<img src={film?.poster.url} alt="poster" />
-							{film ? <RatingBlock rating={film.rating} ageRating={film.ageRating} /> : ''}
+							<img src={film?.posterUrl} alt="poster" />
+							{film ? (
+								<RatingBlock
+									KP={film.ratingKinopoisk}
+									IMDB={film.ratingImdb}
+									GR={film.ratingGoodReview}
+									FC={film.ratingFilmCritics}
+									ageRating={film.ratingAgeLimits}
+								/>
+							) : (
+								''
+							)}
 						</div>
 						<div className={cls.header}>
 							{film && (
 								<>
 									<div className={cls.favorite}>
-										<Favorite id={film.id} />
+										<Favorite id={film.kinopoiskId} type="button" />
 									</div>
 									<div className={cls.viewed}>
-										<Viewed id={film.id} type={film.type} />
+										<Viewed id={film.kinopoiskId} type={film.type} />
 									</div>
 								</>
 							)}
 							<h1>
-								{film?.name} ({film?.year})
+								{film?.nameRu} ({film?.year})
 							</h1>
-							<h2>{film?.alternativeName}</h2>
+							<h2>{film?.nameOriginal}</h2>
 							<div className={cls.aboutDiv}>{film && <About film={film} />}</div>
 						</div>
 					</div>
@@ -86,11 +100,19 @@ const FullCard: FC = () => {
 						</div>
 						<div className={cls.menuContent}>
 							{active === 'description' && <p>{film?.description}</p>}
-							{active === 'facts' && film?.facts.map((el, i) => <p key={i}>{el.value}</p>)}
-							{(active === 'group' || active === 'actors') && film && <Actors persons={film.persons} type={active} />}
-							{active === 'images' && film && <Images id={film.id} />}
+							{active === 'facts' &&
+								facts &&
+								(facts.length > 0 ? (
+									facts.map((el, i) => <p key={i}>{el.text}</p>)
+								) : (
+									<p>К сожалению про этот фильм нет никаких фактов...</p>
+								))}
+							{(active === 'group' || active === 'actors') && film && staff && <Actors persons={staff} type={active} />}
+							{active === 'images' && film && <Images id={film.kinopoiskId} />}
 						</div>
 					</div>
+					<Awards />
+					{film && <Similars id={film.kinopoiskId} />}
 				</div>
 			)}
 		</div>

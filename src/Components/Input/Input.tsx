@@ -4,7 +4,7 @@ import hide from '../../Assets/img/hide.svg'
 import cls from './Input.module.css'
 
 interface InputProps {
-	type: string
+	type: 'text' | 'password'
 	error: boolean
 	errorText: string
 	placeholder: string
