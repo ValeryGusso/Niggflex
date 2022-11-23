@@ -2,6 +2,8 @@ import { FC, useState, useEffect } from 'react'
 import { InView, useInView } from 'react-intersection-observer'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import { useParams } from 'react-router'
+import { useNavigate } from 'react-router'
 import Loader from '../../Components/Loader/Loader'
 import SearchMenu from '../../Components/SearchMenu/SearchMenu'
 import SmallCard from '../../Components/SmallCard/SmallCard'
@@ -9,11 +11,19 @@ import { fetchFilms, filmsSelector, ParamsType } from '../../Redux/Slices/films'
 import cls from './Home.module.css'
 
 const Home: FC = () => {
+	const navigate = useNavigate()
+	const params = useParams()
 	const dispatch = useDispatch()
 	const [showResult, setShowResult] = useState(false)
 	const { data } = useSelector(filmsSelector)
 	const { ref, entry } = useInView()
 	const { data: films, loading, prevParams, curPage, pageLimit } = useSelector(filmsSelector)
+
+	useEffect(() => {
+		if (params['*']) {
+			navigate('/')
+		}
+	}, [])
 
 	useEffect(() => {
 		if (entry?.isIntersecting && films.length > 0) {

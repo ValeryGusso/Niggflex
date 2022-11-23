@@ -28,13 +28,14 @@ const NiggflexRouter: FC = () => {
 			<Route path="/cartoon" element={<Cartoon />} />
 			<Route path="/favorite" element={<Favorite />} />
 			<Route path="/anime" element={<Anime />} />
-			<Route path="/search/films" element={<SearchResults type='films' />} />
-			<Route path="/search/actors" element={<SearchResults type='actors' />} />
+			<Route path="/search/films" element={<SearchResults type="films" />} />
+			<Route path="/search/actors" element={<SearchResults type="actors" />} />
 			<Route path="/film/:id" element={<Film />} />
 			<Route path="/actor/:id" element={<Actor />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/registration" element={<Registration />} />
 			{isAuth && <Route path="/settings" element={<Settings />} />}
+			<Route path="*" element={<Home />} />
 		</Routes>
 	)
 }
