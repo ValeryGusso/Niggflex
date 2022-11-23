@@ -10,7 +10,7 @@ interface InputBlockProps {
 	maxValue: number
 	baseClassName?: string
 	className?: string
-  title: string
+	title: string
 	style?: React.CSSProperties
 	ruler?: boolean | string
 	label?: boolean | string
@@ -33,14 +33,13 @@ interface InputBlockProps {
 
 const InputBlock: FC<InputBlockProps> = props => {
 	function changeMin(e: React.ChangeEvent<HTMLInputElement>) {
-		if (+e.target.value >= props.min && +e.target.value < props.maxValue) {
+		if (+e.target.value >= props.min && +e.target.value <= props.maxValue) {
 			props.setMin(+e.target.value)
 		}
 	}
 
 	function changeMax(e: React.ChangeEvent<HTMLInputElement>) {
-		console.log(e.target.value)
-		if (+e.target.value <= props.max && +e.target.value > props.minValue) {
+		if (+e.target.value <= props.max && +e.target.value >= props.minValue) {
 			props.setMax(+e.target.value)
 		}
 	}
@@ -48,13 +47,13 @@ const InputBlock: FC<InputBlockProps> = props => {
 	return (
 		<>
 			<div className={cls.inputs}>
-        <h1>{props.title}</h1>
+				<h1>{props.title}</h1>
 				<div className={cls.block}>
-          <p>От:</p>
+					<p>От:</p>
 					<input onChange={changeMin} type="number" min={props.min} max={props.max} value={props.minValue} />
 				</div>
 				<div className={cls.block}>
-          <p>До:</p>
+					<p>До:</p>
 					<input onChange={changeMax} type="number" min={props.min} max={props.max} value={props.maxValue} />
 				</div>
 			</div>

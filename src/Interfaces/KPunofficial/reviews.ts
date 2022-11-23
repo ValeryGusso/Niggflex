@@ -9,16 +9,11 @@ export interface ReviewsResponse {
 
 export interface Item {
 	kinopoiskId: number
-	type: Type
+	type: string
 	date: Date
 	positiveRating: number
 	negativeRating: number
 	author: string
 	title: null | string
 	description: string
-}
-
-export enum Type {
-	Neutral = 'NEUTRAL',
-	Positive = 'POSITIVE',
 }

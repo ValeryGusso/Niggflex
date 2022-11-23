@@ -16,6 +16,11 @@
 	height: 5vmin;
 	font-size: 4vmin;
 	text-decoration: underline;
+	transition: 0.3s;
+}
+
+.cartItem a:hover {
+	color: #54b8f3;
 }
 
 .content > div {

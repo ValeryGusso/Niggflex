@@ -55,7 +55,7 @@ export const favoriteSlice = createSlice({
 			state.page += 1
 		})
 		builder.addCase(fetchFavorite.rejected, state => {
-			state.loading = true
+			state.loading = false
 		})
 	},
 })

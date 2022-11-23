@@ -75,7 +75,7 @@ export const searchActorsSlice = createSlice({
 			state.page += 1
 		})
 		builder.addCase(fetchSearchActors.rejected, state => {
-			state.loading = true
+			state.loading = false
 		})
 	},
 })

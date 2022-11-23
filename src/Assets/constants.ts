@@ -287,3 +287,5 @@ export const genres: GenresItem[] = [
 ]
 
 export const ratingColors: string[] = ['#fe5a4f', '#feef55', '#5cff6a']
+
+export const reviewsColors: string[] = ['#7bf193', '#678cf9', '#d76f78', '#bababa']

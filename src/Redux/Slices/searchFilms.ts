@@ -71,7 +71,7 @@ export const searchFilmsSlice = createSlice({
 			state.page += 1
 		})
 		builder.addCase(fetchSearchFilms.rejected, state => {
-			state.loading = true
+			state.loading = false
 		})
 	},
 })

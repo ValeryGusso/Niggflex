@@ -71,7 +71,7 @@ export const filmSlice = createSlice({
 			state.curPage += 1
 		})
 		builder.addCase(fetchFilms.rejected, state => {
-			state.loading = true
+			state.loading = false
 			state.status = 'error'
 		})
 	},

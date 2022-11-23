@@ -14,6 +14,7 @@ import Awards from './Awards'
 import cls from './FullCard.module.css'
 import Images from './Images'
 import RatingBlock from './RatingBlock'
+import Reviews from './Reviews'
 import Similars from './Similars'
 
 const FullCard: FC = () => {
@@ -26,10 +27,14 @@ const FullCard: FC = () => {
 
 	useEffect(() => {
 		setLoading(true)
-		axiosKPunofficial.get<FilmResponse>(`/v2.2/films/${params.id}`).then(res => {
-			setFilm(res.data)
-			setLoading(false)
-		})
+		axiosKPunofficial
+			.get<FilmResponse>(`/v2.2/films/${params.id}`)
+			.then(res => {
+				setFilm(res.data)
+			})
+			.finally(() => {
+				setLoading(false)
+			})
 
 		axiosKPunofficial.get<FactsResponse>(`/v2.2/films/${params.id}/facts`).then(res => {
 			setFacts(res.data.items)
@@ -111,8 +116,13 @@ const FullCard: FC = () => {
 							{active === 'images' && film && <Images id={film.kinopoiskId} />}
 						</div>
 					</div>
-					<Awards />
-					{film && <Similars id={film.kinopoiskId} />}
+					{film && (
+						<>
+							<Awards />
+							<Similars id={film.kinopoiskId} />
+							<Reviews id={film.kinopoiskId} />
+						</>
+					)}
 				</div>
 			)}
 		</div>

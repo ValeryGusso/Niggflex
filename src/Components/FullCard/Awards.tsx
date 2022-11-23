@@ -16,24 +16,33 @@ const Awards: FC = () => {
 	const params = useParams()
 	const [awards, setAwards] = useState<Award[] | null>(null)
 	const [blocks, setBlocks] = useState<BlockState[] | null>(null)
+	const [loading, setLoading] = useState(true)
 	const [activeCategory, setActiveCategory] = useState(0)
 
+	//Добавить лоадер
+
 	useEffect(() => {
-		axiosKPunofficial.get<AwardsResponse>(`/v2.2/films/${params.id}/awards`).then(res => {
-			const names = new Set<string>()
-			res.data.items.forEach(el => names.add(el.name))
+		!loading && setLoading(true)
+		axiosKPunofficial
+			.get<AwardsResponse>(`/v2.2/films/${params.id}/awards`)
+			.then(res => {
+				const names = new Set<string>()
+				res.data.items.forEach(el => names.add(el.name))
 
-			const result: BlockState[] = []
-			const namesArray = Array.from(names.values())
+				const result: BlockState[] = []
+				const namesArray = Array.from(names.values())
 
-			namesArray.forEach(name => {
-				const found = res.data.items.find(el => el.name === name)
-				found ? result.push({ name, image: found.imageUrl }) : result.push({ name, image: null })
+				namesArray.forEach(name => {
+					const found = res.data.items.find(el => el.name === name)
+					found ? result.push({ name, image: found.imageUrl }) : result.push({ name, image: null })
+				})
+
+				setBlocks(result)
+				setAwards(res.data.items)
 			})
-
-			setBlocks(result)
-			setAwards(res.data.items)
-		})
+			.finally(() => {
+				setLoading(false)
+			})
 	}, [params.id])
 
 	return (
@@ -60,10 +69,10 @@ const Awards: FC = () => {
 					{awards && blocks && awards?.length > 0 && (
 						<div className={cls.awardsList}>
 							{awards.map(
-								award =>
+								(award, i) =>
 									award.persons.length > 0 &&
 									award.name === blocks[activeCategory].name && (
-										<div className={cls.awardPerson}>
+										<div className={cls.awardPerson} key={i}>
 											<img src={award.persons[0].posterUrl} alt="photo" />
 											<div>
 												<Link to={`/actor/${award.persons[0].kinopoiskId}`}>

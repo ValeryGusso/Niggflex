@@ -17,11 +17,15 @@ const Similars: FC<SimilarsProps> = ({ id }) => {
 	const params = useParams()
 
 	useEffect(() => {
-		setLoading(true)
-		axiosKPunofficial.get<SimilarsResponse>(`/v2.2/films/${id}/similars`).then(res => {
-			setSimilars(res.data)
-			setLoading(false)
-		})
+		!loading && setLoading(true)
+		axiosKPunofficial
+			.get<SimilarsResponse>(`/v2.2/films/${id}/similars`)
+			.then(res => {
+				setSimilars(res.data)
+			})
+			.finally(() => {
+				setLoading(false)
+			})
 	}, [params.id])
 
 	return (
