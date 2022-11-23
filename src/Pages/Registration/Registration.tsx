@@ -7,6 +7,7 @@ import Loader from '../../Components/Loader/Loader'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../Redux/Slices/auth'
 import { ActivateResponse, RegistrationResponse } from '../../axios/types'
+import DancingText from '../../Components/DancingText/DancingText'
 
 export interface ErrorState {
 	error: boolean
@@ -52,7 +53,6 @@ const Registration: FC = () => {
 			const res = await axiosUserAPI
 				.post<RegistrationResponse>('/registration', request)
 				.catch(err => {
-					console.log(err)
 					if (err.response.status === 400 && err.response.data[0]) {
 						err.response.data.forEach((err: ErrorItem) => {
 							if (err.param === 'password') {
@@ -65,7 +65,6 @@ const Registration: FC = () => {
 					}
 				})
 				.finally(() => setLoading(false))
-			console.log(res)
 
 			if (res && res.status === 200 && res.data.sended) {
 				id.current = res.data.id
@@ -87,8 +86,6 @@ const Registration: FC = () => {
 		})
 
 		if (res) {
-			console.log(res.status)
-			console.log(JSON.stringify(res.data))
 			dispatch(setUser(res.data.user))
 			localStorage.setItem('access', res.data.access)
 			if (res.data.user.isActivated) {
@@ -136,7 +133,9 @@ const Registration: FC = () => {
 						</div>
 					) : (
 						<>
-							<h1>REGISTRATION</h1>
+							<div className={cls.title}>
+								<DancingText text="REGISTRATION" />
+							</div>
 							<div className={cls.wrapper}>
 								<div>
 									<div className={cls.block}>

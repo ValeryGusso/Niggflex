@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { ActivateResponse } from '../../axios/types'
 import axiosUserAPI from '../../axios/userAPI'
+import DancingText from '../../Components/DancingText/DancingText'
 import Input from '../../Components/Input/Input'
 import { setUser } from '../../Redux/Slices/auth'
 import { ErrorState } from '../Registration/Registration'
@@ -45,7 +46,9 @@ const Login: FC = () => {
 		<div className={cls.container}>
 			<div>
 				<div className={cls.content}>
-					<h1>LOGIN</h1>
+					<div className={cls.title}>
+						<DancingText text="LOGIN" />
+					</div>
 					<div className={cls.block}>
 						<h2>Имя пользователя:</h2>
 						<Input
