@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { Link } from 'react-router-dom'
 import { ActorResponse } from '../../Interfaces/KPunofficial/actor'
 import cls from './ActorBlock.module.css'
 
@@ -7,19 +8,22 @@ interface AboutProps {
 }
 
 const About: FC<AboutProps> = ({ person }) => {
+	console.log(person.spouses)
 	return (
 		<div className={cls.about}>
-			<h1>{person.nameRu}</h1>
+			<h1>
+				{person.nameRu} ({person.age})
+			</h1>
 			<h2>{person.nameEn}</h2>
 			<div>
 				<p>Пол:</p>
 				<span>{person.sex === 'MALE' ? 'муж.' : 'жен.'}</span>
 			</div>
 			<div>
-				<p>Возраст:</p>
+				<p>Годы жизни:</p>
 				<span>
-					{person.age} лет ({new Date(person.birthday).toLocaleDateString()}
-					{person.death && ' - ' + new Date(person.death).toLocaleDateString()})
+					{`${new Date(person.birthday).toLocaleDateString()} - `}
+					{person.death ? ` ${new Date(person.death).toLocaleDateString()}` : 'в настоящее время жив'}
 				</span>
 			</div>
 			<div>
@@ -36,7 +40,13 @@ const About: FC<AboutProps> = ({ person }) => {
 			</div>
 			<div>
 				<p>Супруга:</p>
-				<span>{person.spouses.map(el => el.divorced || el.name)}</span>
+				<span>
+					{person.spouses.map(el => (
+						<Link to={`/actor/${el.personId}`}>
+							{el?.divorced || el.name} ({el.children > 0 ? `${el.children} детей` : 'детей нет'})
+						</Link>
+					))}
+				</span>
 			</div>
 		</div>
 	)

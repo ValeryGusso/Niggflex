@@ -2,10 +2,15 @@
 	display: flex;
 }
 
+.search {
+	position: fixed;
+}
+
 .result {
 	display: flex;
 	flex-direction: column;
 	row-gap: 1vmin;
+	margin-left: 38vmax;
 }
 
 .placeholder {
@@ -17,4 +22,16 @@
 	padding-top: 40%;
 	font-size: 4vmin;
 	font-style: italic;
+}
+
+.loader {
+	width: 100%;
+	height: 17vmin;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loader > div {
+	transform: scale(2);
 }

@@ -7,6 +7,7 @@ import Loader from '../../Components/Loader/Loader'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../Redux/Slices/auth'
 import { ActivateResponse, RegistrationResponse } from '../../axios/types'
+import { useForm } from 'react-hook-form'
 import DancingText from '../../Components/DancingText/DancingText'
 
 export interface ErrorState {
@@ -35,6 +36,7 @@ const Registration: FC = () => {
 	const [loginError, setLoginError] = useState({} as ErrorState)
 	const [passError, setPassError] = useState({} as ErrorState)
 	const [activateError, setActivateError] = useState({} as ErrorState)
+	const { register, handleSubmit } = useForm()
 	const id = useRef('')
 
 	async function submit() {
@@ -117,7 +119,8 @@ const Registration: FC = () => {
 			<div>
 				<div className={cls.content}>
 					{activate ? (
-						<div className={cls.activate}>
+						<form onSubmit={handleSubmit(sendCode)} className={cls.activate}>
+							<DancingText text="REGISTRATION" />
 							<div className={cls.block}>
 								<h2>Код активации:</h2>
 								<Input
@@ -127,12 +130,13 @@ const Registration: FC = () => {
 									error={activateError.error}
 									errorText={activateError.message}
 									placeholder="Код из письма"
+									tabIndex={1}
 								/>
 							</div>
-							{loading ? <Loader /> : <button onClick={sendCode}>Активировать аккаунт!</button>}
-						</div>
+							{loading ? <Loader /> : <button tabIndex={2}>Активировать аккаунт!</button>}
+						</form>
 					) : (
-						<>
+						<form onSubmit={handleSubmit(submit)}>
 							<div className={cls.title}>
 								<DancingText text="REGISTRATION" />
 							</div>
@@ -147,9 +151,11 @@ const Registration: FC = () => {
 											error={loginError.error}
 											errorText={loginError.message}
 											placeholder="Тут почта"
+											tabIndex={1}
+											{...register}
 										/>
 									</div>
-									<button onClick={submit}>ПОЕХАЛИ!</button>
+									<button tabIndex={4}>ПОЕХАЛИ!</button>
 								</div>
 								<div>
 									<div className={cls.block}>
@@ -161,6 +167,8 @@ const Registration: FC = () => {
 											error={passError.error}
 											errorText={passError.message}
 											placeholder="А вот тут пароль"
+											tabIndex={2}
+											{...register}
 										/>
 									</div>
 									<div className={cls.block}>
@@ -172,6 +180,8 @@ const Registration: FC = () => {
 											error={passError.error}
 											errorText={passError.message}
 											placeholder="И ещё раз пароль"
+											tabIndex={3}
+											{...register}
 										/>
 									</div>
 								</div>
@@ -180,7 +190,7 @@ const Registration: FC = () => {
 								<p>Уже есть аккаунт?</p>
 								<Link to={'/login'}>Так чего же ты ждешь? Заходи!</Link>
 							</div>
-						</>
+						</form>
 					)}
 				</div>
 			</div>

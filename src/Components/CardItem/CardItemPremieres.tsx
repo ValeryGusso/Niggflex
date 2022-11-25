@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import noimage from '../../Assets/img/noimage.png'
 import { Country, Film } from '../../Interfaces/KPunofficial/premieres'
 import { Genre } from '../../Interfaces/KPunofficial/search'
+import Favorite from '../Buttons/Favorite'
 
 interface CardItemPremieresProps {
 	film: Film
@@ -47,6 +48,9 @@ const CardItemPremieres: FC<CardItemPremieresProps> = ({ film }) => {
 				<Link to={`/film/${film.kinopoiskId}`}>{film.nameRu || film.nameEn}</Link>
 				{showDetails ? (
 					<div onPointerLeave={() => setShowDetails(false)} className={classNames(cls.back, cls.premieres)}>
+						<div>
+							<Favorite type="icon" id={film.kinopoiskId} />{' '}
+						</div>
 						<p>Премьера: {film.premiereRu}</p>
 						<p>Стран{printCountry(film.countries)}</p>
 						<p>Жанр{printGenres(film.genres)}</p>

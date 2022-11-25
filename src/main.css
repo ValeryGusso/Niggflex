@@ -10,6 +10,11 @@
 	color: #dfdfdf;
 }
 
+.all {
+	color: wheat;
+	text-decoration: underline;
+}
+
 body {
 	overflow-x: hidden;
 	margin-right: 0.75vmax;

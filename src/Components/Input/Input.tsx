@@ -9,10 +9,11 @@ interface InputProps {
 	errorText: string
 	placeholder: string
 	value: string
+	tabIndex: number
 	onChange: React.Dispatch<React.SetStateAction<string>>
 }
 
-const Input: FC<InputProps> = ({ type, error, errorText, placeholder, onChange, value }) => {
+const Input: FC<InputProps> = ({ type, error, errorText, placeholder, onChange, value, tabIndex }) => {
 	const [show, setShow] = useState(type !== 'password')
 
 	return (
@@ -24,6 +25,7 @@ const Input: FC<InputProps> = ({ type, error, errorText, placeholder, onChange, 
 				className={error ? cls.error : ''}
 				type={show ? 'text' : 'password'}
 				placeholder={placeholder}
+				tabIndex={tabIndex}
 			/>
 			{error && <p>{errorText}</p>}
 		</div>

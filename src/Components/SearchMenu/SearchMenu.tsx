@@ -101,7 +101,13 @@ const SearchMenu: FC<SearchMenuProps> = ({ show }) => {
 			<div className={cls.genre}>
 				<div className={cls.genresList}>
 					<p> Ищем среди:</p>
-					<div onClick={() => setOpen(true)} style={{ cursor: open ? 'default' : 'pointer' }}>
+					<div
+						onClick={() => setOpen(true)}
+						style={{
+							cursor: open ? 'default' : 'pointer',
+							background: open ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+						}}
+					>
 						{list.map(el => (
 							<p onClick={() => remove(el)} key={el.id}>
 								{el.genre}

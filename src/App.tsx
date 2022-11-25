@@ -23,7 +23,7 @@ const App: FC = () => {
 						dispatch(setUser(res.data))
 					}
 				})
-				.catch(err => console.log(err))
+				// .catch(err => console.log(err))
 				.finally(() => {
 					setLoading(false)
 				})

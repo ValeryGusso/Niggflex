@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 import { filmMenu } from '../../Assets/constants'
 import axiosKPunofficial from '../../axios/KPunofficial'
 import { Fact, FactsResponse } from '../../Interfaces/KPunofficial/facts'
@@ -13,6 +14,7 @@ import Actors from './Actors'
 import Awards from './Awards'
 import cls from './FullCard.module.css'
 import Images from './Images'
+import Markup from './Markup'
 import RatingBlock from './RatingBlock'
 import Reviews from './Reviews'
 import Similars from './Similars'
@@ -53,6 +55,49 @@ const FullCard: FC = () => {
 			})
 		window.scrollTo(0, 0)
 	}, [params.id])
+
+	function createMarkup(text: string = '') {
+		const updated = text
+			.replace(/\<a\shref="\//gi, '<Link to="/')
+			.replace(/\<\/a\>/gi, '</Link>')
+			.replace(/"\/name\//gi, '"/actor/')
+
+		return { __html: text }
+	}
+
+	// function createMarkup2(string: string) {
+	// 	const updated: string[] | null = string.match(/\<a h.+?\/a>/gis)
+	// 	const arr = string.split(/\<a h.+?\/a>/gis)
+
+	// 	let pure = string
+	// 	const links: string[] = []
+
+	// 	updated?.forEach((str, i) => {
+	// 		pure = pure.replace(str, 'place' + i)
+	// 		links.push(
+	// 			str
+	// 				.replace(/\<a\shref="\//gi, '<Link to="/')
+	// 				.replace(/\<\/a\>/gi, '</Link>')
+	// 				.replace(/"\/name\//gi, '"/actor/')
+	// 				.replace('class=', ' className=')
+	// 		)
+	// 	})
+	// 	let result = pure
+	// 	links.forEach((link, i) => {
+	// 		result = result.replace(`place${i}`, link)
+	// 	})
+
+	// 	return arr.map((el, i) => (
+	// 		<>
+	// 			{el}{' '}
+	// 			{links[i] && (
+	// 				<Link to={'/' + `${links[i]?.match(/".+?"/is)?.[0]?.replace(/"/g, '')}`} className={cls.link}>{`${links[i]
+	// 					?.match(/\>.+?\<\//is)?.[0]
+	// 					?.replace(/[\/\<\>]/g, '')}`}</Link>
+	// 			)}
+	// 		</>
+	// 	))
+	// }
 
 	return (
 		<div className={cls.card}>
@@ -108,7 +153,8 @@ const FullCard: FC = () => {
 							{active === 'facts' &&
 								facts &&
 								(facts.length > 0 ? (
-									facts.map((el, i) => <p key={i}>{el.text}</p>)
+									// facts.map((el, i) => <p dangerouslySetInnerHTML={createMarkup(el.text)} key={i}></p>)
+									facts.map((el, i) => <Markup string={el.text} key={i} />)
 								) : (
 									<p>К сожалению про этот фильм нет никаких фактов...</p>
 								))}

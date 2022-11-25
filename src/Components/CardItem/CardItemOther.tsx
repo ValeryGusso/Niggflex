@@ -8,6 +8,7 @@ import IMDB from '../../Assets/img/imdb.png'
 import { Doc } from '../../Interfaces/KPofficial/search'
 import { ratingColors } from '../../Assets/constants'
 import { cut } from '../../Utils/print'
+import Favorite from '../Buttons/Favorite'
 
 interface CardItemOtherProps {
 	film: Doc
@@ -21,33 +22,42 @@ const CardItemOther: FC<CardItemOtherProps> = ({ film }) => {
 	}
 
 	return (
-		<div className={cls.cartItem}>
+		<div onPointerLeave={() => setShowDetails(false)} className={cls.cartItem}>
 			<div className={cls.content}>
 				{!showDetails && <Link to={`/film/${film.id}`}>{cut(film.name || film.alternativeName, 40)}</Link>}
 				{showDetails ? (
-					<div onPointerLeave={() => setShowDetails(false)} className={classNames(cls.back, cls.other)}>
+					<div className={classNames(cls.back, cls.other)}>
 						<p>{cut(film.shortDescription || film.description || 'Нет данных', 500)}</p>
-						<div className={cls.block}>
-							<img src={KP} alt="KP" />
-							<p
-								style={{
-									background:
-										film.rating.kp < 5 ? ratingColors[0] : film.rating.kp < 7.5 ? ratingColors[1] : ratingColors[2],
-								}}
-							>
-								{film.rating.kp.toFixed(1) || '---'}
-							</p>
-						</div>
-						<div className={cls.block}>
-							<img src={IMDB} alt="IMDB" />
-							<p
-								style={{
-									background:
-										film.rating.imdb < 5 ? ratingColors[0] : film.rating.imdb < 7.5 ? ratingColors[1] : ratingColors[2],
-								}}
-							>
-								{film.rating.imdb.toFixed(1) || '---'}
-							</p>
+						<div className={cls.blocks}>
+							<div className={cls.block}>
+								<img src={KP} alt="KP" />
+								<p
+									style={{
+										background:
+											film.rating.kp < 5 ? ratingColors[0] : film.rating.kp < 7.5 ? ratingColors[1] : ratingColors[2],
+									}}
+								>
+									{film.rating.kp.toFixed(1) || '---'}
+								</p>
+							</div>
+							<div className={cls.block}>
+								<img src={IMDB} alt="IMDB" />
+								<p
+									style={{
+										background:
+											film.rating.imdb < 5
+												? ratingColors[0]
+												: film.rating.imdb < 7.5
+												? ratingColors[1]
+												: ratingColors[2],
+									}}
+								>
+									{film.rating.imdb.toFixed(1) || '---'}
+								</p>
+							</div>
+							<div className={cls.heart}>
+								<Favorite type="icon" id={film.id} />{' '}
+							</div>
 						</div>
 					</div>
 				) : (

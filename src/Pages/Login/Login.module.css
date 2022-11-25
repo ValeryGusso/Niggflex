@@ -23,10 +23,17 @@
 	padding-top: 3vmin;
 	display: flex;
 	flex-direction: column;
-	row-gap: 3vmin;
+	row-gap: 1vmin;
 	align-items: center;
 	border-radius: 2vmax;
 	background: #353937;
+}
+
+.content > form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 3vmin;
+	align-items: center;
 }
 
 .content h2,

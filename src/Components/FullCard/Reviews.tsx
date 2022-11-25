@@ -62,6 +62,7 @@ const Reviews: FC<ReviewsProps> = ({ id }) => {
 	const { ref, entry } = useInView()
 
 	useEffect(() => {
+		dispatch(clearReviews())
 		axiosKPunofficial.get<ReviewsResponse>(`/v2.2/films/${id}/reviews`).then(res => {
 			dispatch(updateReviews(res.data.items))
 			dispatch(
@@ -107,7 +108,7 @@ const Reviews: FC<ReviewsProps> = ({ id }) => {
 		} else {
 			setViewCount(reviews.length)
 		}
-	}, [viewType])
+	}, [viewType, reviews.length])
 
 	function filtr(type: string): Item[] {
 		const filtred = reviews.filter(el => el.type.includes(type))

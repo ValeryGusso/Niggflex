@@ -38,9 +38,7 @@ const Favorite: FC = () => {
 					{!loading && items.length > 0 ? (
 						items.map(item => <FaviriteItem film={item} key={item.id} />)
 					) : (
-						<div>
-							<h2>К сожалению спосок избранного пуст...</h2>
-						</div>
+						<h2>К сожалению спосок избранного пуст...</h2>
 					)}
 					{loading && (
 						<div className={cls.loader}>

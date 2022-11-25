@@ -37,7 +37,9 @@ const Home: FC = () => {
 	}, [entry])
 	return (
 		<div className={cls.container}>
-			<SearchMenu show={setShowResult} />
+			<div className={cls.search}>
+				<SearchMenu show={setShowResult} />
+			</div>
 			<div className={cls.result}>
 				{(showResult || data.length > 0) &&
 					(data.length > 0 ? (
@@ -45,7 +47,11 @@ const Home: FC = () => {
 							{data.map((film, i) => (
 								<SmallCard key={i} film={film} />
 							))}
-							{loading && <Loader />}
+							{loading && (
+								<div className={cls.loader}>
+									<Loader />
+								</div>
+							)}
 							<div ref={ref} className={cls.hidenLine}></div>
 						</InView>
 					) : (

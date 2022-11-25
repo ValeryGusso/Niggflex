@@ -6,6 +6,11 @@
 	justify-content: center;
 }
 
+.container button:focus {
+	outline: none;
+	background: #57fa86;
+}
+
 .wrapper {
 	display: flex;
 	margin-top: 2vmin;
@@ -127,10 +132,15 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	row-gap: 5vmin;
+	row-gap: 4vmin;
 	align-items: center;
 	justify-content: center;
-	padding-bottom: 5vmin;
+	padding-bottom: 7vmin;
+}
+
+.activate > div {
+	/* height: 10vmin; */
+	margin-bottom: 3vmin;
 }
 
 .activate button {

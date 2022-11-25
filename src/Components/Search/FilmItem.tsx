@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import Image from './Image'
 import { ratingColors } from '../../Assets/constants'
 import { printCountries, printGenres } from '../../Utils/print'
+import Favorite from '../Buttons/Favorite'
 
 interface FilmItemProps {
 	film: Film
@@ -22,26 +23,32 @@ const FilmItem: FC<FilmItemProps> = ({ film }) => {
 					{' '}
 					<h2>{`${film.nameRu || film.nameEn} (${film.year || '---'})`}</h2>
 				</Link>
-				<h3>
-					{printCountries(film.countries)}
-					{film.rating !== 'null' ? (
-						<span
-							style={{
-								background: +film.rating < 5 ? ratingColors[0] : +film.rating < 7.5 ? ratingColors[1] : ratingColors[2],
-							}}
-						>
-							{film.rating}
-						</span>
-					) : (
-						<span
-							style={{
-								background: ratingColors[0],
-							}}
-						>
-							---
-						</span>
-					)}
-				</h3>
+				<div className={cls.country}>
+					<h3>
+						{printCountries(film.countries)}
+						{film.rating !== 'null' ? (
+							<span
+								style={{
+									background:
+										+film.rating < 5 ? ratingColors[0] : +film.rating < 7.5 ? ratingColors[1] : ratingColors[2],
+								}}
+							>
+								{film.rating}
+							</span>
+						) : (
+							<span
+								style={{
+									background: ratingColors[0],
+								}}
+							>
+								---
+							</span>
+						)}
+					</h3>
+					<div className={cls.heart}>
+						<Favorite type="icon" id={film.filmId} />
+					</div>
+				</div>
 				<h3>{printGenres(film.genres)} </h3>
 			</div>
 			{showImage && (

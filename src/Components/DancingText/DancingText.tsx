@@ -10,8 +10,8 @@ const DancingText: FC<DancingTextProps> = ({ text }) => {
 	return (
 		<div className={cls.container}>
 			{text.split('').map((letter, i) => (
-				<div>
-					<Letter letter={letter} key={i} />
+				<div key={i}>
+					<Letter letter={letter} />
 				</div>
 			))}
 		</div>

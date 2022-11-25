@@ -166,19 +166,33 @@
 	cursor: zoom-in;
 }
 
+.country {
+	display: flex;
+	align-items: center;
+}
+
 .film h3 {
+	max-width: 80%;
 	margin-top: 1vmin;
 	cursor: default;
+	line-height: 3vmin;
 }
 
 .film span {
 	padding: 0.5vmin 1vmax;
-	font-size: 3vmin;
+	font-size: 2vmin;
 	font-style: italic;
 	color: #232527;
 	margin-left: 1vmax;
 	border-radius: 1vmax;
 	cursor: default;
+}
+
+.heart {
+	width: 2.5vmax;
+	height: 2vmin;
+	margin-left: 1vmax;
+	margin-top: 0.75vmin;
 }
 
 /* ActorItem */

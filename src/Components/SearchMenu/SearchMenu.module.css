@@ -5,7 +5,6 @@
 	row-gap: 2vmin;
 	align-items: center;
 	margin-left: 1vmax;
-	/* background: darkslategray */
 }
 
 .header {
@@ -16,7 +15,6 @@
 }
 
 .header span {
-	/* width: 10vmax; */
 	padding: 0 1vmax 1vmin 1vmax;
 	cursor: pointer;
 	border-bottom: 5px solid #bccaff;
@@ -38,7 +36,6 @@
 	display: flex;
 	align-items: center;
 	column-gap: 1vmax;
-	/* background: rgba(255, 255, 255, 0.5); */
 }
 
 .genresList img {
@@ -58,19 +55,18 @@
 	font-size: 3vmin;
 	text-align: center;
 	cursor: default;
-	/* color: #212325; */
 }
 
 .genresList > div {
-	width: 26vmax;
+	width: 25vmax;
 	min-height: 5vmin;
 	display: flex;
 	flex-wrap: wrap;
-	column-gap: 1vmax;
+	column-gap: 0.25vmax;
+	padding: 0.25vmin 0.25vmax;
 	row-gap: 1vmin;
 	border-radius: 1vmin;
 	background: rgba(255, 255, 255, 0.05);
-	/* border: 2px solid white */
 }
 
 .genresList > div > p {
@@ -100,7 +96,6 @@
 	min-width: 8vmax;
 	font-size: 2vmin;
 	cursor: pointer;
-	/* background: darkgray */
 }
 
 .allGenres p:hover {
@@ -160,7 +155,6 @@
 }
 
 .container button {
-	/* margin-left: 14vmax; */
 	padding: 1vmin 2vmax;
 	font-size: 4vmin;
 	color: #272523;

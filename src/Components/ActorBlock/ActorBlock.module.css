@@ -6,18 +6,20 @@
 	justify-content: center;
 	row-gap: 3vmin;
 	align-items: center;
+	padding-bottom: 1vmin;
 }
 
 .profile {
 	width: 60%;
 	margin-top: 10vmin;
-  display: flex;
-  row-gap: 2vmin;
+	display: flex;
+	row-gap: 2vmin;
 }
 
 .profile img {
-  width: 20%;
-  border-radius: 1vmax
+	height: 45vmin;
+	border-radius: 1vmax;
+	filter: drop-shadow(0 0 1vmax rgba(255, 255, 255, 0.35));
 }
 
 .about {
@@ -34,44 +36,47 @@
 }
 
 .about p {
+	font-size: 2.5vmin;
 	width: 20%;
 }
 
 .about span {
+	font-size: 2.5vmin;
 	width: 70%;
 }
 
 .info {
-	width: 60%;
+	max-width: 60%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	/* align-items: center; */
-  /* background: darkgreen */
+	row-gap: 2vmin;
+}
+
+.info > h2 {
+	font-size: 3vmin;
 }
 
 .films {
-  width: 35%;
-	/* height: 15vmax; */
-	display: inline-flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	row-gap: 2vmin;
-  /* background: darkgray */
+	overflow-y: hidden;
+	overflow-x: auto;
+	display: flex;
+	width: 100%;
+	height: 35vmin;
+	display: flex;
+	column-gap: 1vmax;
 }
 
 .films a {
-  font-size: 2vmin;
-  /* background: darkgray; */
+	font-size: 2vmin;
 }
 
 .facts {
-  width: 65%;
-	height: 4.5vmin;
-  display: flex;
-  flex-direction: column;
-  padding-left: 1vmax;
+	display: flex;
+	flex-direction: column;
+	padding-left: 1vmax;
 	overflow: hidden;
-  row-gap: 2vmin;
+	row-gap: 2vmin;
 	transition: 2s;
 }
 
@@ -80,17 +85,48 @@
 }
 
 .facts button {
-	width: 20vmax;
 	border: none;
-	border-radius: 1vmax;
-	padding: 1vmin;
-	font-size: 2vmin;
-	background: #acff97;
-	color: #242628;
+	border-radius: 0.5vmax;
+	padding: 1vmin 0;
+	font-size: 3vmin;
+	font-style: italic;
+	font-weight: bold;
+	background: transparent;
+	cursor: pointer;
+	text-decoration: underline;
+	transition: 0.5s;
+	margin-bottom: 2vmin;
+}
+
+.facts button:hover {
+	background: #ededed;
+	color: #131517;
+	text-decoration: none;
+}
+
+/* Film */
+
+.film {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1vmin 1vmax;
+	transition: 0.3s;
 	cursor: pointer;
 }
 
-.show {
-	height: auto;
-	transition: 2s;
+.film:hover {
+	margin-top: 1vmin;
+	transform: scale(1.1);
+	box-shadow: 0 0 2vmax white;
+}
+
+.film > h1 {
+	font-size: 2.5vmin;
+	text-align: center;
+}
+
+.film > img {
+	max-height: 17vmin;
+	border-radius: 1vmin;
 }

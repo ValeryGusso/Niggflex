@@ -30,6 +30,22 @@
 	font-size: 2vmin;
 }
 
+.info {
+	display: flex;
+	column-gap: 2vmax;
+}
+
+.info > div {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2vmin;
+}
+
+.info > div > h2 {
+	font-size: 2.5vmin;
+	font-style: italic;
+}
+
 .buttons {
 	display: flex;
 	flex-direction: column;
@@ -44,7 +60,6 @@
 
 .block {
 	display: flex;
-	/* justify-content: center; */
 	align-items: center;
 	column-gap: 2vmax;
 }

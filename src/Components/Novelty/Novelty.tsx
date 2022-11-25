@@ -4,6 +4,7 @@ import Loader from '../../Components/Loader/Loader'
 import axiosKPofficial from '../../axios/KPofficial'
 import { Doc, SearchResponse } from '../../Interfaces/KPofficial/search'
 import cls from './Novelty.module.css'
+import Poster from './Poster'
 
 interface NoveltyProps {
 	type: number
@@ -47,6 +48,7 @@ const Novelty: FC<NoveltyProps> = ({ type }) => {
 	return (
 		<div className={cls.container}>
 			<h1>Новинки {printType(type)}, выбирай что тебе по душе!</h1>
+			{!loading && data.length > 0 && <Poster film={data[0]} />}
 			<div>
 				{!loading && data.length > 0 && data.map(film => <CardItemOther key={film.id} film={film} />)}
 				{loading && (
