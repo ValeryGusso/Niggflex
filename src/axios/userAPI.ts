@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 const axiosUserAPI: AxiosInstance = axios.create({
 	withCredentials: true,
-	baseURL: process?.env?.REACT_APP_API_URL || 'http://localhost:666',
+	baseURL: process.env.REACT_APP_API_URL || 'http://localhost:666',
 })
 
 axiosUserAPI.interceptors.request.use((config: AxiosRequestConfig) => {
@@ -10,7 +10,7 @@ axiosUserAPI.interceptors.request.use((config: AxiosRequestConfig) => {
 		config.headers['authorization'] = `Bearer ${localStorage.getItem('access') || ''}`
 		config.headers['Content-Type'] = 'application/json'
 		config.headers['credentials'] = 'include'
-		config.headers['Access-Control-Allow-Origin'] = '*'
+		config.headers['Access-Control-Allow-Origin'] = process.env.REACT_APP_API_URL || 'http://localhost:666'
 	}
 	return config
 })
@@ -26,10 +26,10 @@ axiosUserAPI.interceptors.response.use(
 				originalRequest.isRetry = true
 				const res = await axios.get('/refresh', {
 					withCredentials: true,
-					baseURL: process?.env?.REACT_APP_API_URL || 'http://localhost:666',
+					baseURL: process.env.REACT_APP_API_URL || 'http://localhost:666',
 					headers: {
 						credentials: 'include',
-						'Access-Control-Allow-Origin': '*',
+						'Access-Control-Allow-Origin': process.env.REACT_APP_API_URL || 'http://localhost:666',
 					},
 				})
 				localStorage.setItem('access', res.data.access)
