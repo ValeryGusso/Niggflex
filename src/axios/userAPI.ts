@@ -10,7 +10,7 @@ axiosUserAPI.interceptors.request.use((config: AxiosRequestConfig) => {
 		config.headers['authorization'] = `Bearer ${localStorage.getItem('access') || ''}`
 		config.headers['Content-Type'] = 'application/json'
 		config.headers['credentials'] = 'include'
-		config.headers['Access-Control-Allow-Origin'] = process.env.REACT_APP_API_URL || 'http://localhost:666'
+		config.headers['Access-Control-Allow-Origin'] = '*'
 	}
 	return config
 })
@@ -26,7 +26,7 @@ axiosUserAPI.interceptors.response.use(
 				originalRequest.isRetry = true
 				const res = await axios.get('/refresh', {
 					withCredentials: true,
-					baseURL: process.env.REACT_APP_API_URL || 'http://localhost:666',
+					baseURL: '*',
 					headers: {
 						credentials: 'include',
 						'Access-Control-Allow-Origin': process.env.REACT_APP_API_URL || 'http://localhost:666',
