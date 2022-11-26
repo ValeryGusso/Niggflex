@@ -1,6 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 const axiosUserAPI: AxiosInstance = axios.create({
+	withCredentials: true,
 	baseURL: process.env.REACT_APP_API_URL || 'http://localhost:666',
 })
 
@@ -8,7 +9,7 @@ axiosUserAPI.interceptors.request.use((config: AxiosRequestConfig) => {
 	if (config?.headers) {
 		config.headers['authorization'] = `Bearer ${localStorage.getItem('access') || ''}`
 		config.headers['Content-Type'] = 'application/json'
-		config.headers['Access-Control-Allow-Origin'] = '*'
+		config.headers['Access-Control-Allow-Origin'] = process.env.REACT_APP_API_URL || 'http://localhost:666'
 	}
 	return config
 })
@@ -23,9 +24,10 @@ axiosUserAPI.interceptors.response.use(
 			try {
 				originalRequest.isRetry = true
 				const res = await axios.get('/refresh', {
+					withCredentials: true,
 					baseURL: process.env.REACT_APP_API_URL || 'http://localhost:666',
 					headers: {
-						'Access-Control-Allow-Origin': '*',
+						'Access-Control-Allow-Origin': process.env.REACT_APP_API_URL || 'http://localhost:666',
 					},
 				})
 				localStorage.setItem('access', res.data.access)

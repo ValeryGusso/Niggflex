@@ -126,7 +126,7 @@ const SearchMenu: FC<SearchMenuProps> = ({ show }) => {
 					</div>
 				)}
 			</div>
-			<div className={cls.rating}>
+			<div onMouseEnter={() => open && setOpen(false)} className={cls.rating}>
 				<InputBlock
 					min={1}
 					max={10}
@@ -135,7 +135,12 @@ const SearchMenu: FC<SearchMenuProps> = ({ show }) => {
 					ruler={false}
 					subSteps={false}
 					title="По рейтингу:"
-					style={{ border: 'none', borderRadius: '2vmin', boxShadow: '0 0 15px rgba(255,255,255,0.25)', padding: '3vmin 2vmax' }}
+					style={{
+						border: 'none',
+						borderRadius: '2vmin',
+						boxShadow: '0 0 15px rgba(255,255,255,0.25)',
+						padding: '3vmin 2vmax',
+					}}
 					barLeftColor="#7f7f7f"
 					barInnerColor="#5ffe7e"
 					barRightColor="#7f7f7f"
@@ -159,7 +164,12 @@ const SearchMenu: FC<SearchMenuProps> = ({ show }) => {
 					label={false}
 					ruler={false}
 					title="По году премьеры:"
-					style={{ border: 'none', borderRadius: '2vmin', boxShadow: '0 0 15px rgba(255,255,255,0.25)', padding: '3vmin 2vmax' }}
+					style={{
+						border: 'none',
+						borderRadius: '2vmin',
+						boxShadow: '0 0 15px rgba(255,255,255,0.25)',
+						padding: '3vmin 2vmax',
+					}}
 					barLeftColor="#7f7f7f"
 					barInnerColor="#5ffe7e"
 					barRightColor="#7f7f7f"

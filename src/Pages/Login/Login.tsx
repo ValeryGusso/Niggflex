@@ -9,17 +9,20 @@ import { setUser } from '../../Redux/Slices/auth'
 import { ErrorState } from '../Registration/Registration'
 import { useForm } from 'react-hook-form'
 import cls from './Login.module.css'
+import Loader from '../../Components/Loader/Loader'
 
 const Login: FC = () => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const [login, setLogin] = useState('')
 	const [pass, setPass] = useState('')
+	const [loading, setLoading] = useState(false)
 	const [loginError, setLoginError] = useState({} as ErrorState)
 	const [passError, setPassError] = useState({} as ErrorState)
 	const { register, handleSubmit } = useForm()
 
 	async function submit() {
+		setLoading(true)
 		if (!login || !pass) {
 			!login && setLoginError({ error: true, message: 'Тут ничего нет :( а зря...' })
 			!pass && setPassError({ error: true, message: 'Тут ничего нет :( а зря...' })
@@ -27,17 +30,23 @@ const Login: FC = () => {
 		}
 
 		const request = { email: login, password: pass }
-		const res = await axiosUserAPI.post<ActivateResponse>('/login', request).catch(err => {
-			if (err.response.data.message === 'Пользователь не активирован') {
-				setLoginError({ error: true, message: 'Пользователь не активирован' })
-				setPassError({ error: true, message: 'Пользователь не активирован' })
-				return
-			} else {
-				setLoginError({ error: true, message: 'Неверное имя пользователя или пароль' })
-				setPassError({ error: true, message: 'Неверное имя пользователя или пароль' })
-				return
-			}
-		})
+
+		const res = await axiosUserAPI
+			.post<ActivateResponse>('/login', request)
+			.catch(err => {
+				if (err.response.data.message === 'Пользователь не активирован') {
+					setLoginError({ error: true, message: 'Пользователь не активирован' })
+					setPassError({ error: true, message: 'Пользователь не активирован' })
+					return
+				} else {
+					setLoginError({ error: true, message: 'Неверное имя пользователя или пароль' })
+					setPassError({ error: true, message: 'Неверное имя пользователя или пароль' })
+					return
+				}
+			})
+			.finally(() => {
+				setLoading(false)
+			})
 
 		if (res?.data?.access) {
 			localStorage.setItem('access', res.data.access)
@@ -89,7 +98,7 @@ const Login: FC = () => {
 							<p>Нет аккаунта?</p>
 							<Link to={'/registration'}>Зарегистрируйся сейчас!</Link>
 						</div>
-						<button tabIndex={3}>Войти</button>
+						{loading ? <Loader /> : <button tabIndex={3}>Войти</button>}
 					</form>
 				</div>
 			</div>

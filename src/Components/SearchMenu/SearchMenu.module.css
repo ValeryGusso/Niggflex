@@ -5,6 +5,7 @@
 	row-gap: 2vmin;
 	align-items: center;
 	margin-left: 1vmax;
+	z-index: 1000;
 }
 
 .header {

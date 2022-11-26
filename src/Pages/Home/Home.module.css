@@ -2,15 +2,15 @@
 	display: flex;
 }
 
-.search {
+/* .search {
 	position: fixed;
-}
+} */
 
 .result {
 	display: flex;
 	flex-direction: column;
 	row-gap: 1vmin;
-	margin-left: 38vmax;
+	/* margin-left: 38vmax; */
 }
 
 .placeholder {
