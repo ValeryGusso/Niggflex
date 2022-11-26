@@ -6,7 +6,7 @@ import cls from './Registration.module.css'
 import Loader from '../../Components/Loader/Loader'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../Redux/Slices/auth'
-import { ActivateResponse, RegistrationResponse } from '../../axios/types'
+import { ActivateResponse, RegistrationResponse } from '../../Interfaces/UserAPI/userAPIResponses'
 import { useForm } from 'react-hook-form'
 import DancingText from '../../Components/DancingText/DancingText'
 

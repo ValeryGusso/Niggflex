@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { User } from './axios/types'
+import { User } from './Interfaces/UserAPI/userAPIResponses'
 import axiosUserAPI from './axios/userAPI'
 import Footer from './Components/Footer/Footer'
 import Header from './Components/Header/Header'

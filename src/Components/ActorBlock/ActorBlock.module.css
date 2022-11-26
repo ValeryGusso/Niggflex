@@ -24,7 +24,7 @@
 
 .about {
 	width: 80%;
-	padding-left: 10vmax;
+	padding-left: 5vmax;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -32,12 +32,13 @@
 }
 
 .about > div {
+	width: 100%;
 	display: flex;
 }
 
 .about p {
 	font-size: 2.5vmin;
-	width: 20%;
+	width: 30%;
 }
 
 .about span {

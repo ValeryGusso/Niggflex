@@ -1,7 +1,7 @@
 import { FC, useState, useEffect, FormEventHandler } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { ActivateResponse } from '../../axios/types'
+import { ActivateResponse } from '../../Interfaces/UserAPI/userAPIResponses'
 import axiosUserAPI from '../../axios/userAPI'
 import DancingText from '../../Components/DancingText/DancingText'
 import Input from '../../Components/Input/Input'

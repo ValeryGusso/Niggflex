@@ -8,7 +8,7 @@ import helicopterSign from '../../Assets/img/sign_h.svg'
 import cls from './Settings.module.css'
 import axiosUserAPI from '../../axios/userAPI'
 import { useDispatch } from 'react-redux'
-import { UpdatedResponse } from '../../axios/types'
+import { UpdatedResponse } from '../../Interfaces/UserAPI/userAPIResponses'
 
 const Settings: FC = () => {
 	const dispatch = useDispatch()
@@ -81,13 +81,14 @@ const Settings: FC = () => {
 			<div className={cls.block}>
 				<p>Аватар:</p>
 				<input className={cls.avatar} value={avatar} onChange={changeAvatar} />
+				<p className={cls.banner}>
+					На данный момент доступна только возможность использовать ссылку на аватар. Загрузка своих картинок в процессе
+					разработки.
+				</p>
 			</div>
 			<div className={cls.block}>
 				<p>Пол:</p>
-				<p onClick={() => setShowList(true)}>
-					{/* {sex === genders[0] ? 'мужчина' : (sex === genders[1] ? 'женщина' : 'боевой вертолёт Апачи')} */}
-					{printGender(sex)}
-				</p>
+				<p onClick={() => setShowList(true)}>{printGender(sex)}</p>
 				<div className={cls.menu} onMouseLeave={() => setShowList(false)}>
 					{showList &&
 						genders.map(

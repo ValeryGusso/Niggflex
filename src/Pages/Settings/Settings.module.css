@@ -1,15 +1,20 @@
 .container {
-	width: 100%;
+	width: 80%;
 	min-height: 100%;
 	margin-top: 5vmin;
+	margin-left: 10%;
+	/* padding: 5vmin 0; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	row-gap: 3vmin;
+	border-radius: 5vmax;
+	/* box-shadow: 0 0 2vmin rgba(255, 255, 255, 0.5); */
 }
 
 .block {
+	position: relative;
 	width: 40vmax;
 	min-height: 20vmin;
 	display: flex;
@@ -17,6 +22,14 @@
 	column-gap: 2vmax;
 	border-radius: 10vmax;
 	transition: 0.25s;
+}
+
+.banner {
+	width: 40vmax;
+	position: absolute;
+	bottom: -2vmin;
+	font-size: 2vmin;
+	text-align: center;
 }
 
 .block:hover {
@@ -120,7 +133,7 @@
 	width: 22vmax;
 	height: 12vmin;
 	z-index: -1;
-	background: #57fa86;
+	background: #64c880;
 	animation: blink 5s ease-in-out infinite;
 }
 
@@ -146,4 +159,9 @@
 	background: #151719;
 	border-radius: 1vmin;
 	cursor: pointer;
+}
+
+.btn button:hover {
+	background: #dfdfdf;
+	color: #131517;
 }

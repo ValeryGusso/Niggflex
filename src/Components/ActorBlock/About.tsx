@@ -8,7 +8,7 @@ interface AboutProps {
 }
 
 const About: FC<AboutProps> = ({ person }) => {
-	console.log(person.spouses)
+	console.log(person)
 	return (
 		<div className={cls.about}>
 			<h1>
@@ -20,12 +20,15 @@ const About: FC<AboutProps> = ({ person }) => {
 				<span>{person.sex === 'MALE' ? 'муж.' : 'жен.'}</span>
 			</div>
 			<div>
-				<p>Годы жизни:</p>
-				<span>
-					{`${new Date(person.birthday).toLocaleDateString()} - `}
-					{person.death ? ` ${new Date(person.death).toLocaleDateString()}` : 'в настоящее время жив'}
-				</span>
+				<p>Дата рождения:</p>
+				<span>{new Date(person.birthday).toLocaleDateString()}</span>
 			</div>
+			{person.death && (
+				<div>
+					<p>Дата смерти:</p>
+					<span>{new Date(person.death).toLocaleDateString()}</span>
+				</div>
+			)}
 			<div>
 				<p>Место рождения:</p>
 				<span>{person.birthplace}</span>
@@ -39,7 +42,7 @@ const About: FC<AboutProps> = ({ person }) => {
 				<span>{person.profession}</span>
 			</div>
 			<div>
-				<p>Супруга:</p>
+				<p>Супруг{person.sex === 'MALE' ? 'а' : ''}:</p>
 				<span>
 					{person.spouses.map(el => (
 						<Link to={`/actor/${el.personId}`}>

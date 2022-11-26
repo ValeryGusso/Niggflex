@@ -126,6 +126,21 @@ export const months: string[] = [
 	'DECEMBER',
 ]
 
+export const monthsForPrint: string[] = [
+	'января',
+	'февраля',
+	'марта',
+	'апреля',
+	'мая',
+	'июня',
+	'июля',
+	'августа',
+	'сентября',
+	'октября',
+	'ноября',
+	'декабря',
+]
+
 export interface SearchItem {
 	title: string
 	value: string

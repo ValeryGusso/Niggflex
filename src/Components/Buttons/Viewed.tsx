@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { movieType } from '../../Assets/constants'
-import { UpdatedResponse } from '../../axios/types'
+import { UpdatedResponse } from '../../Interfaces/UserAPI/userAPIResponses'
 import axiosUserAPI from '../../axios/userAPI'
 import { authSelector, setUser } from '../../Redux/Slices/auth'
 import cls from './Buttons.module.css'

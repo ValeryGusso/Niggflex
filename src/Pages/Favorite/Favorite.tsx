@@ -35,15 +35,14 @@ const Favorite: FC = () => {
 		<div className={cls.content}>
 			{isAuth ? (
 				<>
-					{!loading && items.length > 0 ? (
-						items.map(item => <FaviriteItem film={item} key={item.id} />)
-					) : (
-						<h2>К сожалению спосок избранного пуст...</h2>
-					)}
-					{loading && (
+					{loading ? (
 						<div className={cls.loader}>
 							<Loader />
 						</div>
+					) : items.length > 0 ? (
+						items.map(item => <FaviriteItem film={item} key={item.id} />)
+					) : (
+						<h2>К сожалению спосок избранного пуст...</h2>
 					)}
 				</>
 			) : (
