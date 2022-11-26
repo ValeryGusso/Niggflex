@@ -80,12 +80,23 @@ const Registration: FC = () => {
 	}
 
 	async function sendCode() {
+		if (!code) {
+			setActivateError({ error: true, message: 'Тут ничего нет :(' })
+			return
+		}
+
 		const request = { id: id.current, key: code }
-		const res = await axiosUserAPI.post<ActivateResponse>('/activate', request).catch(err => {
-			if (err) {
-				setActivateError({ error: true, message: err.msg })
-			}
-		})
+		setLoading(true)
+		const res = await axiosUserAPI
+			.post<ActivateResponse>('/activate', request)
+			.catch(err => {
+				if (err) {
+					setActivateError({ error: true, message: err.msg })
+				}
+			})
+			.finally(() => {
+				setLoading(false)
+			})
 
 		if (res) {
 			dispatch(setUser(res.data.user))
@@ -133,7 +144,9 @@ const Registration: FC = () => {
 									tabIndex={1}
 								/>
 							</div>
-							{loading ? <Loader /> : <button tabIndex={2}>Активировать аккаунт!</button>}
+							<div className={cls.loader}>
+								{loading ? <Loader /> : <button tabIndex={2}>Активировать аккаунт!</button>}
+							</div>
 						</form>
 					) : (
 						<form onSubmit={handleSubmit(submit)}>
@@ -155,7 +168,7 @@ const Registration: FC = () => {
 											{...register}
 										/>
 									</div>
-									<button tabIndex={4}>ПОЕХАЛИ!</button>
+									<div className={cls.loader}>{loading ? <Loader /> : <button tabIndex={4}>ПОЕХАЛИ!</button>}</div>
 								</div>
 								<div>
 									<div className={cls.block}>

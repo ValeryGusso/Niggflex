@@ -34,7 +34,12 @@ const Login: FC = () => {
 		const res = await axiosUserAPI
 			.post<ActivateResponse>('/login', request)
 			.catch(err => {
-				if (err.response.data.message === 'Пользователь не активирован') {
+				if (err.code === 'ERR_NETWORK') {
+					setLoginError({ error: true, message: 'Ошибка сервера авторизации' })
+					setPassError({ error: true, message: 'Ошибка сервера авторизации' })
+					return
+				}
+				if (err?.response?.data?.message === 'Пользователь не активирован') {
 					setLoginError({ error: true, message: 'Пользователь не активирован' })
 					setPassError({ error: true, message: 'Пользователь не активирован' })
 					return

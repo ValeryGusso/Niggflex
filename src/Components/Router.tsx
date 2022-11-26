@@ -32,8 +32,8 @@ const NiggflexRouter: FC = () => {
 			<Route path="/search/actors" element={<SearchResults type="actors" />} />
 			<Route path="/film/:id" element={<Film />} />
 			<Route path="/actor/:id" element={<Actor />} />
-			<Route path="/login" element={<Login />} />
-			<Route path="/registration" element={<Registration />} />
+			{!isAuth && <Route path="/login" element={<Login />} />}
+			{!isAuth && <Route path="/registration" element={<Registration />} />}
 			{isAuth && <Route path="/settings" element={<Settings />} />}
 			<Route path="*" element={<Home />} />
 		</Routes>

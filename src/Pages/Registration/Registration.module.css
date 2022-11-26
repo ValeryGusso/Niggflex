@@ -28,6 +28,16 @@
 	justify-content: space-between;
 }
 
+.loader {
+	width: 100%;
+	min-height: 9vmin;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 8vmin;
+	margin-bottom: 2vmin;
+}
+
 .container > div {
 	width: calc(50vmax + 2vmin);
 	height: calc(58vmin + 2vmin);
@@ -62,7 +72,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* background: darkgray */
 }
 
 .footer {
@@ -81,9 +90,7 @@
 }
 
 .content button {
-	/* width: 10vmax; */
 	padding: 2vmin 2vmax;
-	margin-bottom: 3vmin;
 	font-size: 3vmin;
 	font-weight: bold;
 	font-style: italic;
@@ -139,7 +146,6 @@
 }
 
 .activate > div {
-	/* height: 10vmin; */
 	margin-bottom: 3vmin;
 }
 
