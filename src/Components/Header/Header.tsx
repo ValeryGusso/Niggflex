@@ -16,6 +16,7 @@ import { genders, headerMenu } from '../../Assets/constants'
 import { useSelector } from 'react-redux'
 import { authSelector, removeUser } from '../../Redux/Slices/auth'
 import { useDispatch } from 'react-redux'
+import Loader from '../Loader/Loader'
 
 const avatars = [avatarDefaulfMan, avatarDefaulfWoman, avatarDefaulfHelicopter]
 
@@ -23,7 +24,7 @@ const Header: FC = () => {
 	const dispatch = useDispatch()
 	const [open, setOpen] = useState(false)
 	const [openSettings, setOpenSettings] = useState(false)
-	const { isAuth, name, sex, avatar } = useSelector(authSelector)
+	const { isAuth, name, sex, avatar, loading } = useSelector(authSelector)
 	const [defAva, setDefAva] = useState('')
 
 	useEffect(() => {
@@ -64,34 +65,41 @@ const Header: FC = () => {
 				<Search />
 			</div>
 			<div className={cls.rightMenu}>
-				<div
-					onMouseLeave={() => setOpenSettings(false)}
-					className={classNames(cls.topBlock, openSettings ? cls.showSettings : '')}
-				>
-					{isAuth ? (
-						<div onClick={() => setOpenSettings(true)} className={cls.userInfo}>
-							<p>{name}</p>
-							<img src={avatar || defAva} alt="avatar" />
-						</div>
-					) : (
-						<div className={cls.userInfo}>
-							<Link to="/registration">Регистрация</Link>
-							<Link to="/login">Вход</Link>
-						</div>
-					)}
-					{openSettings && (
-						<div className={cls.settings}>
-							<div>
-								<img src={settings} alt="gear" />
-								<Link to="/settings">Настройки</Link>
+				{loading ? (
+					<div className={cls.loader}>
+						<h1>Загрузка пользователя...</h1>
+						<Loader />
+					</div>
+				) : (
+					<div
+						onMouseLeave={() => setOpenSettings(false)}
+						className={classNames(cls.topBlock, openSettings ? cls.showSettings : '')}
+					>
+						{isAuth ? (
+							<div onClick={() => setOpenSettings(true)} className={cls.userInfo}>
+								<p>{name}</p>
+								<img src={avatar || defAva} alt="avatar" />
 							</div>
-							<div>
-								<img src={logout} alt="logout" />
-								<p onClick={exit}>Выйти</p>
+						) : (
+							<div className={cls.userInfo}>
+								<Link to="/registration">Регистрация</Link>
+								<Link to="/login">Вход</Link>
 							</div>
-						</div>
-					)}
-				</div>
+						)}
+						{openSettings && (
+							<div className={cls.settings}>
+								<div>
+									<img src={settings} alt="gear" />
+									<Link to="/settings">Настройки</Link>
+								</div>
+								<div>
+									<img src={logout} alt="logout" />
+									<p onClick={exit}>Выйти</p>
+								</div>
+							</div>
+						)}
+					</div>
+				)}
 			</div>
 		</div>
 	)

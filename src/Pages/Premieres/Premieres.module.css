@@ -28,6 +28,7 @@
 	row-gap: 0.5vmin;
 	padding: 1vmin 1vmax;
 	text-align: left;
+	color: black;
 	background: wheat;
 	border-bottom-left-radius: 1vmax;
 	border-bottom-right-radius: 1vmax;
@@ -73,17 +74,11 @@
 	transition: 0.3s;
 }
 
-.disabled {
-	background: #acacac !important;
-	color: #131517 !important;
-	transform: scale(1) !important;
-	cursor: no-drop;
-}
-
 .active {
 	background: #76c77d !important;
 	color: #131517 !important;
 	transform: scale(1) !important;
+	box-shadow: none !important;
 	cursor: no-drop;
 }
 
@@ -92,9 +87,10 @@
 }
 
 .container > h1 > span > ul > li:hover {
-	background: #131517;
-	color: #dfdfdf;
+	background: #85ba60;
+	color: black;
 	transform: scale(1.1);
+	box-shadow: 0.075vmax -0.15vmin 0 2px black;
 	filter: blur(0);
 }
 

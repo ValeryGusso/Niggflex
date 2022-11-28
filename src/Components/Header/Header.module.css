@@ -38,7 +38,12 @@
 .logo > div > img:nth-child(1) {
 	width: 2vmax;
 	filter: invert(0.5);
+	transition: 0.3s;
 	cursor: pointer;
+}
+
+.logo > div > img:nth-child(1):hover {
+	filter: invert(1);
 }
 
 .logo > div > img:nth-child(2) {
@@ -55,6 +60,16 @@
 	left: 78vmax;
 	width: 20vmax;
 	height: 100%;
+}
+
+.loader {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	padding-top: 1vmin;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .userInfo {

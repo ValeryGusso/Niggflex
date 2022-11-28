@@ -5,6 +5,7 @@ import { User } from '../../Interfaces/UserAPI/userAPIResponses'
 
 interface authSliceState {
 	isAuth: boolean
+	loading: boolean
 	id: string
 	email: string
 	name: string
@@ -17,6 +18,7 @@ interface authSliceState {
 
 const initialState: authSliceState = {
 	isAuth: false,
+	loading: true,
 	id: '',
 	email: '',
 	name: '',
@@ -31,16 +33,16 @@ export const authSlice = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
-		setUser(state, actions: PayloadAction<User>) {
-			state.isAuth = actions.payload.isActivated
-			state.id = actions.payload.id
-			state.email = actions.payload.email
-			state.name = actions.payload.name
-			state.avatar = actions.payload.avatar
-			state.sex = actions.payload.sex
-			state.isActivated = actions.payload.isActivated
-			state.favorite = actions.payload.favorite
-			state.viewed = actions.payload.viewed
+		setUser(state, action: PayloadAction<User>) {
+			state.isAuth = action.payload.isActivated
+			state.id = action.payload.id
+			state.email = action.payload.email
+			state.name = action.payload.name
+			state.avatar = action.payload.avatar
+			state.sex = action.payload.sex
+			state.isActivated = action.payload.isActivated
+			state.favorite = action.payload.favorite
+			state.viewed = action.payload.viewed
 		},
 		removeUser(state) {
 			state.isAuth = false
@@ -53,10 +55,13 @@ export const authSlice = createSlice({
 			state.favorite = []
 			state.viewed = []
 		},
+		setLoading(state, action: PayloadAction<boolean>) {
+			state.loading = action.payload
+		},
 	},
 })
 
-export const { setUser, removeUser } = authSlice.actions
+export const { setUser, removeUser, setLoading } = authSlice.actions
 
 export const authSelector = (state: RootState) => state.auth
 

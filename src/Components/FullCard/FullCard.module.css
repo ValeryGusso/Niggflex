@@ -504,11 +504,6 @@
 
 /* Reviews */
 
-/* .reviews {
-	display: flex;
-	row-gap: 5vmin;
-} */
-
 .reviewsLoader {
 	width: 100%;
 	height: 100%;
@@ -631,42 +626,12 @@
 
 /* Review */
 
-/* .reviewWrapper { 
-	position: relative;
-	padding: 1vmin 1vmin;
-	border-radius: 5.25vmax
-}
-
-.reviewWrapper::before {
-	content: '';
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 70vmax;
-	height: 40vmin;
-	background: linear-gradient(transparent, #e50914, #e50914, #e50914, transparent);
-	animation: rotate 10s linear infinite;
-	z-index: -1;
-}
-
-@keyframes rotate {
-	0% {
-		transform: translate(-50%, -50%) rotate(0deg);
-	}
-
-	100% {
-		transform: translate(-50%, -50%) rotate(360deg);
-	}
-} */
-
 .review {
 	display: flex;
 	flex-direction: column;
 	padding: 2vmin 3vmax;
 	row-gap: 2vmin;
 	border-radius: 5vmax;
-	/* background: #171921 */
 }
 
 .review > div {
@@ -694,7 +659,6 @@
 .review > p {
 	font-size: 2vmin;
 	padding: 3vmin 2vmax;
-	/* color: #151719; */
 	border-radius: 2vmax;
 	background: black;
 }

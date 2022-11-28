@@ -1,5 +1,5 @@
 import { Dispatch, FC, SetStateAction, useState } from 'react'
-import { genres, GenresItem, genresList, searchTypes } from '../../Assets/constants'
+import { genres, GenresItem, searchTypes } from '../../Assets/constants'
 import InputBlock from './InputBlock'
 import close from '../../Assets/img/close.svg'
 import cls from './SearchMenu.module.css'
@@ -84,7 +84,7 @@ const SearchMenu: FC<SearchMenuProps> = ({ show }) => {
 			ratingTo: maxRating,
 			yearFrom: minYear,
 			yearTo: maxYear,
-			order: 'YEAR',
+			order: 'RATING',
 			page: 1,
 		}
 

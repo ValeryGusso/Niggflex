@@ -2,18 +2,45 @@
 	width: 85vmax;
 	margin-left: 7.5vmax;
 	display: flex;
+	text-align: center;
+	align-items: center;
 	flex-direction: column;
 	flex-wrap: wrap;
 	row-gap: 2vmin;
 }
 
-.container > h1 {
-	font-size: 7vmin;
-	padding-top: 4vmin;
-	text-align: center;
+.content {
+	width: 100%;
+	height: 72vmin;
+	overflow-y: auto;
+	padding-bottom: 2vmin;
+	border-bottom: 5px solid #dfdfdf;
 }
 
-.container > div {
+.content > div {
+	/* overflow: hidden; */
+	height: 100vh;
+}
+
+.container > h1 {
+	font-size: 5vmin;
+	text-align: center;
+	padding: 0 2vmax;
+	cursor: default;
+	border-radius: 2vmin;
+	background: rgba(0, 0, 0, 0.75);
+}
+
+.container > h2 {
+	font-size: 3vmin;
+	padding: 0 2vmax;
+	text-align: center;
+	cursor: default;
+	border-radius: 2vmin;
+	background: rgba(0, 0, 0, 0.75);
+}
+
+.container > div > div {
 	display: flex;
 	flex-wrap: wrap;
 	column-gap: 1vmax;
@@ -27,4 +54,10 @@
 	transform: scale(2);
 	display: flex;
 	justify-content: center;
+}
+
+.hidenLine {
+	width: 100%;
+	height: 1vmin;
+	background: transparent;
 }

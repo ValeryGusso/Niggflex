@@ -10,6 +10,10 @@
 	color: #dfdfdf;
 }
 
+* ::selection {
+	background: #3f3f3f;
+}
+
 .all {
 	color: wheat;
 	text-decoration: underline;
@@ -19,12 +23,25 @@ body {
 	overflow-x: hidden;
 	margin-right: 0.75vmax;
 	min-height: 100vh;
-	background: linear-gradient(45deg, #111315, #151719);
+}
+
+#root {
+	width: calc(100vw - 0.75vmax);
+	max-height: 100vh;
+}
+
+.bg {
+	width: calc(100vw - 0.75vmax);
+	min-height: 100vh;
+	background: var(--bg) no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 .container {
-	width: 100vw;
-	min-height: 100vh;
+	width: 100%;
+	min-height: 100%;
+	background: var(--backdrop);
 }
 
 .content {

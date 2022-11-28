@@ -101,6 +101,7 @@
 
 .allGenres p:hover {
 	color: #fff;
+	text-decoration: underline;
 }
 
 .selected {

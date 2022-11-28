@@ -82,15 +82,25 @@ const ActorBlock: FC = () => {
 					</div>
 					<div className={cls.info}>
 						<h2>Полулярные работы: </h2>
-						<div className={cls.films}>
-							{films && films.docs?.length > 0 && films.docs.map((film, i) => <Film film={film} key={i} />)}
-						</div>
-						<div className={cls.facts}>
-							<button onClick={() => setShowFacts(!showFacts)}>
-								{showFacts ? 'Скрыть' : `Интересные факты о ${person.nameRu || person.nameEn}`}
-							</button>
-							{person.facts.length > 0 && showFacts && person.facts.map((fact, i) => <p key={i}>{fact}</p>)}
-						</div>
+						{films &&
+							films.docs.length > 0 &&
+							(filmsLoading ? (
+								<div className={cls.loader}>
+									<Loader />
+								</div>
+							) : (
+								<div className={cls.films}>
+									{films && films.docs?.length > 0 && films.docs.map((film, i) => <Film film={film} key={i} />)}
+								</div>
+							))}
+						{person.facts.length > 0 && (
+							<div className={cls.facts}>
+								<button onClick={() => setShowFacts(!showFacts)}>
+									{showFacts ? 'Скрыть' : `Интересные факты о ${person.nameRu || person.nameEn}`}
+								</button>
+								{person.facts.length > 0 && showFacts && person.facts.map((fact, i) => <p key={i}>{fact}</p>)}
+							</div>
+						)}
 					</div>
 				</div>
 			) : (

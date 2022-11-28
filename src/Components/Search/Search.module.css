@@ -4,7 +4,6 @@
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
-	/* background: darkgray */
 }
 
 .search input {
@@ -38,9 +37,16 @@
 	width: 5vmin;
 	margin-top: 1.5vmin;
 	transform: rotateZ(270deg);
-	filter: invert(1) !important;
+	filter: invert(0.75);
+	transition: 0.3s;
 	cursor: pointer;
 }
+
+.search > img:hover {
+	filter: invert(1);
+	transform: rotateZ(225deg) scale(1.1);
+}
+
 
 .results {
 	position: absolute;
@@ -61,14 +67,11 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	justify-items: center;
-	/* padding-bottom: 2vmin; */
 }
 
 .wrapper > div {
 	max-height: 100%;
 	width: 100%;
-
-	/* background: darkslategrey */
 }
 
 .films,
@@ -221,7 +224,6 @@
 
 .cart {
 	position: fixed;
-	width: 23vmax;
 	height: 65vmin;
 	z-index: 1000;
 }
@@ -239,20 +241,12 @@
 	cursor: default;
 }
 
-/* .image {
-	display: flex;
-	column-gap: 3vmax;
-} */
-
 .buttons {
 	position: absolute;
 	top: 0;
 	left: 15vmax;
-	/* height: 20vmin; */
 	display: flex;
-	/* flex-direction: column; */
 	justify-content: end;
 	align-items: end;
 	row-gap: 2vmin;
-	/* background: rgba(0, 0, 0, 0.95); */
 }

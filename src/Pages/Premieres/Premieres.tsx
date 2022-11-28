@@ -56,7 +56,7 @@ const Premieres: FC = () => {
 			setSearch(prev => ({ ...prev, year: value }))
 			setShow(prev => ({ ...prev, year: false }))
 		}
-		if (type === 'month' && value <= new Date().getMonth() && value !== search.month) {
+		if (type === 'month' && value !== search.month) {
 			setSearch(prev => ({ ...prev, month: value }))
 			setShow(prev => ({ ...prev, month: false }))
 		}
@@ -80,10 +80,7 @@ const Premieres: FC = () => {
 									<li
 										onClick={() => changeSearch('month', i)}
 										key={el}
-										className={classNames(
-											i > new Date().getMonth() && search.year === new Date().getFullYear() ? cls.disabled : '',
-											i === search.month ? cls.active : ''
-										)}
+										className={i === search.month ? cls.active : ''}
 									>
 										{el}
 									</li>

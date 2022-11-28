@@ -7,7 +7,6 @@ interface PosterProps {
 }
 
 const Poster: FC<PosterProps> = ({ film }) => {
-	console.log(film)
 	return <div className={cls.poster}></div>
 }
 

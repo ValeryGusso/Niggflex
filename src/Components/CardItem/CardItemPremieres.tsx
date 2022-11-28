@@ -6,6 +6,7 @@ import noimage from '../../Assets/img/noimage.png'
 import { Country, Film } from '../../Interfaces/KPunofficial/premieres'
 import { Genre } from '../../Interfaces/KPunofficial/search'
 import Favorite from '../Buttons/Favorite'
+import { cut } from '../../Utils/print'
 
 interface CardItemPremieresProps {
 	film: Film
@@ -45,7 +46,7 @@ const CardItemPremieres: FC<CardItemPremieresProps> = ({ film }) => {
 	return (
 		<div className={cls.cartItem}>
 			<div className={cls.content}>
-				<Link to={`/film/${film.kinopoiskId}`}>{film.nameRu || film.nameEn}</Link>
+				<Link to={`/film/${film.kinopoiskId}`}>{cut(film.nameRu || film.nameEn, 30)}</Link>
 				{showDetails ? (
 					<div onPointerLeave={() => setShowDetails(false)} className={classNames(cls.back, cls.premieres)}>
 						<div>

@@ -24,7 +24,7 @@ const CardItemOther: FC<CardItemOtherProps> = ({ film }) => {
 	return (
 		<div onPointerLeave={() => setShowDetails(false)} className={cls.cartItem}>
 			<div className={cls.content}>
-				{!showDetails && <Link to={`/film/${film.id}`}>{cut(film.name || film.alternativeName, 40)}</Link>}
+				{!showDetails && <Link to={`/film/${film.id}`}>{cut(film.name || film.alternativeName, 30)}</Link>}
 				{showDetails ? (
 					<div className={classNames(cls.back, cls.other)}>
 						<p>{cut(film.shortDescription || film.description || 'Нет данных', 500)}</p>
