@@ -3,14 +3,12 @@
 	min-height: 100%;
 	margin-top: 5vmin;
 	margin-left: 10%;
-	/* padding: 5vmin 0; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	row-gap: 3vmin;
 	border-radius: 5vmax;
-	/* box-shadow: 0 0 2vmin rgba(255, 255, 255, 0.5); */
 }
 
 .block {
@@ -20,7 +18,7 @@
 	display: flex;
 	align-items: center;
 	column-gap: 2vmax;
-	border-radius: 10vmax;
+	border-radius: 4vmax;
 	transition: 0.25s;
 }
 
@@ -65,11 +63,17 @@
 	transition: 0.3s;
 }
 
-.block input {
+.block input,
+.block textarea {
 	background: transparent;
 	border: none;
 	transition: 0.3s;
 	border-bottom: 3px solid wheat;
+}
+
+.block textarea {
+	resize: none;
+	padding: 0.5vmin 0.5vmax;
 }
 
 .name {
@@ -89,7 +93,8 @@
 	font-size: 3vmin;
 }
 
-.block input:focus {
+.block input:focus,
+.block textarea:focus {
 	background: wheat;
 	color: #232529;
 	outline: none;
@@ -156,12 +161,15 @@
 	height: 8vmin;
 	font-size: 3vmin;
 	border: none;
-	background: #151719;
+	background: transparent;
+	text-decoration: underline 5px;
 	border-radius: 1vmin;
+	transition: 0.3s;
 	cursor: pointer;
 }
 
 .btn button:hover {
 	background: #dfdfdf;
+	text-decoration: none;
 	color: #131517;
 }

@@ -3,14 +3,19 @@
 	margin-left: 7.5vmax;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	flex-wrap: wrap;
 	row-gap: 2vmin;
 }
 
 .container > h1 {
 	font-size: 5vmin;
-	padding-top: 4vmin;
 	text-align: center;
+	padding: 0 2vmax;
+	margin-top: 2vmin;
+	cursor: default;
+	border-radius: 2vmin;
+	background: rgba(0, 0, 0, 0.75);
 }
 
 .container > h1 > span {
@@ -95,11 +100,19 @@
 }
 
 .container > div {
+	width: 95vw;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
 	column-gap: 1vmax;
 	row-gap: 5vmin;
+	padding: 0 3vmax;
 	margin-top: 5vmin;
+	transform: translateX(-5vmax);
+	box-sizing: border-box;
+	border-left: 2px solid #dfdfdf;
+	border-right: 2px solid #dfdfdf;
+
 }
 
 .loader {

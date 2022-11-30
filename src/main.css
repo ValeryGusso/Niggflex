@@ -26,12 +26,11 @@ body {
 }
 
 #root {
-	width: calc(100vw - 0.75vmax);
 	max-height: 100vh;
 }
 
 .bg {
-	width: calc(100vw - 0.75vmax);
+	width: 100vw;
 	min-height: 100vh;
 	background: var(--bg) no-repeat;
 	background-size: cover;

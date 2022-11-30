@@ -10,16 +10,12 @@
 }
 
 .content {
-	width: 100%;
+	width: 95vmax;
 	height: 72vmin;
+	transform: translateX(-5vmax);
 	overflow-y: auto;
 	padding-bottom: 2vmin;
 	border-bottom: 5px solid #dfdfdf;
-}
-
-.content > div {
-	/* overflow: hidden; */
-	height: 100vh;
 }
 
 .container > h1 {
@@ -43,7 +39,8 @@
 .container > div > div {
 	display: flex;
 	flex-wrap: wrap;
-	column-gap: 1vmax;
+	justify-content: space-between;
+	padding: 0 2vmax;
 	row-gap: 5vmin;
 	margin-top: 5vmin;
 }

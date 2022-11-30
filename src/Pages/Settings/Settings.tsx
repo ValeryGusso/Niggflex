@@ -60,7 +60,7 @@ const Settings: FC = () => {
 		setWasChanged(true)
 	}
 
-	function changeAvatar(e: React.ChangeEvent<HTMLInputElement>) {
+	function changeAvatar(e: React.ChangeEvent<HTMLTextAreaElement>) {
 		setAvatar(e.target.value)
 		setWasChanged(true)
 	}
@@ -80,7 +80,7 @@ const Settings: FC = () => {
 			</div>
 			<div className={cls.block}>
 				<p>Аватар:</p>
-				<input className={cls.avatar} value={avatar} onChange={changeAvatar} />
+				<textarea className={cls.avatar} value={avatar} onChange={changeAvatar} />
 				<p className={cls.banner}>
 					На данный момент доступна только возможность использовать ссылку на аватар. Загрузка своих картинок в процессе
 					разработки.

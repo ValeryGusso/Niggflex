@@ -56,49 +56,6 @@ const FullCard: FC = () => {
 		window.scrollTo(0, 0)
 	}, [params.id])
 
-	function createMarkup(text: string = '') {
-		const updated = text
-			.replace(/\<a\shref="\//gi, '<Link to="/')
-			.replace(/\<\/a\>/gi, '</Link>')
-			.replace(/"\/name\//gi, '"/actor/')
-
-		return { __html: text }
-	}
-
-	// function createMarkup2(string: string) {
-	// 	const updated: string[] | null = string.match(/\<a h.+?\/a>/gis)
-	// 	const arr = string.split(/\<a h.+?\/a>/gis)
-
-	// 	let pure = string
-	// 	const links: string[] = []
-
-	// 	updated?.forEach((str, i) => {
-	// 		pure = pure.replace(str, 'place' + i)
-	// 		links.push(
-	// 			str
-	// 				.replace(/\<a\shref="\//gi, '<Link to="/')
-	// 				.replace(/\<\/a\>/gi, '</Link>')
-	// 				.replace(/"\/name\//gi, '"/actor/')
-	// 				.replace('class=', ' className=')
-	// 		)
-	// 	})
-	// 	let result = pure
-	// 	links.forEach((link, i) => {
-	// 		result = result.replace(`place${i}`, link)
-	// 	})
-
-	// 	return arr.map((el, i) => (
-	// 		<>
-	// 			{el}{' '}
-	// 			{links[i] && (
-	// 				<Link to={'/' + `${links[i]?.match(/".+?"/is)?.[0]?.replace(/"/g, '')}`} className={cls.link}>{`${links[i]
-	// 					?.match(/\>.+?\<\//is)?.[0]
-	// 					?.replace(/[\/\<\>]/g, '')}`}</Link>
-	// 			)}
-	// 		</>
-	// 	))
-	// }
-
 	return (
 		<div className={cls.card}>
 			{loading ? (

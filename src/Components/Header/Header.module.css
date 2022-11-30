@@ -102,27 +102,39 @@
 
 .userInfo a {
 	margin-top: 1vmin;
-	border-radius: 1vmin;
+	border-radius: 2vmin;
 	border: none;
 	padding: 1vmin 1vmax;
 	font-size: 3vmin;
 	cursor: pointer;
 	font-style: italic;
 	font-weight: bold;
-	color: #353739;
+	transition: 0.3s;
+	text-decoration: underline;
+	border: 5px solid transparent;
+	box-sizing: border-box;
 }
 
 .userInfo a:hover {
 	animation: tremor 0.2s linear 2;
+	text-decoration: none !important;
 }
 
 .userInfo a:nth-child(1) {
 	margin-left: 5vmax;
-	background: #57fa86;
+	text-decoration: underline #57fa86 5px;
+}
+
+.userInfo a:nth-child(1):hover {
+	color: #57fa86;
 }
 
 .userInfo a:nth-child(2) {
-	background: #75acff;
+	text-decoration: underline #75acff 5px;
+}
+
+.userInfo a:nth-child(2):hover {
+	color: #75acff;
 }
 
 @keyframes tremor {
@@ -295,4 +307,8 @@
 .settings > div:hover img {
 	filter: invert(1);
 	transform: translate(0.5vmax, 0.25vmin) scale(1.2);
+}
+
+.logout > div {
+	transform: scale(0.75) translateX(6vmax);
 }

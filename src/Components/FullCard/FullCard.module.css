@@ -44,6 +44,7 @@
 .poster > img {
 	border-radius: 1vmax;
 	width: 75%;
+	filter: drop-shadow(0 0 1vmax rgba(255, 255, 255, 0.3));
 }
 
 .header {
@@ -79,8 +80,9 @@
 
 .viewed {
 	position: absolute;
+	width: 15vmax;
 	top: -1vmin;
-	right: 0;
+	right: -2vmax;
 }
 
 /* About */
@@ -95,7 +97,9 @@
 }
 
 .about h2 {
-	text-align: start;
+	width: 10vmax;
+	background: rgba(0, 0, 0, 0.75);
+	border-radius: 1vmin;
 }
 
 .about > div {
@@ -107,13 +111,17 @@
 .about p {
 	text-align: start;
 	font-size: 2.25vmin;
+	background: rgba(0, 0, 0, 0.75);
+	border-radius: 1vmin;
 	width: 20%;
 }
 
 .about span {
 	text-align: start;
 	font-size: 2.25vmin;
-	width: 80%;
+	max-width: 80%;
+	background: rgba(0, 0, 0, 0.75);
+	border-radius: 1vmin;
 }
 
 .info {
@@ -132,19 +140,27 @@
 	padding: 1vmin 2vmin;
 	font-size: 2.5vmin;
 	font-weight: bold;
-	color: #252729;
-	background: #74acff;
-	transition: 1s;
+	background: rgba(0, 0, 0, 0.5);
+	text-decoration: underline 5px #74acff;
+	transition: 0.3s;
 	cursor: pointer;
 }
 
+.menuBar p:hover {
+	color: #252729;
+	text-decoration: none !important;
+	background: #74acff;
+}
+
 .active {
-	background: #acddff !important;
+	color: #252729;
+	text-decoration: none !important;
+	background: #74acff !important;
 }
 
 .menuContent {
 	overflow-y: auto;
-	height: 45vmin;
+	max-height: 45vmin;
 	display: flex;
 	flex-direction: column;
 	row-gap: 2vmin;
@@ -152,6 +168,8 @@
 
 .menuContent p {
 	font-size: 2vmin;
+	background: rgba(0, 0, 0, 0.75);
+	border-radius: 1vmin;
 }
 
 /* Rating */
@@ -159,7 +177,7 @@
 .rating {
 	position: absolute;
 	top: 0;
-	left: -5vmax;
+	left: -8.5vmax;
 }
 
 .block {
@@ -191,11 +209,11 @@
 .rating h2 {
 	position: absolute;
 	top: 1vmin;
-	left: 17vmax;
+	left: 21vmax;
 	font-size: 3vmin;
 	font-style: italic;
 	font-weight: bold;
-	color: #ff4547;
+	color: #141618;
 	padding: 0 1vmin;
 	z-index: 10;
 	border-radius: 1vmin;
@@ -436,6 +454,7 @@
 	padding: 1vmin 1vmax;
 	border-radius: 1vmax;
 	box-shadow: 0 0 1vmax white;
+	background: rgba(0, 0, 0, 0.75);
 	transition: 0.3s;
 }
 
@@ -488,6 +507,7 @@
 	padding: 1vmin 1vmax;
 	column-gap: 1vmin;
 	border-radius: 2vmax;
+	background: rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 1vmax white;
 	transition: 0.3s;
 }
@@ -632,6 +652,7 @@
 	padding: 2vmin 3vmax;
 	row-gap: 2vmin;
 	border-radius: 5vmax;
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .review > div {
@@ -674,18 +695,21 @@
 }
 
 .review > h4 {
-	width: 20vmax;
+	width: 18vmax;
 	padding: 0.75vmin 0;
 	font-size: 2vmin;
 	text-align: center;
 	border-radius: 5vmin;
-	border: 2px solid #7c7c7c;
+	text-decoration: underline 3px;
+	/* border: 2px solid #7c7c7c; */
 	cursor: pointer;
 	transition: 0.3s;
 }
 
 .review > h4:hover:hover {
-	border: 2px solid white;
+	color: #141618;
+	text-decoration: none;
+	background: gray;
 }
 
 .hiddenLine {

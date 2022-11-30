@@ -25,6 +25,7 @@ const Header: FC = () => {
 	const [open, setOpen] = useState(false)
 	const [openSettings, setOpenSettings] = useState(false)
 	const { isAuth, name, sex, avatar, loading } = useSelector(authSelector)
+	const [logoutLoading, setLogoutLoading] = useState(false)
 	const [defAva, setDefAva] = useState('')
 
 	useEffect(() => {
@@ -36,11 +37,17 @@ const Header: FC = () => {
 	}, [sex])
 
 	function exit() {
-		axiosUserAPI.get('/logout').then(res => {
-			if (res.status === 200) dispatch(removeUser())
-			localStorage.removeItem('access')
-			setOpenSettings(false)
-		})
+		!logoutLoading && setLogoutLoading(true)
+		axiosUserAPI
+			.get('/logout')
+			.then(res => {
+				if (res.status === 200) dispatch(removeUser())
+				localStorage.removeItem('access')
+			})
+			.finally(() => {
+				setOpenSettings(false)
+				setLogoutLoading(false)
+			})
 	}
 
 	return (
@@ -92,9 +99,15 @@ const Header: FC = () => {
 									<img src={settings} alt="gear" />
 									<Link to="/settings">Настройки</Link>
 								</div>
-								<div>
-									<img src={logout} alt="logout" />
-									<p onClick={exit}>Выйти</p>
+								<div className={cls.logout}>
+									{logoutLoading ? (
+										<Loader />
+									) : (
+										<>
+											<img src={logout} alt="logout" />
+											<p onClick={exit}>Выйти</p>
+										</>
+									)}
 								</div>
 							</div>
 						)}

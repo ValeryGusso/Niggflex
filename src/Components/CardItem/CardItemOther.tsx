@@ -27,7 +27,7 @@ const CardItemOther: FC<CardItemOtherProps> = ({ film }) => {
 				{!showDetails && <Link to={`/film/${film.id}`}>{cut(film.name || film.alternativeName, 30)}</Link>}
 				{showDetails ? (
 					<div className={classNames(cls.back, cls.other)}>
-						<p>{cut(film.shortDescription || film.description || 'Нет данных', 500)}</p>
+						<p>{cut(film.shortDescription || film.description || 'Нет данных', 300)}</p>
 						<div className={cls.blocks}>
 							<div className={cls.block}>
 								<img src={KP} alt="KP" />
