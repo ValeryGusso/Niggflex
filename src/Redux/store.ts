@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authSlice from './Slices/auth'
+import backgroundSlise from './Slices/background'
 import favoriteSlice from './Slices/favorite'
 import filmSlice from './Slices/films'
 import noveltySlice from './Slices/novelty'
@@ -10,6 +11,7 @@ import searchFilmsSlice from './Slices/searchFilms'
 export const store = configureStore({
 	reducer: {
 		films: filmSlice,
+		background: backgroundSlise,
 		novelty: noveltySlice,
 		searchFilms: searchFilmsSlice,
 		searchActors: searchActorsSlice,

@@ -1,68 +1,68 @@
-import { FC, useState, useEffect } from 'react'
-import { InView, useInView } from 'react-intersection-observer'
-import { useDispatch } from 'react-redux'
+import { CSSProperties, FC, useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router'
-import { useNavigate } from 'react-router'
-import Loader from '../../Components/Loader/Loader'
-import SearchMenu from '../../Components/SearchMenu/SearchMenu'
-import SmallCard from '../../Components/SmallCard/SmallCard'
-import { fetchFilms, filmsSelector, ParamsType } from '../../Redux/Slices/films'
+import { Link } from 'react-router-dom'
+import { setTimeout } from 'timers/promises'
+import axiosKPunofficial from '../../axios/KPunofficial'
+import DancingText from '../../Components/DancingText/DancingText'
+import { Film, TopResponse } from '../../Interfaces/KPunofficial/top'
+import { authSelector } from '../../Redux/Slices/auth'
+import { backgroundSelector } from '../../Redux/Slices/background'
 import cls from './Home.module.css'
 
 const Home: FC = () => {
-	const navigate = useNavigate()
-	const params = useParams()
-	const dispatch = useDispatch()
-	const [showResult, setShowResult] = useState(false)
-	const { data } = useSelector(filmsSelector)
-	const { ref, entry } = useInView()
-	const { data: films, loading, prevParams, curPage, pageLimit } = useSelector(filmsSelector)
+	const { isAuth, name } = useSelector(authSelector)
+	const { row1, row2, row3, loading } = useSelector(backgroundSelector)
 
-	useEffect(() => {
-		if (params['*']) {
-			navigate('/')
-		}
-	}, [])
-
-	useEffect(() => {
-		if (entry?.isIntersecting && films.length > 0) {
-			if (curPage <= pageLimit) {
-				const params: ParamsType = { ...prevParams }
-				params.page = curPage
-				// @ts-ignore
-				dispatch(fetchFilms(params))
-			}
-		}
-	}, [entry])
 	return (
-		<div className={cls.container}>
-			<div className={cls.search}>
-				<SearchMenu show={setShowResult} />
+		<div className={cls.wrapper}>
+			<div className={cls.title}>
+				<h1>Добро пожаловать на </h1>
+				<DancingText text="NIGGFLEX" /> <h1>, возможно, самый лучший сайт о кино во Вселенной!</h1>
 			</div>
-			<div className={cls.result}>
-				{(showResult || data.length > 0) &&
-					(data.length > 0 ? (
-						<InView>
-							{data.map((film, i) => (
-								<SmallCard key={i} film={film} />
-							))}
-							{loading && (
-								<div className={cls.loader}>
-									<Loader />
-								</div>
-							)}
-							<div ref={ref} className={cls.hidenLine}></div>
-						</InView>
-					) : (
-						<div className={cls.placeholder}>
-							{loading ? <Loader /> : <h2>По таким параметрам не ничего не нашлось :( попробуй другие фильтры</h2>}
+			<div className={cls.background}>
+				{loading ? null : (
+					<>
+						<div className={cls.row}>
+							{row1?.length > 0 &&
+								row1.map((el, i) => (
+									<div key={i}>
+										<img src={el} />
+									</div>
+								))}
 						</div>
-					))}
-				{!showResult && data.length === 0 && (
-					<div className={cls.placeholder}>
-						<h2>Тут скоро что-то обязательно появится! Давай только немного настроим фильтры и запустим поиск...</h2>
-					</div>
+						<div className={cls.row}>
+							{row2?.length > 0 &&
+								row2.map((el, i) => (
+									<div key={i}>
+										<img src={el} />
+									</div>
+								))}
+						</div>
+						<div className={cls.row}>
+							{row3?.length > 0 &&
+								row3.map((el, i) => (
+									<div key={i}>
+										<img src={el} />
+									</div>
+								))}
+						</div>
+					</>
+				)}
+			</div>
+			<div className={cls.description}>
+				{isAuth ? (
+					<h1>
+						Приветствую тебя, <Link to="/settings">{name},</Link> рад что ты снова сюда заглянул :) <br />
+						Давай поищем <Link to="/films">фильмы,</Link> а может быть лучше <Link to="/series">сериалы?</Link> Или на
+						этот раз ты пришёл сюда за <Link to="/premieres">премьерами</Link>? <br />
+						А, впрочем, неважно, <Link to="/filters">ищи</Link> то, что тебе по душе и наслаждайся!
+					</h1>
+				) : (
+					<h1>
+						Если у вас по какой-то причине до сих про нет аккаунта, то это необходимо срочно{' '}
+						<Link to="/registration">исправить.</Link> <br /> <Link to="/login">Авторизация</Link> позволяет
+						использовать весь доступный функционал, включая списки избранного и отметки о просмотре фильмов/сериалов.
+					</h1>
 				)}
 			</div>
 		</div>

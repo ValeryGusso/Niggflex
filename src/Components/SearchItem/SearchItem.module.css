@@ -6,6 +6,7 @@
 	display: flex;
 	column-gap: 3vmax;
 	margin-top: 2vmin;
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .block {
@@ -56,6 +57,7 @@
 	column-gap: 1vmax;
 	border-radius: 0.75vmax;
 	padding: 1vmin 0.5vmax;
+	background: rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 1vmax white;
 	margin-top: 2vmin;
 	transition: 0.3s;

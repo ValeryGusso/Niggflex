@@ -34,7 +34,7 @@
 	padding: 1vmin 1vmax;
 	text-align: left;
 	color: black;
-	background: wheat;
+	background: gray;
 	border-bottom-left-radius: 1vmax;
 	border-bottom-right-radius: 1vmax;
 	z-index: 100;
@@ -92,10 +92,10 @@
 }
 
 .container > h1 > span > ul > li:hover {
-	background: #85ba60;
+	background: rgba(255, 255, 255, 0.75);
 	color: black;
 	transform: scale(1.1);
-	box-shadow: 0.075vmax -0.15vmin 0 2px black;
+	box-shadow: 0.025vmax -0.1vmin 0 2px black;
 	filter: blur(0);
 }
 
@@ -112,7 +112,6 @@
 	box-sizing: border-box;
 	border-left: 2px solid #dfdfdf;
 	border-right: 2px solid #dfdfdf;
-
 }
 
 .loader {

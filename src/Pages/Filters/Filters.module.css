@@ -1,0 +1,33 @@
+.container {
+	display: flex;
+}
+
+.result {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	row-gap: 1vmin;
+}
+
+.placeholder h2 {
+	max-width: 55%;
+	font-size: 4vmin;
+	font-style: italic;
+	text-align: center;
+}
+
+.loader,
+.placeholder {
+	width: 100%;
+	height: 17vmin;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loader > div,
+.placeholder > div {
+	transform: scale(2);
+}

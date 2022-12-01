@@ -7,6 +7,7 @@ import Cartoon from '../Pages/Cartoon/Cartoon'
 import Favorite from '../Pages/Favorite/Favorite'
 import Film from '../Pages/Film/Film'
 import Films from '../Pages/Films/FIlms'
+import Filters from '../Pages/Filters/Filters'
 import Home from '../Pages/Home/Home'
 import Login from '../Pages/Login/Login'
 import Premieres from '../Pages/Premieres/Premieres'
@@ -22,6 +23,7 @@ const NiggflexRouter: FC = () => {
 	return (
 		<Routes>
 			<Route path="/" element={<Home />} />
+			<Route path="/filters" element={<Filters />} />
 			<Route path="/films" element={<Films />} />
 			<Route path="/series" element={<Series />} />
 			<Route path="/premieres" element={<Premieres />} />

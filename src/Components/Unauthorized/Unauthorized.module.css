@@ -24,11 +24,19 @@
 	border-radius: 2vmax;
 	box-sizing: border-box;
 	background: #141618;
+	z-index: 1;
 }
 
 .wrapper > h1 > a {
-	text-decoration: underline;
+	text-decoration: underline 3px #4498dd;
+	transition: 0.3s;
 }
+
+.wrapper > h1 > a:hover {
+	color: #4498dd;
+	text-decoration: none;
+}
+
 .container::before {
 	content: '';
 	position: absolute;
@@ -39,7 +47,7 @@
 	height: 40vmin;
 	background: linear-gradient(transparent, #dfef7a, #dfef7a, #dfef7a, transparent);
 	animation: rotate1 10s linear infinite;
-	z-index: -1;
+	z-index: 0;
 }
 
 @keyframes rotate1 {

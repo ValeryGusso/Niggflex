@@ -25,17 +25,20 @@ const Favorite: FC<FavoriteProps> = ({ id, type }) => {
 	async function setFavorite() {
 		setLoading(true)
 		if (!isFavorite) {
-			const res = await axiosUserAPI.patch<UpdatedResponse>('/favorite', { id })
+			const res = await axiosUserAPI.patch<UpdatedResponse>('/favorite', { id }).finally(() => {
+				setLoading(false)
+			})
 			if (res.status === 200) {
 				dispatch(setUser(res.data.user))
 			}
 		} else {
-			const res = await axiosUserAPI.delete<UpdatedResponse>('/favorite', { data: { id } })
+			const res = await axiosUserAPI.delete<UpdatedResponse>('/favorite', { data: { id } }).finally(() => {
+				setLoading(false)
+			})
 			if (res.status === 200) {
 				dispatch(setUser(res.data.user))
 			}
 		}
-		setLoading(false)
 	}
 
 	useEffect(() => {

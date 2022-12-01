@@ -13,6 +13,7 @@ import animeBG from './Assets/Backgrounds/anime_bg.jpg'
 import { setUser, setLoading as setLoadingState } from './Redux/Slices/auth'
 import { useLocation } from 'react-router'
 import { clearNovelty } from './Redux/Slices/novelty'
+import { fetchBackground } from './Redux/Slices/background'
 
 const App: FC = () => {
 	const location = useLocation()
@@ -38,6 +39,12 @@ const App: FC = () => {
 				})
 		} else {
 			setLoading(false)
+			dispatch(setLoadingState(false))
+		}
+
+		for (let i = 1; i < 4; i++) {
+			// @ts-ignore
+			dispatch(fetchBackground(i))
 		}
 	}, [])
 
@@ -63,7 +70,7 @@ const App: FC = () => {
 		<div style={{ '--bg': `URL(${bg})` } as CSSProperties} className="bg">
 			<div
 				style={
-					{ '--backdrop': location.pathname === '/cartoon' ? 'rgba(0,0,0,0.8)' : 'rgba(0,0,0,0.5)' } as CSSProperties
+					{ '--backdrop': location.pathname === '/cartoon' ? 'rgba(0,0,0,0.8)' : 'rgba(0,0,0,0.65)' } as CSSProperties
 				}
 				className="container"
 			>

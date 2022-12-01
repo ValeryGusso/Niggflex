@@ -1,4 +1,5 @@
 import home from './img/home.svg'
+import filter from './img/filter.svg'
 import film from './img/film.svg'
 import tv from './img/tv.svg'
 import cartoon from './img/cartoon.svg'
@@ -45,6 +46,11 @@ export const headerMenu: headerMenuItem[] = [
 		title: 'Главная',
 		value: '/',
 		img: home,
+	},
+	{
+		title: 'Поиск',
+		value: '/filters',
+		img: filter,
 	},
 	{
 		title: 'Премьеры',
