@@ -8,12 +8,13 @@ import Loader from '../../Components/Loader/Loader'
 import SearchMenu from '../../Components/SearchMenu/SearchMenu'
 import SmallCard from '../../Components/SmallCard/SmallCard'
 import { fetchFilms, filmsSelector, ParamsType } from '../../Redux/Slices/films'
+import { TypeDispatch } from '../../Redux/store'
 import cls from './Filters.module.css'
 
 const Filters: FC = () => {
 	const navigate = useNavigate()
 	const params = useParams()
-	const dispatch = useDispatch()
+	const dispatch = useDispatch<TypeDispatch>()
 	const [showResult, setShowResult] = useState(false)
 	const { data } = useSelector(filmsSelector)
 	const { ref, entry } = useInView()
@@ -30,7 +31,6 @@ const Filters: FC = () => {
 			if (curPage <= pageLimit) {
 				const params: ParamsType = { ...prevParams }
 				params.page = curPage
-				// @ts-ignore
 				dispatch(fetchFilms(params))
 			}
 		}

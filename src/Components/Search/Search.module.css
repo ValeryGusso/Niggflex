@@ -79,7 +79,8 @@
 	display: grid;
 	grid-template-rows: 5vmin 1fr 5vmin;
 	row-gap: 2vmin;
-	overflow: hidden;
+	overflow-y: auto;
+	overflow-x:visible;
 }
 
 .films > h2,

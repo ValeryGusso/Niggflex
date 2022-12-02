@@ -4,6 +4,7 @@
 	column-gap: 1vmax;
 	padding: 2vmin;
 	border-radius: 1vmax;
+	background: rgba(0,0,0,0.5);
 	box-shadow: 0 0 4vmin rgba(117, 172, 255, 0.25);
 }
 
@@ -47,7 +48,9 @@
 }
 
 .buttons {
+	width: 15vmax;
 	display: flex;
+	justify-content: flex-start;
 	flex-direction: column;
 	row-gap: 3vmin;
 }

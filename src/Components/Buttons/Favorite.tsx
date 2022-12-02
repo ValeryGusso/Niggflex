@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { FC, useState, useEffect } from 'react'
+import { FC, useState, useEffect, CSSProperties } from 'react'
 import { useSelector } from 'react-redux'
 import { authSelector, setUser } from '../../Redux/Slices/auth'
 import pin from '../../Assets/img/pin.svg'
@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 import { HandySvg } from 'handy-svg'
 import heart from '../../Assets/img/heart.svg'
 import Loader from '../Loader/Loader'
+import Error, { ErrorState } from './Error'
 
 interface FavoriteProps {
 	id: number
@@ -18,11 +19,17 @@ interface FavoriteProps {
 
 const Favorite: FC<FavoriteProps> = ({ id, type }) => {
 	const dispatch = useDispatch()
-	const { favorite, isAuth, sex } = useSelector(authSelector)
+	const { favorite, isAuth } = useSelector(authSelector)
 	const [isFavorite, setIsFavorite] = useState(false)
 	const [loading, setLoading] = useState(false)
+	const [error, setError] = useState({ x: 0, y: 0, show: false } as ErrorState)
 
-	async function setFavorite() {
+	async function setFavorite(e: React.MouseEvent<HTMLParagraphElement | HTMLDivElement, MouseEvent>) {
+		if (!isAuth) {
+			setError({ x: e.clientX, y: e.clientY, show: true })
+			return
+		}
+
 		setLoading(true)
 		if (!isFavorite) {
 			const res = await axiosUserAPI.patch<UpdatedResponse>('/favorite', { id }).finally(() => {
@@ -50,17 +57,27 @@ const Favorite: FC<FavoriteProps> = ({ id, type }) => {
 			{type === 'button' ? (
 				<div className={classNames(cls.favorite, isFavorite ? cls.selectedF : '')}>
 					<img className={isFavorite ? cls.pin : ''} src={pin} alt="pin" />
-					<p onClick={setFavorite}>{isFavorite ? 'Убрать' : 'Добавить в избранное'}</p>
+					<p onClick={e => setFavorite(e)}>{isFavorite ? 'Убрать' : 'Добавить в избранное'}</p>
+					{error.show && (
+						<div style={{ '--x': `${error.x}px`, '--y': `${error.y}px` } as CSSProperties} className={cls.error}>
+							<Error setError={setError} />
+						</div>
+					)}
 				</div>
 			) : (
-				<div onClick={setFavorite} className={cls.heart}>
+				<div className={cls.heart}>
 					{loading ? (
 						<div className={cls.loader}>
 							<Loader />
 						</div>
 					) : (
-						<div className={cls.loader}>
+						<div onClick={e => setFavorite(e)} className={cls.loader}>
 							<HandySvg src={heart} fill={isFavorite ? 'red' : '#dfdfdf'} />
+						</div>
+					)}
+					{error.show && (
+						<div style={{ '--x': `${error.x}px`, '--y': `${error.y}px` } as CSSProperties} className={cls.error}>
+							<Error setError={setError} />
 						</div>
 					)}
 				</div>

@@ -70,7 +70,7 @@ const ActorBlock: FC = () => {
 						setFIlmsLoading(false)
 					})
 			})
-	}, [])
+	}, [params.id])
 
 	return (
 		<div className={cls.actor}>

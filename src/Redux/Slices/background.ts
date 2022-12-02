@@ -11,7 +11,7 @@ interface BackgroundSliseState {
 	row3: string[]
 }
 
-interface FetchResponse {
+export interface FetchResponse {
 	data: TopResponse
 	page: number
 }

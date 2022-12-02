@@ -39,7 +39,7 @@ const Footer: FC = () => {
 		<div className={cls.footer}>
 			<div className={cls.logo}>
 				<img src={logo} alt="logo" />
-				<p>всё, что ты любишь, но немного темнее.</p>
+				<p>всё, что ты любишь, <br /> но немного темнее.</p>
 			</div>
 			<div className={cls.description}>
 				<p>

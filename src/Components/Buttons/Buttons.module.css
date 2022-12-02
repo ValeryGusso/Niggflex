@@ -1,7 +1,7 @@
 .favorite {
+	position: relative;
 	width: 100%;
 	height: 100%;
-	position: relative;
 	display: flex;
 	align-items: center;
 	column-gap: 1vmax;
@@ -81,12 +81,14 @@
 }
 
 .heart {
+	position: relative;
 	color: red;
 }
 
 /* Viewed */
 
 .viewed {
+	position: relative;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -132,9 +134,55 @@
 }
 
 .viewed > div > svg:hover {
-	fill: #feef55
+	fill: #feef55;
 }
 
 .viewed > div > div {
 	transform: scale(0.75) translate(-25%, -25%);
+}
+
+/* Error */
+
+.error {
+	top: calc(var(--y) - 50px);
+	left: calc(var(--x) - 100px);
+	position: fixed;
+	width: 375px !important;
+	height: 175px !important;
+	padding: 0 1vmax;
+	border-radius: 2vmax;
+	background: #cb9247;
+	z-index: 5000;
+}
+
+.errorWrapper {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.error img {
+	height: 150px !important;
+}
+
+.error h1 {
+	color: #141618;
+	font-size: 20px !important;
+	cursor: default;
+}
+
+.error h1 a {
+	color: #141618;
+	padding: 0 0.25vmax;
+	text-decoration: underline 3px;
+	transition: 0.3s;
+}
+
+.error h1 a:hover {
+	color: #dfdfdf;
+	background: #141618;
+	border-radius: 1vmin;
+	text-decoration: none;
 }

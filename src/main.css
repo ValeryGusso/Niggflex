@@ -11,6 +11,7 @@
 }
 
 * ::selection {
+	color: #dfdfdf;
 	background: #3f3f3f;
 }
 

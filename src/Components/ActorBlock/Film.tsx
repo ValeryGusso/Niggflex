@@ -14,7 +14,7 @@ const Film: FC<FilmProps> = ({ film }) => {
 		<Link className={cls.film} to={`/film/${film.id}`}>
 			<img src={film?.poster?.previewUrl || film?.poster?.url || noimage} alt="poster" />
 			<h1>
-				{cut(film.name || film.alternativeName, 20)} ({film.year})
+				{cut(film.name || film.alternativeName, 25)} ({film.year})
 			</h1>
 		</Link>
 	)

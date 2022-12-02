@@ -8,6 +8,7 @@ import SearchActorItem from '../../Components/SearchItem/SearchActorItem'
 import SearchFilmItem from '../../Components/SearchItem/SearchFilmItem'
 import { fetchSearchActors, searchActorsSelector } from '../../Redux/Slices/searchActors'
 import { fetchSearchFilms, FetchSearchFilmsArguments, searchFilmsSelector } from '../../Redux/Slices/searchFilms'
+import { TypeDispatch } from '../../Redux/store'
 import cls from './SearchResults.module.css'
 
 interface SearchResultsProps {
@@ -15,7 +16,7 @@ interface SearchResultsProps {
 }
 
 const SearchResults: FC<SearchResultsProps> = ({ type }) => {
-	const dispatch = useDispatch()
+	const dispatch = useDispatch<TypeDispatch>()
 	const {
 		films,
 		loading: filmsLoading,
@@ -38,13 +39,11 @@ const SearchResults: FC<SearchResultsProps> = ({ type }) => {
 		if (entry?.isIntersecting && (films.length > 0 || actors.length > 0)) {
 			if (filmsPage <= filmsTotalPages && type === 'films') {
 				const payload: FetchSearchFilmsArguments = { keyword: filmsKeyword, page: filmsPage }
-				// @ts-ignore
 				dispatch(fetchSearchFilms(payload))
 			}
 
 			if (actorsPage <= actorsTotalPages && type === 'actors') {
 				const payload: FetchSearchFilmsArguments = { keyword: filmsKeyword, page: filmsPage }
-				// @ts-ignore
 				dispatch(fetchSearchActors(payload))
 			}
 		}

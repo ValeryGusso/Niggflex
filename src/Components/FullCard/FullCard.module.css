@@ -81,8 +81,8 @@
 .viewed {
 	position: absolute;
 	width: 15vmax;
-	top: -1vmin;
-	right: -2vmax;
+	top: 0;
+	right: -4vmax;
 }
 
 /* About */
@@ -90,6 +90,8 @@
 	display: flex;
 	flex-direction: column;
 	row-gap: 1vmin;
+	border-radius: 2vmax;
+	background: rgba(0, 0, 0, 0.75);
 }
 
 .aboutDiv {
@@ -98,7 +100,6 @@
 
 .about h2 {
 	width: 10vmax;
-	background: rgba(0, 0, 0, 0.75);
 	border-radius: 1vmin;
 }
 
@@ -111,7 +112,6 @@
 .about p {
 	text-align: start;
 	font-size: 2.25vmin;
-	background: rgba(0, 0, 0, 0.75);
 	border-radius: 1vmin;
 	width: 20%;
 }
@@ -120,7 +120,6 @@
 	text-align: start;
 	font-size: 2.25vmin;
 	max-width: 80%;
-	background: rgba(0, 0, 0, 0.75);
 	border-radius: 1vmin;
 }
 
@@ -644,6 +643,11 @@
 	box-shadow: 0.1vmax -0.2vmin 0 2px black;
 }
 
+.hiddenLine {
+	height: 3vmin;
+	width: 100%;
+}
+
 /* Review */
 
 .review {
@@ -651,6 +655,7 @@
 	flex-direction: column;
 	padding: 2vmin 3vmax;
 	row-gap: 2vmin;
+	margin-top: 1vmin;
 	border-radius: 5vmax;
 	background: rgba(0, 0, 0, 0.5);
 }
@@ -671,6 +676,7 @@
 
 .review > div > div {
 	display: flex;
+	column-gap: 1vmax
 }
 
 .review > div > div > div {
@@ -701,7 +707,6 @@
 	text-align: center;
 	border-radius: 5vmin;
 	text-decoration: underline 3px;
-	/* border: 2px solid #7c7c7c; */
 	cursor: pointer;
 	transition: 0.3s;
 }
@@ -710,9 +715,4 @@
 	color: #141618;
 	text-decoration: none;
 	background: gray;
-}
-
-.hiddenLine {
-	height: 3vmin;
-	width: 100%;
 }

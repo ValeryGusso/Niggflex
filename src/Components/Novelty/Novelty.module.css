@@ -5,13 +5,14 @@
 	text-align: center;
 	align-items: center;
 	flex-direction: column;
-	flex-wrap: wrap;
+	flex-wrap: wrap; 
 	row-gap: 2vmin;
 }
 
 .content {
 	width: 95vmax;
-	height: 72vmin;
+	min-height: 70vmin;
+	max-height: 72vmin;
 	transform: translateX(-5vmax);
 	overflow-y: auto;
 	padding-bottom: 2vmin;

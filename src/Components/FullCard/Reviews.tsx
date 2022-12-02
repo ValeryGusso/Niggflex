@@ -1,5 +1,5 @@
 import { FC, useEffect, useState, useRef } from 'react'
-import { useInView } from 'react-intersection-observer'
+import { InView, useInView } from 'react-intersection-observer'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
@@ -14,6 +14,7 @@ import {
 	SetReviewsStatePayload,
 	updateReviews,
 } from '../../Redux/Slices/reviews'
+import { TypeDispatch } from '../../Redux/store'
 import Loader from '../Loader/Loader'
 import cls from './FullCard.module.css'
 import Review from './Review'
@@ -51,7 +52,7 @@ const reviewesTypes: TypeItem[] = [
 
 const Reviews: FC<ReviewsProps> = ({ id }) => {
 	const params = useParams()
-	const dispatch = useDispatch()
+	const dispatch = useDispatch<TypeDispatch>()
 	const { reviews, loading, totalItems, totalPositive, totalNeutral, totalNegative, page, totalPages } =
 		useSelector(reviewsSelector)
 	const [sortType, setSortType] = useState<TypeItem>({ title: 'дате (по возр.)', value: 'DATE_ASC' })
@@ -84,8 +85,8 @@ const Reviews: FC<ReviewsProps> = ({ id }) => {
 	useEffect(() => {
 		if (entry?.isIntersecting && reviews?.length > 0) {
 			if (page <= totalPages) {
-				// @ts-ignore
-				dispatch(fetchReviews({ id: params.id, page, sort: sortType.value }))
+				// console.log(123)
+				dispatch(fetchReviews({ id: params?.id ? +params.id : 0, page, sort: sortType.value }))
 			}
 		}
 	}, [entry])
@@ -95,8 +96,7 @@ const Reviews: FC<ReviewsProps> = ({ id }) => {
 			isFirstRender.current = true
 		} else {
 			dispatch(clearReviews())
-			// @ts-ignore
-			dispatch(fetchReviews({ id: params.id, page: 1, sort: sortType.value }))
+			dispatch(fetchReviews({ id: params?.id ? +params.id : 0, page: 1, sort: sortType.value }))
 		}
 	}, [sortType])
 
@@ -173,17 +173,23 @@ const Reviews: FC<ReviewsProps> = ({ id }) => {
 						</h3>
 					</div>
 					<div>
-						{reviews?.length > 0 && viewCount > 0 ? (
-							filtr(viewType.value).map(review => <Review review={review} key={review.kinopoiskId} />)
-						) : (
-							<h1>К сожалению, не найдено ничего удовлетворяющего текущим фильтрам :( попробуй что-то другое</h1>
-						)}
-						{reviews.length >= 20 && <div ref={ref} className={cls.hiddenLine}></div>}
-						{loading && (
-							<div className={cls.reviewsInnerLoader}>
-								<Loader />
-							</div>
-						)}
+						<InView>
+							{reviews?.length > 0 ? (
+								viewCount > 0 ? (
+									filtr(viewType.value).map(review => <Review review={review} key={review.kinopoiskId} />)
+								) : (
+									<h1>К сожалению, не найдено ничего удовлетворяющего текущим фильтрам :( попробуй что-то другое</h1>
+								)
+							) : (
+								<h1>К сожалению, никаких рецензий не обнаружено :(</h1>
+							)}
+							{reviews.length >= 20 && <div ref={ref} className={cls.hiddenLine}></div>}
+							{loading && (
+								<div className={cls.reviewsInnerLoader}>
+									<Loader />
+								</div>
+							)}
+						</InView>
 					</div>
 				</div>
 			)}

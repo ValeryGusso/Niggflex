@@ -25,7 +25,6 @@ const Review: FC<ReviewProps> = ({ review }) => {
 		}
 	}
 	return (
-		// <div className={cls.reviewWrapper}>
 		<div className={cls.review} style={{ border: `5px solid ${setBackgroundColor(review.type)}` }}>
 			<h2>{review.author}</h2>
 			<h3>{review.title}</h3>
@@ -41,7 +40,6 @@ const Review: FC<ReviewProps> = ({ review }) => {
 				</div>
 			</div>
 		</div>
-		// </div>
 	)
 }
 

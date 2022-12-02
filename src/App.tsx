@@ -13,11 +13,13 @@ import animeBG from './Assets/Backgrounds/anime_bg.jpg'
 import { setUser, setLoading as setLoadingState } from './Redux/Slices/auth'
 import { useLocation } from 'react-router'
 import { clearNovelty } from './Redux/Slices/novelty'
-import { fetchBackground } from './Redux/Slices/background'
+import { fetchBackground, FetchResponse } from './Redux/Slices/background'
+import { AsyncThunkAction } from '@reduxjs/toolkit'
+import { TypeDispatch } from './Redux/store'
 
 const App: FC = () => {
 	const location = useLocation()
-	const dispatch = useDispatch()
+	const dispatch = useDispatch<TypeDispatch>()
 	const [loading, setLoading] = useState(false)
 	const [bg, setBg] = useState(mainBG)
 
@@ -43,7 +45,6 @@ const App: FC = () => {
 		}
 
 		for (let i = 1; i < 4; i++) {
-			// @ts-ignore
 			dispatch(fetchBackground(i))
 		}
 	}, [])

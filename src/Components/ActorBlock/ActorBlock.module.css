@@ -29,6 +29,8 @@
 	flex-direction: column;
 	flex-wrap: nowrap;
 	row-gap: 2vmin;
+	border-radius: 2vmax;
+	background: rgba(0,0,0,0.6)
 }
 
 .about > div {
@@ -44,6 +46,10 @@
 .about span {
 	font-size: 2.5vmin;
 	width: 70%;
+}
+
+.about a {
+	text-decoration: underline;
 }
 
 .info {
@@ -75,9 +81,10 @@
 	overflow-x: auto;
 	display: flex;
 	width: 100%;
-	min-width: 100%;
+	padding: 0 2vmax;
 	height: 35vmin;
 	display: flex;
+	background: rgba(0,0,0,0.6);
 	column-gap: 1vmax;
 }
 
@@ -91,6 +98,7 @@
 	padding-left: 1vmax;
 	overflow: hidden;
 	row-gap: 2vmin;
+	background: rgba(0,0,0,0.6);
 	transition: 2s;
 }
 

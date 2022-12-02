@@ -7,13 +7,14 @@ import { useSelector } from 'react-redux'
 import { fetchNovelty, noveltySelector } from '../../Redux/Slices/novelty'
 import { useDispatch } from 'react-redux'
 import { InView, useInView } from 'react-intersection-observer'
+import { TypeDispatch } from '../../Redux/store'
 
 interface NoveltyProps {
 	type: number
 }
 
 const Novelty: FC<NoveltyProps> = ({ type }) => {
-	const dispatch = useDispatch()
+	const dispatch = useDispatch<TypeDispatch>()
 	const { ref, entry } = useInView()
 	const { items, loading, totalItems, totalPages, page } = useSelector(noveltySelector)
 
@@ -32,14 +33,13 @@ const Novelty: FC<NoveltyProps> = ({ type }) => {
 
 	useEffect(() => {
 		const query = createQuery()
-		// @ts-ignore
 		dispatch(fetchNovelty(query))
 	}, [])
 
 	useEffect(() => {
+		const query = createQuery()
 		if (entry?.isIntersecting && items.length > 0) {
 			if (page <= totalPages) {
-				// @ts-ignore
 				dispatch(fetchNovelty(query))
 			}
 		}
@@ -64,10 +64,9 @@ const Novelty: FC<NoveltyProps> = ({ type }) => {
 	return (
 		<div className={cls.container}>
 			<h1>Новинки {printType(type)}, выбирай что тебе по душе!</h1>
-			{/* {!loading && data.length > 0 && <Poster film={data[0]} />} */}
 			<div className={cls.content}>
 				<InView>
-					{!loading && items.length > 0 && items.map(film => <CardItemOther key={film.id} film={film} />)}
+					{items.length > 0 && items.map(film => <CardItemOther key={film.id} film={film} />)}
 					<div ref={ref} className={cls.hidenLine}></div>
 				</InView>
 				{loading && (
