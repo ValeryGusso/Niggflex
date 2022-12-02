@@ -36,6 +36,8 @@ const Registration: FC = () => {
 	const [loginError, setLoginError] = useState({} as ErrorState)
 	const [passError, setPassError] = useState({} as ErrorState)
 	const [activateError, setActivateError] = useState({} as ErrorState)
+	const [resended, setResended] = useState(false)
+	const [resendedLoading, setResendedLoading] = useState(false)
 	const { register, handleSubmit } = useForm()
 	const id = useRef('')
 
@@ -109,6 +111,15 @@ const Registration: FC = () => {
 		}
 	}
 
+	async function resendMail() {
+		setResendedLoading(true)
+		const { data } = await axiosUserAPI.post('/resend', { email: login })
+		if (data) {
+			setResended(true)
+			setResendedLoading(false)
+		}
+	}
+
 	useEffect(() => {
 		if (passError.error) {
 			setPassError({} as ErrorState)
@@ -143,6 +154,17 @@ const Registration: FC = () => {
 									placeholder="Код из письма"
 									tabIndex={1}
 								/>
+								<p className={cls.resend}>
+									{resendedLoading ? (
+										'идёт отправка...'
+									) : resended ? (
+										'Письмо повторно отправлено!'
+									) : (
+										<>
+											Не пришёл код активации? <span onClick={resendMail}>Выслать повторно</span>
+										</>
+									)}
+								</p>
 							</div>
 							<div className={cls.loader}>
 								{loading ? <Loader /> : <button tabIndex={2}>Активировать аккаунт!</button>}

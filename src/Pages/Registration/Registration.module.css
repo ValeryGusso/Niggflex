@@ -85,7 +85,7 @@
 	flex-direction: column;
 	row-gap: 3vmin;
 	align-items: center;
-	
+
 	background: #353937;
 }
 
@@ -160,4 +160,19 @@
 
 .activate button:hover {
 	background: #57fa86;
+}
+
+.resend {
+	font-size: 2vmin;
+}
+
+.resend > span {
+	text-decoration: underline 3px #75acff;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.resend > span:hover {
+	color: #75acff;
+	text-decoration: none;
 }
