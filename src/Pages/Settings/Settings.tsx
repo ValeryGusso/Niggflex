@@ -188,6 +188,7 @@ const Settings: FC = () => {
 					<div>
 						<p>Или загрузи свой файл:</p>
 						<div>
+							{/* @ts-ignore */}
 							<HandySvg onClick={redirect} src={uploadImage} fill="#dfdfdf" />
 							{image && <img onClick={() => setImage(null)} className={cls.close} src={close} alt="close" />}
 							<p>{image?.name}</p>
