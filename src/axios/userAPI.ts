@@ -1,18 +1,16 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 const axiosUserAPI: AxiosInstance = axios.create({
-	withCredentials: false, // was true
+	withCredentials: true,
 	baseURL: process.env.REACT_APP_API_URL || 'http://localhost:666',
 })
 
 axiosUserAPI.interceptors.request.use((config: AxiosRequestConfig) => {
 	if (config?.headers) {
 		config.headers['authorization'] = `Bearer ${localStorage.getItem('access') || ''}`
-		config.headers['Access-Control-Allow-Origin'] = '*'
-		// config.headers['Access-Control-Allow-Origin'] = process.env.REACT_APP_API_URL || 'http://localhost:666'
 		// config.headers['Content-Type'] = config.url === '/image' ? 'multipart/form-data' : 'application/json'
-		// config.headers['Access-Control-Allow-Credentials'] = 'include'
-		// config.headers['Vary'] = 'Origin'
+		config.headers['Access-Control-Allow-Origin'] = process.env.REACT_APP_API_URL || 'http://localhost:666'
+		config.headers['Access-Control-Allow-Credentials'] = 'include'
 	}
 	return config
 })

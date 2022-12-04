@@ -65,6 +65,10 @@
 	align-items: center;
 }
 
+.loader > div {
+	transform: scale(0.5) translateX(-100px);
+}
+
 .userInfo {
 	position: absolute;
 	width: 100%;
