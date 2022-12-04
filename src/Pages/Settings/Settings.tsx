@@ -136,7 +136,7 @@ const Settings: FC = () => {
 						const extansion = result.name.match(/\.\w+/gi)
 						formData.append('image', result, randomName(15) + extansion![0])
 						axiosUserAPI
-							.post<MeResponse>('/image', formData)
+							.patch<MeResponse>('/image', formData)
 							.then(res => {
 								resolve(res.data)
 								timestamps.current.image = Date.now()
