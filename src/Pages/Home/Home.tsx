@@ -1,10 +1,8 @@
-import { CSSProperties, FC, useEffect, useRef, useState } from 'react'
+import { FC, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { setTimeout } from 'timers/promises'
-import axiosKPunofficial from '../../axios/KPunofficial'
 import DancingText from '../../Components/DancingText/DancingText'
-import { Film, TopResponse } from '../../Interfaces/KPunofficial/top'
+import Loader from '../../Components/Loader/Loader'
 import { authSelector } from '../../Redux/Slices/auth'
 import { backgroundSelector } from '../../Redux/Slices/background'
 import cls from './Home.module.css'
@@ -12,15 +10,26 @@ import cls from './Home.module.css'
 const Home: FC = () => {
 	const { isAuth, name } = useSelector(authSelector)
 	const { row1, row2, row3, loading } = useSelector(backgroundSelector)
+	const [show, setShow] = useState(false)
 
 	return (
 		<div className={cls.wrapper}>
 			<div className={cls.title}>
 				<h1>Добро пожаловать на </h1>
-				<DancingText text="NIGGFLEX" /> <h1>, возможно, самый лучший сайт о кино во Вселенной!</h1>
+				<DancingText text="NIGGFLEX" />{' '}
+				<h1>
+					, возможно, самый лучший сайт о кино во Вселенной!
+					<span onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
+						*{show && <span>По версии автора сайта</span>}
+					</span>
+				</h1>
 			</div>
 			<div className={cls.background}>
-				{loading ? null : (
+				{loading ? (
+					<div className={cls.loader}>
+						<Loader />
+					</div>
+				) : (
 					<>
 						<div className={cls.row}>
 							{row1?.length > 0 &&

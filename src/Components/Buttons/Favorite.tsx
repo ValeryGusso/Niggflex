@@ -59,7 +59,7 @@ const Favorite: FC<FavoriteProps> = ({ id, type }) => {
 					<img className={isFavorite ? cls.pin : ''} src={pin} alt="pin" />
 					<p onClick={e => setFavorite(e)}>{isFavorite ? 'Убрать' : 'Добавить в избранное'}</p>
 					{error.show && (
-						<div style={{ '--x': `${error.x}px`, '--y': `${error.y}px` } as CSSProperties} className={cls.error}>
+						<div style={{ '--x': `${error.x - 175}px`, '--y': `${error.y}px` } as CSSProperties} className={cls.error}>
 							<Error setError={setError} />
 						</div>
 					)}

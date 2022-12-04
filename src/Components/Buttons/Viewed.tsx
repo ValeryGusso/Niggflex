@@ -82,7 +82,7 @@ const Viewed: FC<VievedProps> = ({ id, type }) => {
 				</div>
 			</div>
 			{error.show && (
-				<div style={{ '--x': `${error.x - 100}px`, '--y': `${error.y}px` } as CSSProperties} className={cls.error}>
+				<div style={{ '--x': `${error.x - 225}px`, '--y': `${error.y}px` } as CSSProperties} className={cls.error}>
 					<Error setError={setError} />
 				</div>
 			)}

@@ -18,6 +18,24 @@
 	border-radius: 2vmin;
 }
 
+.title > h1 > span {
+	position: relative;
+	color: #e50914;
+	cursor: default;
+}
+
+.title > h1 > span > span {
+	top: -25px;
+	left: 25px;
+	text-align: center;
+	width: 140px;
+	font-size: 22px;
+	position: absolute;
+
+	color: #e50914;
+	cursor: default;
+}
+
 .title > div {
 	width: 20vmax;
 	height: 5vmin;
@@ -80,14 +98,14 @@
 }
 
 .description {
-  width: 100%;
+	width: 100%;
 	display: flex;
 }
 
 .description > h1 {
-  width: 100%;
-  text-align: center;
-  font-size: 3vmin;
+	width: 100%;
+	text-align: center;
+	font-size: 3vmin;
 }
 
 .description > h1 > a {
@@ -99,3 +117,17 @@
 	color: #4498dd;
 	text-decoration: none;
 }
+
+.loader {
+	width: 100%;
+	height: 50vmin;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* background: gray */
+}
+
+.loader > div {
+	transform: scale(3);
+}
+

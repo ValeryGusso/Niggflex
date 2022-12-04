@@ -8,7 +8,6 @@ interface AboutProps {
 }
 
 const About: FC<AboutProps> = ({ person }) => {
-	console.log(person)
 	return (
 		<div className={cls.about}>
 			<h1>

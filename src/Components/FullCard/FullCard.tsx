@@ -110,7 +110,6 @@ const FullCard: FC = () => {
 							{active === 'facts' &&
 								facts &&
 								(facts.length > 0 ? (
-									// facts.map((el, i) => <p dangerouslySetInnerHTML={createMarkup(el.text)} key={i}></p>)
 									facts.map((el, i) => <Markup string={el.text} key={i} />)
 								) : (
 									<p>К сожалению про этот фильм нет никаких фактов...</p>

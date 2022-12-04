@@ -3,6 +3,7 @@ import { InView, useInView } from 'react-intersection-observer'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import nosearch from '../../Assets/img/nosearch.webp'
 import Loader from '../../Components/Loader/Loader'
 import SearchActorItem from '../../Components/SearchItem/SearchActorItem'
 import SearchFilmItem from '../../Components/SearchItem/SearchFilmItem'
@@ -54,18 +55,25 @@ const SearchResults: FC<SearchResultsProps> = ({ type }) => {
 			{type === 'films' ? (
 				<>
 					<div className={cls.films}>
-						<InView>
-							<div className={cls.contentFilms}>
-								{films.map(film => (
-									<SearchFilmItem film={film} key={film.filmId} />
-								))}
-								<div ref={ref} className={cls.hidenLine}></div>
-							</div>
-						</InView>
-						{filmsLoading && (
-							<div className={cls.loader}>
-								<Loader />
-							</div>
+						{films.length > 0 ? (
+							<>
+								{' '}
+								<InView>
+									<div className={cls.contentFilms}>
+										{films.map(film => (
+											<SearchFilmItem film={film} key={film.filmId} />
+										))}
+										<div ref={ref} className={cls.hidenLine}></div>
+									</div>
+								</InView>
+								{filmsLoading && (
+									<div className={cls.loader}>
+										<Loader />
+									</div>
+								)}
+							</>
+						) : (
+							<img className={cls.nosearch} src={nosearch} alt="search nothing" />
 						)}
 					</div>
 					<Link to="/search/actors">
@@ -76,18 +84,25 @@ const SearchResults: FC<SearchResultsProps> = ({ type }) => {
 			) : (
 				<>
 					<div className={cls.actors}>
-						<InView>
-							<div className={cls.contentActors}>
-								{actors.map(actor => (
-									<SearchActorItem actor={actor} key={actor.id} />
-								))}
-								<div ref={ref} className={cls.hidenLine}></div>
-							</div>
-						</InView>
-						{actorsLoading && (
-							<div className={cls.loader}>
-								<Loader />
-							</div>
+						{actors.length > 0 ? (
+							<>
+								{' '}
+								<InView>
+									<div className={cls.contentActors}>
+										{actors.map(actor => (
+											<SearchActorItem actor={actor} key={actor.id} />
+										))}
+										<div ref={ref} className={cls.hidenLine}></div>
+									</div>
+								</InView>
+								{actorsLoading && (
+									<div className={cls.loader}>
+										<Loader />
+									</div>
+								)}
+							</>
+						) : (
+							<img className={cls.nosearch} src={nosearch} alt="search nothing" />
 						)}
 					</div>
 					<Link to="/search/films">

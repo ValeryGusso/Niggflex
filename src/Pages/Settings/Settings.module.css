@@ -1,14 +1,84 @@
 .container {
 	width: 80%;
-	min-height: 100%;
-	margin-top: 5vmin;
+	margin-top: 1vmin;
 	margin-left: 10%;
+	display: grid;
+	grid-template-columns: 65% 35%;
+	padding: 55px 2vmax;
+	row-gap: 35px;
+	border-radius: 5vmax;
+	border: 3px solid #dfdfdf;
+	border-bottom: none;
+	border-top: none;
+}
+
+.password {
+	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
+	row-gap: 35px;
+	/* background: gray */
+}
+
+.avatarBlock {
+	display: flex;
+	flex-direction: column;
+	row-gap: 35px;
+}
+
+.avatarBlock p {
+	width: 7vmax;
+	font-size: 3vmin;
+	cursor: default;
+}
+
+.avatarBlock > div {
+	min-width: 100%;
+	display: grid;
 	align-items: center;
-	justify-content: center;
-	row-gap: 3vmin;
-	border-radius: 5vmax;
+	grid-template-columns: 30vmin 1fr;
+}
+
+.avatarBlock > div > div {
+	position: relative;
+	display: grid;
+	grid-template-columns: 150px 1fr;
+}
+
+.avatarBlock > div > p {
+	width: 30vmin;
+}
+
+.avatarBlock > div > div > p {
+	width: 100%;
+	color: wheat;
+}
+
+.close {
+	position: absolute;
+	top: -20px;
+	left: 75px;
+	height: 35px;
+	filter: grayscale(1);
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.close:hover {
+	filter: grayscale(0);
+}
+
+.avatarBlock > div svg {
+	width: 100px;
+	height: 100px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.avatarBlock > div > div svg:hover {
+	transform: scale(1.1);
+	fill: #64c880;
 }
 
 .block {
@@ -22,20 +92,12 @@
 	transition: 0.25s;
 }
 
-.banner {
-	width: 40vmax;
-	position: absolute;
-	bottom: -2vmin;
-	font-size: 2vmin;
-	text-align: center;
-}
-
-.block:hover {
+/* .block:hover {
 	width: 60vmax;
 	padding-left: 10vmax;
 	box-shadow: 0 0 5vmin #5fa0ff;
 	transition: 0.5s;
-}
+} */
 
 .block p:nth-child(1) {
 	width: 7vmax;
@@ -64,16 +126,19 @@
 }
 
 .block input,
-.block textarea {
+.avatarBlock textarea {
 	background: transparent;
 	border: none;
 	transition: 0.3s;
 	border-bottom: 3px solid wheat;
 }
 
-.block textarea {
+.avatarBlock textarea {
+	overflow: hidden;
+	height: 5vmin;
 	resize: none;
 	padding: 0.5vmin 0.5vmax;
+	transition: 0.3s;
 }
 
 .name {
@@ -94,17 +159,26 @@
 }
 
 .block input:focus,
-.block textarea:focus {
+.avatarBlock textarea:focus {
 	background: wheat;
 	color: #232529;
 	outline: none;
 }
 
+.avatarBlock textarea:focus {
+	height: 15vmin;
+}
+
 .menu {
+	position: absolute;
+	right: -2vmax;
 	display: flex;
 	flex-direction: column;
-	row-gap: 3vmin;
+	align-items: left;
+	row-gap: 2vmin;
 	font-size: 3vmin;
+	border-radius: 2vmax;
+	background: rgba(0, 0, 0, 0.75);
 }
 
 .menu li p {
@@ -129,7 +203,6 @@
 	justify-content: center;
 	border-radius: 1.5vmin;
 	overflow: hidden;
-	/* border: 1px solid white */
 }
 
 .btn::after {
@@ -162,14 +235,16 @@
 	font-size: 3vmin;
 	border: none;
 	background: transparent;
-	text-decoration: underline 5px;
+	text-decoration: underline 5px #64c880;
 	border-radius: 1vmin;
 	transition: 0.3s;
 	cursor: pointer;
 }
 
-.btn button:hover {
-	background: #dfdfdf;
+.btn button:hover,
+.btn button:focus {
+	background: #64c880;
 	text-decoration: none;
 	color: #131517;
+	outline: none;
 }

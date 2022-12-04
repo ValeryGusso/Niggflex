@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState, useCallback, useRef } from 'react'
 import arrow from '../../Assets/img/arrow.svg'
 import close from '../../Assets/img/close.svg'
 import cls from './FullCard.module.css'
@@ -18,6 +18,7 @@ interface Info {
 const Images: FC<ImagesProps> = ({ id }) => {
 	const [images, setImages] = useState([] as Image[])
 	const [current, setCurrent] = useState(0)
+	const selected = useRef(0)
 	const [showModal, setShowModal] = useState(false)
 	const [info, setInfo] = useState({ total: 0, page: 1, totalPages: 1 } as Info)
 
@@ -40,14 +41,31 @@ const Images: FC<ImagesProps> = ({ id }) => {
 			})
 	}, [info.page])
 
+	const keydown = useCallback((e: KeyboardEvent) => {
+		if (e.key === 'ArrowRight') {
+			next(selected.current)
+		}
+
+		if (e.key === 'ArrowLeft' && selected.current > 0) {
+			prev(selected.current)
+		}
+	}, [])
+
+	useEffect(() => {
+		window.addEventListener('keydown', keydown)
+		return () => window.removeEventListener('keydown', keydown)
+	}, [])
+
 	function openModal(i: number) {
 		setCurrent(i)
+		selected.current = i
 		setShowModal(true)
 	}
 
-	function next() {
-		if (current < images.length - 1) {
+	function next(i: number) {
+		if (i < info.total - 1) {
 			setCurrent(prev => prev + 1)
+			selected.current++
 			if (current === images.length - 2 && current !== info.total - 2) {
 				const updated = { ...info }
 				updated.page++
@@ -56,9 +74,10 @@ const Images: FC<ImagesProps> = ({ id }) => {
 		}
 	}
 
-	function prev() {
-		if (current > 0) {
+	function prev(i: number) {
+		if (i > 0) {
 			setCurrent(prev => prev - 1)
+			selected.current--
 		}
 	}
 
@@ -72,7 +91,12 @@ const Images: FC<ImagesProps> = ({ id }) => {
 			{showModal && (
 				<div className={cls.modal}>
 					<div className={cls.left}>
-						<img className={current === 0 ? cls.disabledL : ''} onClick={prev} src={arrow} alt="move left" />
+						<img
+							className={current === 0 ? cls.disabledL : ''}
+							onClick={() => prev(selected.current)}
+							src={arrow}
+							alt="move left"
+						/>
 					</div>
 					<div className={cls.content}>
 						<img className={cls.cur} onClick={() => setShowModal(false)} src={images[current].imageUrl} alt="image" />
@@ -81,7 +105,7 @@ const Images: FC<ImagesProps> = ({ id }) => {
 					<div className={cls.right}>
 						<img
 							className={current === images.length - 1 ? cls.disabledR : ''}
-							onClick={next}
+							onClick={() => next(selected.current)}
 							src={arrow}
 							alt="move right"
 						/>

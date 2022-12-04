@@ -48,8 +48,8 @@ const Results: FC<ResultsProps> = ({
 				</div>
 			) : (
 				<div className={cls.films}>
-					{films.length > 0 && <h2>Фильмы/сериалы:</h2>}
-					<div>
+					<h2>Фильмы/сериалы:</h2>
+					<div className={cls.block}>
 						{films.map(film => (
 							<FilmItem film={film} key={film.filmId} />
 						))}
@@ -72,8 +72,8 @@ const Results: FC<ResultsProps> = ({
 				</div>
 			) : (
 				<div className={cls.actors}>
-					{actors.length > 0 && <h2>Актёры:</h2>}
-					<div>
+					<h2>Актёры:</h2>
+					<div className={cls.block}>
 						{actors.map(actor => (
 							<ActorItem actor={actor} key={actor.id} />
 						))}
@@ -81,7 +81,6 @@ const Results: FC<ResultsProps> = ({
 					{actors.length > 0 ? (
 						<div className={cls.info}>
 							<h2>Всего найдено: {overallActors}</h2>
-
 							<h3 onClick={() => redirect('actors')}>показать всех</h3>
 						</div>
 					) : (

@@ -2,8 +2,6 @@ import { FC, useState, useEffect } from 'react'
 import { InView, useInView } from 'react-intersection-observer'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router'
-import { useNavigate } from 'react-router'
 import Loader from '../../Components/Loader/Loader'
 import SearchMenu from '../../Components/SearchMenu/SearchMenu'
 import SmallCard from '../../Components/SmallCard/SmallCard'
@@ -12,8 +10,6 @@ import { TypeDispatch } from '../../Redux/store'
 import cls from './Filters.module.css'
 
 const Filters: FC = () => {
-	const navigate = useNavigate()
-	const params = useParams()
 	const dispatch = useDispatch<TypeDispatch>()
 	const [showResult, setShowResult] = useState(false)
 	const { data } = useSelector(filmsSelector)
@@ -21,13 +17,7 @@ const Filters: FC = () => {
 	const { data: films, loading, prevParams, curPage, pageLimit } = useSelector(filmsSelector)
 
 	useEffect(() => {
-		if (params['*']) {
-			navigate('/')
-		}
-	}, [])
-
-	useEffect(() => {
-		if (entry?.isIntersecting && films.length > 0) {
+		if (entry?.isIntersecting && films.length > 0 && !loading) {
 			if (curPage <= pageLimit) {
 				const params: ParamsType = { ...prevParams }
 				params.page = curPage

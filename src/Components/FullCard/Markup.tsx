@@ -15,18 +15,14 @@ const Markup: FC<MarkUpProps> = ({ string }) => {
 	}
 
 	function printValue(string: string): string {
-		return (
-			string?.match(/\>.+?\<\//is)?.[0]?.replace(/[\/\<\>]/g, '') || ''
-			// ?.replace('&laquo;', '«')
-			// ?.replace('&raquo;', '»')
-		)
+		return string.match(/\>.+?\<\//is)?.[0].replace(/[\/\<\>]/gi, '') || ''
 	}
 
 	return (
 		<p>
 			{arr.map((el, i) => (
 				<>
-					{el}{' '}
+					{el.replace(/&#[\d]+?;/gi, ' ')}{' '}
 					{hrefs && hrefs[i] && (
 						<Link to={`${hrefs[i] ? printLink(hrefs[i]) : ''}`} className={cls.link}>
 							{printValue(hrefs[i])}

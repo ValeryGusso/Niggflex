@@ -85,7 +85,6 @@ const Reviews: FC<ReviewsProps> = ({ id }) => {
 	useEffect(() => {
 		if (entry?.isIntersecting && reviews?.length > 0) {
 			if (page <= totalPages) {
-				// console.log(123)
 				dispatch(fetchReviews({ id: params?.id ? +params.id : 0, page, sort: sortType.value }))
 			}
 		}

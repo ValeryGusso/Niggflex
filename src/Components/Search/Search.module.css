@@ -47,7 +47,6 @@
 	transform: rotateZ(225deg) scale(1.1);
 }
 
-
 .results {
 	position: absolute;
 	width: 200%;
@@ -76,25 +75,26 @@
 
 .films,
 .actors {
-	display: grid;
-	grid-template-rows: 5vmin 1fr 5vmin;
+	height: 75vmin;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	row-gap: 2vmin;
 	overflow-y: auto;
-	overflow-x:visible;
+	overflow-x: visible;
 }
 
 .films > h2,
 .actors > h2 {
-	width: 100%;
+	height: 5vmin;
 	text-align: center;
 	font-size: 4vmin;
 	padding-top: 1vmin;
+	padding-left: 5vmax;
 	cursor: default;
 }
 
-.films > div,
-.actors > div {
-	height: 100%;
+.block {
 	display: flex;
 	flex-direction: column;
 	row-gap: 1vmin;
@@ -102,9 +102,9 @@
 }
 
 .info {
-	flex-direction: row !important;
-	overflow: hidden !important;
-	align-items: center;
+	width: 100%;
+	height: 10vmin;
+	display: flex;
 	column-gap: 3vmax;
 	padding-left: 3vmax;
 	padding-bottom: 1vmin;
@@ -130,8 +130,10 @@
 	height: 100%;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	text-align: center;
 	padding: 0 2vmax;
+	padding-bottom: 10vmin;
 	cursor: default;
 }
 
