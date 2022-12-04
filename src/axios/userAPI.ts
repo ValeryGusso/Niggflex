@@ -8,10 +8,10 @@ const axiosUserAPI: AxiosInstance = axios.create({
 axiosUserAPI.interceptors.request.use((config: AxiosRequestConfig) => {
 	if (config?.headers) {
 		config.headers['authorization'] = `Bearer ${localStorage.getItem('access') || ''}`
-		config.headers['Content-Type'] = config.url === '/image' ? 'multipart/form-data' : 'application/json'
+		// config.headers['Content-Type'] = config.url === '/image' ? 'multipart/form-data' : 'application/json'
 		config.headers['Access-Control-Allow-Origin'] = process.env.REACT_APP_API_URL || 'http://localhost:666'
-		config.headers['Access-Control-Allow-Credentials'] = config.url === '/image' ? true : 'include'
-		config.headers['Vary'] = 'Origin'
+		config.headers['Access-Control-Allow-Credentials'] = 'include'
+		// config.headers['Vary'] = 'Origin'
 	}
 	return config
 })
