@@ -11,6 +11,7 @@ axiosUserAPI.interceptors.request.use((config: AxiosRequestConfig) => {
 		config.headers['Content-Type'] = config.url === '/image' ? 'multipart/form-data' : 'application/json'
 		config.headers['Access-Control-Allow-Origin'] = process.env.REACT_APP_API_URL || 'http://localhost:666'
 		config.headers['Access-Control-Allow-Credentials'] = 'include'
+		config.headers['Vary'] = 'Origin'
 	}
 	return config
 })

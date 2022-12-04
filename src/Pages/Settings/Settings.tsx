@@ -99,14 +99,15 @@ const Settings: FC = () => {
 		}
 		setLoading(true)
 
-		const result = await Promise.all([sendData(), sendImage()])
+		const result = await Promise.all([sendData(), sendImage()]).finally(() => {
+			setLoading(false)
+		})
 
 		if (timestamps.current.data > timestamps.current.image) {
 			result[0] && dispatch(setUser(result[0]))
 		} else {
 			result[1] && dispatch(setUser(result[1]))
 		}
-		setLoading(false)
 	}
 
 	function sendData() {
@@ -152,6 +153,9 @@ const Settings: FC = () => {
 	function upload(e: React.ChangeEvent<HTMLInputElement>): void {
 		if (e.target.files) {
 			setImage(e.target.files[0])
+			if (!wasChanged) {
+				setWasChanged(true)
+			}
 		}
 	}
 
