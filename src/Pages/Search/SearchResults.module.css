@@ -7,7 +7,7 @@
 .wrapper > h2 {
 	padding-top: 1vmin;
 	text-align: center;
-	font-size: 4vmin;
+	font-size: 3vmin;
 	background: rgba(0, 0, 0, 0.5);
 }
 
@@ -18,7 +18,7 @@
 }
 
 .wrapper > a > h3 {
-	font-size: 3vmin;
+	font-size: 2.5vmin;
 	cursor: pointer;
 	font-style: italic;
 	color: #efdc7a;

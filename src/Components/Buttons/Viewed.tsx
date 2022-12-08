@@ -1,6 +1,5 @@
 import { FC, useState, useEffect, CSSProperties } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { movieType } from '../../Assets/constants'
 import { UpdatedResponse } from '../../Interfaces/UserAPI/userAPIResponses'
 import axiosUserAPI from '../../axios/userAPI'
 import { authSelector, setUser } from '../../Redux/Slices/auth'
@@ -10,6 +9,7 @@ import cls from './Buttons.module.css'
 import { HandySvg } from 'handy-svg'
 import Loader from '../Loader/Loader'
 import Error, { ErrorState } from './Error'
+import { printType } from '../../Utils/print'
 
 interface VievedProps {
 	id: number
@@ -21,7 +21,7 @@ const Viewed: FC<VievedProps> = ({ id, type }) => {
 	const { viewed, isAuth, sex } = useSelector(authSelector)
 	const [isViewed, setIsViewed] = useState(true)
 	const [loading, setLoading] = useState(false)
-	const [error, setError] = useState({ x: 0, y: 0, show: false } as ErrorState)
+	const [error, setError] = useState<ErrorState>({ x: 0, y: 0, show: false })
 
 	async function setViewed(e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) {
 		if (!isAuth) {
@@ -47,23 +47,8 @@ const Viewed: FC<VievedProps> = ({ id, type }) => {
 		}
 	}
 
-	function printType(type: string): string {
-		switch (type) {
-			case movieType[0].value:
-				return 'т ' + movieType[0].title
-			case movieType[1].value:
-				return 'о ' + movieType[1].title
-			case movieType[2].value:
-				return 'т ' + movieType[2].title
-			case movieType[3].value:
-				return 'т ' + movieType[3].title
-			default:
-				return ''
-		}
-	}
-
 	useEffect(() => {
-		viewed.includes(id) ? setIsViewed(true) : setIsViewed(false)
+		setIsViewed(viewed.includes(id))
 	}, [viewed])
 
 	return (

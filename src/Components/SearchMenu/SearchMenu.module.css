@@ -159,16 +159,19 @@
 .container button {
 	padding: 1vmin 2vmax;
 	font-size: 4vmin;
-	color: #272523;
 	font-weight: bold;
 	font-style: italic;
 	border-radius: 1vmin;
 	cursor: pointer;
-	background: rgba(255, 255, 255, 0.5);
-	transition: 0.5s;
+	background: transparent;
+	border: none;
+	color: #dfdfdf;
+	text-decoration: underline 5px #93a1ca;
+	transition: 0.3s;
 }
 
 .container button:hover {
 	background: #93a1ca;
-	transform: scale(0.98);
+	color: #131517;
+	text-decoration: none;
 }

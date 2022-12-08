@@ -5,7 +5,6 @@ import Loader from '../../Components/Loader/Loader'
 import { Film, PremieresResponse } from '../../Interfaces/KPunofficial/premieres'
 import { months, monthsForPrint } from '../../Assets/constants'
 import cls from './Premieres.module.css'
-import classNames from 'classnames'
 
 interface SearchState {
 	year: number

@@ -19,6 +19,8 @@ const Images: FC<ImagesProps> = ({ id }) => {
 	const [images, setImages] = useState([] as Image[])
 	const [current, setCurrent] = useState(0)
 	const selected = useRef(0)
+	const max = useRef(0)
+	const limit = useRef(0)
 	const [showModal, setShowModal] = useState(false)
 	const [info, setInfo] = useState({ total: 0, page: 1, totalPages: 1 } as Info)
 
@@ -38,6 +40,8 @@ const Images: FC<ImagesProps> = ({ id }) => {
 				updated.total = res.data.total
 				updated.totalPages = res.data.totalPages
 				setInfo(updated)
+				max.current = res.data.total
+				limit.current += res.data.items.length
 			})
 	}, [info.page])
 
@@ -52,9 +56,10 @@ const Images: FC<ImagesProps> = ({ id }) => {
 	}, [])
 
 	useEffect(() => {
+		window.removeEventListener('keydown', keydown)
 		window.addEventListener('keydown', keydown)
 		return () => window.removeEventListener('keydown', keydown)
-	}, [])
+	}, [current])
 
 	function openModal(i: number) {
 		setCurrent(i)
@@ -63,12 +68,15 @@ const Images: FC<ImagesProps> = ({ id }) => {
 	}
 
 	function next(i: number) {
-		if (i < info.total - 1) {
+		if (i < max.current - 1) {
 			setCurrent(prev => prev + 1)
 			selected.current++
-			if (current === images.length - 2 && current !== info.total - 2) {
-				const updated = { ...info }
-				updated.page++
+			if (selected.current === limit.current - 2 && selected.current !== max.current - 2) {
+				const updated: Info = {
+					page: Math.ceil(selected.current / 20) + 1,
+					total: max.current,
+					totalPages: Math.ceil(max.current / 20),
+				}
 				setInfo(updated)
 			}
 		}

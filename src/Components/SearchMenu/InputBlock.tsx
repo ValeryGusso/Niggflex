@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useState } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import MultiRangeSlider, { ChangeResult } from 'multi-range-slider-react'
 import cls from './SearchMenu.module.css'
 

@@ -19,10 +19,10 @@ const Markup: FC<MarkUpProps> = ({ string }) => {
 	}
 
 	return (
-		<p>
+		<div className={cls.markup}>
 			{arr.map((el, i) => (
 				<>
-					{el.replace(/&#[\d]+?;/gi, ' ')}{' '}
+					<p key={i}>{el.replace(/&#[\d]+?;/gi, '').replace(/&[lr]aquo;/, '')}</p>
 					{hrefs && hrefs[i] && (
 						<Link to={`${hrefs[i] ? printLink(hrefs[i]) : ''}`} className={cls.link}>
 							{printValue(hrefs[i])}
@@ -30,7 +30,7 @@ const Markup: FC<MarkUpProps> = ({ string }) => {
 					)}
 				</>
 			))}
-		</p>
+		</div>
 	)
 }
 

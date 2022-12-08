@@ -15,9 +15,8 @@
 	padding-bottom: 0.5vmin;
 	color: #232527;
 	font-size: 3vmin;
-	font-weight: bold;
 	font-style: italic;
-	transition: 0.5s;
+	transition: 0.3s;
 }
 
 .active {
@@ -30,7 +29,7 @@
 }
 
 .search input::placeholder {
-	color: #232527;
+	color: rgba(35, 37, 39, 0.75);
 }
 
 .search > img {
@@ -88,7 +87,7 @@
 .actors > h2 {
 	height: 5vmin;
 	text-align: center;
-	font-size: 4vmin;
+	font-size: 3vmin;
 	padding-top: 1vmin;
 	padding-left: 5vmax;
 	cursor: default;
@@ -108,16 +107,17 @@
 	column-gap: 3vmax;
 	padding-left: 3vmax;
 	padding-bottom: 1vmin;
-	font-size: 2vmin;
+	font-size: 1.5vmin;
 }
 
 .info h3 {
 	padding: 0.5vmin 1vmax;
 	color: #232527;
-	border-radius: 1vmin;
+	border-radius: 0.5vmin;
 	background: #efda4a;
 	user-select: none;
 	cursor: pointer;
+	font-size: 1.75vmin;
 	transition: 0.3s;
 }
 

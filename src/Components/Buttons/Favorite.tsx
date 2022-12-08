@@ -22,7 +22,7 @@ const Favorite: FC<FavoriteProps> = ({ id, type }) => {
 	const { favorite, isAuth } = useSelector(authSelector)
 	const [isFavorite, setIsFavorite] = useState(false)
 	const [loading, setLoading] = useState(false)
-	const [error, setError] = useState({ x: 0, y: 0, show: false } as ErrorState)
+	const [error, setError] = useState<ErrorState>({ x: 0, y: 0, show: false })
 
 	async function setFavorite(e: React.MouseEvent<HTMLParagraphElement | HTMLDivElement, MouseEvent>) {
 		if (!isAuth) {
@@ -49,7 +49,7 @@ const Favorite: FC<FavoriteProps> = ({ id, type }) => {
 	}
 
 	useEffect(() => {
-		favorite.includes(id) ? setIsFavorite(true) : setIsFavorite(false)
+		setIsFavorite(favorite.includes(id))
 	}, [favorite])
 
 	return (

@@ -3,7 +3,7 @@ import { InView, useInView } from 'react-intersection-observer'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import { reviewsColors } from '../../Assets/constants'
+import { reviewesTypes, reviewsColors, reviewsSortTypes, TypeItem } from '../../Assets/constants'
 import axiosKPunofficial from '../../axios/KPunofficial'
 import { Item, ReviewsResponse } from '../../Interfaces/KPunofficial/reviews'
 import {
@@ -27,28 +27,6 @@ interface SelectState {
 	sort: boolean
 	view: boolean
 }
-
-interface Options {
-	page: number
-}
-
-interface TypeItem {
-	title: string
-	value: string
-}
-const reviewsSortTypes: TypeItem[] = [
-	{ title: 'дате (по возр.)', value: 'DATE_DESC' },
-	{ title: 'дате (по убыв.)', value: 'DATE_ASC' },
-	{ title: 'рейтингу (по возр.)', value: 'USER_NEGATIVE_RATING_DESC' },
-	{ title: 'рейтингу (по убыв.)', value: 'USER_POSITIVE_RATING_DESC' },
-]
-
-const reviewesTypes: TypeItem[] = [
-	{ title: 'только положительные', value: 'POSITIVE' },
-	{ title: 'только нейтральные', value: 'NEUTRAL' },
-	{ title: 'только отрицательные', value: 'NEGATIVE' },
-	{ title: 'все', value: '' },
-]
 
 const Reviews: FC<ReviewsProps> = ({ id }) => {
 	const params = useParams()

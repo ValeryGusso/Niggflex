@@ -1,4 +1,4 @@
-import { CSSProperties, FC, HTMLAttributes } from 'react'
+import { FC } from 'react'
 import cls from './DancingText.module.css'
 import Letter from './Letter'
 

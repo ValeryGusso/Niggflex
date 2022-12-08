@@ -101,7 +101,7 @@
 
 .viewed p:nth-child(1) {
 	width: 80%;
-	font-size: 3vmin;
+	font-size: 2vmin;
 	cursor: default;
 }
 
@@ -110,7 +110,7 @@
 	padding: 2vmin 0;
 	background: #75acff;
 	border-radius: 1vmax;
-	font-size: 2.25vmin;
+	font-size: 1.75vmin;
 	font-weight: bold;
 	text-align: center;
 	color: #171021;

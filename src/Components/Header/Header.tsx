@@ -52,7 +52,7 @@ const Header: FC = () => {
 
 	return (
 		<div className={cls.header}>
-			<div onMouseLeave={() => setOpen(false)} className={classNames(cls.logo, open ? cls.open : '')}>
+			 <div className={classNames(cls.logo, open ? cls.open : '')}> 
 				<div>
 					<img onClick={() => setOpen(!open)} src={open ? cross : menu} alt="menu" />
 					<img src={logo} alt="logo" />

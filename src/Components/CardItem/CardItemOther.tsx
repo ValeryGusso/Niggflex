@@ -17,10 +17,6 @@ interface CardItemOtherProps {
 const CardItemOther: FC<CardItemOtherProps> = ({ film }) => {
 	const [showDetails, setShowDetails] = useState<boolean>(false)
 
-	function toggle() {
-		setShowDetails(true)
-	}
-
 	return (
 		<div onPointerLeave={() => setShowDetails(false)} className={cls.cartItem}>
 			<div className={cls.content}>
@@ -61,7 +57,7 @@ const CardItemOther: FC<CardItemOtherProps> = ({ film }) => {
 						</div>
 					</div>
 				) : (
-					<div onClick={toggle} className={classNames(cls.face, showDetails ? cls.hideFace : '')}>
+					<div onClick={() => setShowDetails(true)} className={classNames(cls.face, showDetails ? cls.hideFace : '')}>
 						<img
 							src={film.poster?.previewUrl || film.poster?.url ? film.poster.previewUrl || film.poster?.url : noimage}
 							alt="image"

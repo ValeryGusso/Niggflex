@@ -16,7 +16,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: top;
-	transition: 1s ease;
+	transition: 0.3s ease;
 	z-index: 1000;
 }
 
@@ -168,11 +168,11 @@
 }
 
 .open {
-	height: 67vmin;
+	height: 69vmin;
 	border-bottom-left-radius: 1vmax;
 	border-bottom-right-radius: 1vmax;
 	background: rgba(0, 0, 0, 0.95);
-	transition: 1s;
+	transition: 0.3s;
 }
 
 .menu > div {
@@ -184,34 +184,34 @@
 }
 
 .menu > div:nth-child(1) {
-	margin-top: 12vmin;
-	animation: show 0.5s linear 0.2s 1 normal forwards;
+	margin-top: 15vmin;
+	animation: show 0.3s linear 0.05s 1 normal forwards;
 }
 
 .menu > div:nth-child(2) {
-	animation: show 0.5s linear 0.3s 1 normal forwards;
+	animation: show 0.3s linear 0.1s 1 normal forwards;
 }
 
 .menu > div:nth-child(3) {
-	animation: show 0.5s linear 0.4s 1 normal forwards;
+	animation: show 0.3s linear 0.15s 1 normal forwards;
 }
 
 .menu > div:nth-child(4) {
-	animation: show 0.5s linear 0.5s 1 normal forwards;
+	animation: show 0.3s linear 0.175s 1 normal forwards;
 }
 
 .menu > div:nth-child(5) {
-	animation: show 0.5s linear 0.6s 1 normal forwards;
+	animation: show 0.3s linear 0.2s 1 normal forwards;
 }
 
 .menu > div:nth-child(6) {
-	animation: show 0.5s linear 0.7s 1 normal forwards;
+	animation: show 0.3s linear 0.225s 1 normal forwards;
 }
 .menu > div:nth-child(7) {
-	animation: show 0.5s linear 0.8s 1 normal forwards;
+	animation: show 0.3s linear 0.25s 1 normal forwards;
 }
 .menu > div:nth-child(8) {
-	animation: show 0.5s linear 0.9s 1 normal forwards;
+	animation: show 0.3s linear 0.275s 1 normal forwards;
 }
 
 @keyframes show {
@@ -233,10 +233,6 @@
 	filter: invert(0.75);
 	transition: 0.3s;
 }
-/* .menu > div a:hover {
-	color: #fff;
-	transform: translate(0.5vmax, 0.25vmin);
-} */
 
 .menu > div:hover a {
 	color: #fff;
@@ -262,7 +258,7 @@
 	border-bottom-left-radius: 1vmax;
 	border-bottom-right-radius: 1vmax;
 	background: rgba(0, 0, 0, 0.95);
-	transition: 1s;
+	transition: 0.3s;
 	z-index: 1000;
 }
 
@@ -290,11 +286,11 @@
 }
 
 .settings > div:nth-child(1) {
-	animation: show 1s linear 0.5s 1 normal forwards;
+	animation: show 0.2s linear 0.1s 1 normal forwards;
 }
 
 .settings > div:nth-child(2) {
-	animation: show 1s linear 0.75s 1 normal forwards;
+	animation: show 0.2s linear 0.2s 1 normal forwards;
 }
 
 .settings > div:hover a,

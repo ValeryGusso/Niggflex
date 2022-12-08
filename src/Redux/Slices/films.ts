@@ -50,7 +50,7 @@ export const filmSlice = createSlice({
 			state.data = [...state.data, ...action.payload]
 		},
 		clear: state => {
-			state.data = [] as Film[]
+			state.data = []
 		},
 		setParams: (state, action: PayloadAction<ParamsType>) => {
 			state.prevParams = action.payload

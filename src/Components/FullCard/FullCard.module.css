@@ -90,6 +90,7 @@
 	display: flex;
 	flex-direction: column;
 	row-gap: 1vmin;
+	padding: 0.25vmin 1vmax;
 	border-radius: 2vmax;
 	background: rgba(0, 0, 0, 0.75);
 }
@@ -119,7 +120,7 @@
 .about span {
 	text-align: start;
 	font-size: 2.25vmin;
-	max-width: 80%;
+	width: 80%;
 	border-radius: 1vmin;
 }
 
@@ -202,14 +203,14 @@
 	left: 5.9vmax;
 	color: #252327;
 	font-weight: bold;
-	font-size: 2vmin;
+	font-size: 1.75vmin;
 }
 
 .rating h2 {
 	position: absolute;
 	top: 1vmin;
-	left: 21vmax;
-	font-size: 3vmin;
+	left: 20vmax;
+	font-size: 2.5vmin;
 	font-style: italic;
 	font-weight: bold;
 	color: #141618;
@@ -483,7 +484,7 @@
 }
 
 .similars > h2 {
-	font-size: 4vmin;
+	font-size: 3vmin;
 	font-style: italic;
 }
 
@@ -511,8 +512,12 @@
 	transition: 0.3s;
 }
 
+.similar > a > h2 {
+	font-size: 2vmin;
+}
+
 .similar:hover {
-	transform: scale(1.5) translateY(-1vmin);
+	transform: scale(1.25) translateY(-1vmin);
 	background: #131517;
 	z-index: 10;
 }
@@ -656,7 +661,7 @@
 	padding: 2vmin 3vmax;
 	row-gap: 2vmin;
 	margin-top: 1vmin;
-	border-radius: 5vmax;
+	border-radius: 3vmax;
 	background: rgba(0, 0, 0, 0.5);
 }
 
@@ -676,7 +681,7 @@
 
 .review > div > div {
 	display: flex;
-	column-gap: 1vmax
+	column-gap: 1vmax;
 }
 
 .review > div > div > div {
@@ -686,7 +691,7 @@
 .review > p {
 	font-size: 2vmin;
 	padding: 3vmin 2vmax;
-	border-radius: 2vmax;
+	border-radius: 0.5vmax;
 	background: black;
 }
 
@@ -705,7 +710,7 @@
 	padding: 0.75vmin 0;
 	font-size: 2vmin;
 	text-align: center;
-	border-radius: 5vmin;
+	border-radius: 0.75vmin;
 	text-decoration: underline 3px;
 	cursor: pointer;
 	transition: 0.3s;
@@ -715,4 +720,19 @@
 	color: #141618;
 	text-decoration: none;
 	background: gray;
+}
+
+/* Markup */
+
+.markup {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 0.5vmax;
+	/* background: red!important */
+}
+
+.markup a,
+.markup p {
+	font-size: 1.75vmin;
 }

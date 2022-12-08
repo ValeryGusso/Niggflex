@@ -15,10 +15,6 @@ interface CardItemPremieresProps {
 const CardItemPremieres: FC<CardItemPremieresProps> = ({ film }) => {
 	const [showDetails, setShowDetails] = useState<boolean>(false)
 
-	function toggle() {
-		setShowDetails(true)
-	}
-
 	function printCountry(array: Country[]): string {
 		let countries: string[] = []
 		array.forEach(el => countries.push(el.country))
@@ -57,7 +53,7 @@ const CardItemPremieres: FC<CardItemPremieresProps> = ({ film }) => {
 						<p>Жанр{printGenres(film.genres)}</p>
 					</div>
 				) : (
-					<div onClick={toggle} className={classNames(cls.face, showDetails ? cls.hideFace : '')}>
+					<div onClick={() => setShowDetails(true)} className={classNames(cls.face, showDetails ? cls.hideFace : '')}>
 						<img src={film.posterUrl ? film.posterUrl : noimage} alt="image" />
 					</div>
 				)}

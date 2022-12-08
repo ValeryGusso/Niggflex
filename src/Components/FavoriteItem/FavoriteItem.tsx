@@ -19,15 +19,15 @@ const FavoriteItem: FC<FavoriteItemProps> = ({ film }) => {
 			<img src={film.poster.previewUrl || film.poster.url || noimage} alt="poster" />
 			<div className={cls.title}>
 				<div>
-					<h2>
+					<h2 className={cls.name}>
 						<Link to={`/film/${film.id}`}>
 							{film.name || film.alternativeName || 'Нет данных'} {film.year && `(${film.year})`}
 						</Link>
 					</h2>
-					<h2>{film.movieLength && ` ${film.movieLength} мин.`}</h2>
+					<h2 className={cls.name}>{film.movieLength && ` ${film.movieLength} мин.`}</h2>
 				</div>
 				<div className={cls.rating}>
-					<img src={KP} alt='KP' />
+					<img src={KP} alt="KP" />
 					<h1
 						style={{
 							background:
@@ -36,7 +36,7 @@ const FavoriteItem: FC<FavoriteItemProps> = ({ film }) => {
 					>
 						{film.rating?.kp.toFixed(1) || '---'}
 					</h1>
-					<img src={IMDB} alt='IMDB' />
+					<img src={IMDB} alt="IMDB" />
 					<h1
 						style={{
 							background:
@@ -46,7 +46,7 @@ const FavoriteItem: FC<FavoriteItemProps> = ({ film }) => {
 						{film.rating?.imdb.toFixed(1) || '---'}
 					</h1>
 				</div>
-				<h3>{cut(film.description || film.shortDescription, 400)}</h3>
+				<h3>{cut(film.description || film.shortDescription, 350)}</h3>
 			</div>
 			<div className={cls.button} title="Удалить из избранного">
 				<Favorite id={film.id} type="icon" />

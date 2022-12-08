@@ -19,8 +19,6 @@ const Awards: FC = () => {
 	const [loading, setLoading] = useState(true)
 	const [activeCategory, setActiveCategory] = useState(0)
 
-	//Добавить лоадер
-
 	useEffect(() => {
 		!loading && setLoading(true)
 		axiosKPunofficial
@@ -34,7 +32,8 @@ const Awards: FC = () => {
 
 				namesArray.forEach(name => {
 					const found = res.data.items.find(el => el.name === name)
-					found ? result.push({ name, image: found.imageUrl }) : result.push({ name, image: null })
+					// found ? result.push({ name, image: found.imageUrl }) : result.push({ name, image: null })
+					result.push({ name, image: found?.imageUrl || null })
 				})
 
 				setBlocks(result)

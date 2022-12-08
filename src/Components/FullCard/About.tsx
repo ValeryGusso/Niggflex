@@ -4,6 +4,7 @@ import axiosKPunofficial from '../../axios/KPunofficial'
 import { Fees, FeesResponse } from '../../Interfaces/KPunofficial/fees'
 import { useParams } from 'react-router'
 import { FilmResponse } from '../../Interfaces/KPunofficial/film'
+import { printFees } from '../../Utils/print'
 
 interface AboutProps {
 	film: FilmResponse
@@ -19,30 +20,6 @@ const About: FC<AboutProps> = ({ film }) => {
 		})
 	}, [])
 
-	function printFees(fees: Fees[]): string {
-		const result: string[] = []
-		fees.forEach(el => {
-			if (el.type !== 'BUDGET') {
-				let country
-				switch (el.type) {
-					case 'USA':
-						country = 'США'
-						break
-					case 'RUS':
-						country = 'Россия'
-						break
-					case 'WORLD':
-						country = 'Мир'
-						break
-					default:
-						country = 'Где-то'
-				}
-				result.push(`${country}: ${el.amount} ${el.symbol}`)
-			}
-		})
-		return result.join(' / ')
-	}
-
 	return (
 		<div className={cls.about}>
 			<h2>О фильме:</h2>
@@ -52,7 +29,7 @@ const About: FC<AboutProps> = ({ film }) => {
 			</div>
 			<div>
 				<p>Длительность:</p>
-				<span>{film.filmLength ? film.filmLength + 'мин' : 'Нет данных'} </span>
+				<span>{film.filmLength ? film.filmLength + ' мин' : 'Нет данных'} </span>
 			</div>
 			<div>
 				<p>Страна производства:</p>

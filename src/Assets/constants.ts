@@ -349,3 +349,22 @@ export const alphabet: string[] = [
 	'8',
 	'9',
 ]
+
+export interface TypeItem {
+	title: string
+	value: string
+}
+
+export const reviewsSortTypes: TypeItem[] = [
+	{ title: 'дате (по возр.)', value: 'DATE_DESC' },
+	{ title: 'дате (по убыв.)', value: 'DATE_ASC' },
+	{ title: 'рейтингу (по возр.)', value: 'USER_NEGATIVE_RATING_DESC' },
+	{ title: 'рейтингу (по убыв.)', value: 'USER_POSITIVE_RATING_DESC' },
+]
+
+export const reviewesTypes: TypeItem[] = [
+	{ title: 'только положительные', value: 'POSITIVE' },
+	{ title: 'только нейтральные', value: 'NEUTRAL' },
+	{ title: 'только отрицательные', value: 'NEGATIVE' },
+	{ title: 'все', value: '' },
+]

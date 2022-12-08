@@ -15,6 +15,7 @@
 }
 
 .title > h1 {
+	font-size: 3vmin;
 	border-radius: 2vmin;
 }
 
@@ -52,14 +53,14 @@
 
 .row {
 	display: flex;
-	animation: leftflow 120s linear infinite;
+	animation: leftflow 180s linear infinite;
 	user-select: none;
 	pointer-events: none;
 }
 
 .row:nth-child(2) {
 	display: flex;
-	animation: rightflow 120s linear infinite;
+	animation: rightflow 180s linear infinite;
 }
 
 .row > div {
@@ -105,7 +106,7 @@
 .description > h1 {
 	width: 100%;
 	text-align: center;
-	font-size: 3vmin;
+	font-size: 2.5vmin;
 }
 
 .description > h1 > a {
@@ -124,10 +125,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* background: gray */
 }
 
 .loader > div {
 	transform: scale(3);
 }
-

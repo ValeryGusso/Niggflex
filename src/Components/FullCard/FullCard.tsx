@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { Link } from 'react-router-dom'
 import { filmMenu } from '../../Assets/constants'
 import axiosKPunofficial from '../../axios/KPunofficial'
 import { Fact, FactsResponse } from '../../Interfaces/KPunofficial/facts'
@@ -50,8 +49,6 @@ const FullCard: FC = () => {
 			})
 			.then(res => {
 				setStaff(res.data)
-				const proff = new Set()
-				res.data.map(el => proff.add(el.professionKey))
 			})
 		window.scrollTo(0, 0)
 	}, [params.id])
