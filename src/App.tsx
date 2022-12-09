@@ -43,9 +43,10 @@ const App: FC = () => {
 			dispatch(setLoadingState(false))
 		}
 
-		for (let i = 1; i < 4; i++) {
-			dispatch(fetchBackground(i))
-		}
+		// for (let i = 1; i < 4; i++) {
+		// 	dispatch(fetchBackground(i))
+		// }
+		dispatch(fetchBackground(1))
 	}, [])
 
 	useEffect(() => {
