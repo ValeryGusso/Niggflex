@@ -136,6 +136,8 @@ const SearchMenu: FC<SearchMenuProps> = ({ show }) => {
 					subSteps={false}
 					title="По рейтингу:"
 					style={{
+						width: '300px',
+						transform: 'translateX(-25%)',
 						border: 'none',
 						borderRadius: '2vmin',
 						boxShadow: '0 0 15px rgba(255,255,255,0.25)',
@@ -165,6 +167,8 @@ const SearchMenu: FC<SearchMenuProps> = ({ show }) => {
 					ruler={false}
 					title="По году премьеры:"
 					style={{
+						width: '300px',
+						transform: 'translateX(-25%)',
 						border: 'none',
 						borderRadius: '2vmin',
 						boxShadow: '0 0 15px rgba(255,255,255,0.25)',

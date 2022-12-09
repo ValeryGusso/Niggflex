@@ -31,7 +31,7 @@ const Registration: FC = () => {
 	const [pass, setPass] = useState('')
 	const [confirm, setConfirm] = useState('')
 	const [code, setCode] = useState('')
-	const [activate, setActivate] = useState(false)
+	const [activate, setActivate] = useState(true)
 	const [loading, setLoading] = useState(false)
 	const [loginError, setLoginError] = useState({} as ErrorState)
 	const [passError, setPassError] = useState({} as ErrorState)
@@ -142,7 +142,7 @@ const Registration: FC = () => {
 				<div className={cls.content}>
 					{activate ? (
 						<form onSubmit={handleSubmit(sendCode)} className={cls.activate}>
-							<DancingText text="REGISTRATION" />
+							<p className={cls.title}>REGISTRATION</p>
 							<div className={cls.block}>
 								<h2>Код активации:</h2>
 								<Input

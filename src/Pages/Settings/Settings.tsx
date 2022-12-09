@@ -164,39 +164,37 @@ const Settings: FC = () => {
 	}
 
 	return (
-		<div className={cls.container}>
-			<div>
-				<div className={cls.block}>
-					<p>Имя:</p>
-					<input className={cls.name} value={name} onChange={changeName} tabIndex={1} />
+		<div onClick={() => showList && setShowList(false)} className={cls.container}>
+			<div className={cls.block}>
+				<p>Имя:</p>
+				<input className={cls.name} value={name} onChange={changeName} tabIndex={1} />
+			</div>
+			<div className={cls.block}>
+				<p>Пол:</p>
+				<p onClick={() => setShowList(true)}>{printGender(sex)}</p>
+				<div className={cls.menu}>
+					{showList &&
+						genders.map(
+							el =>
+								el !== sex && (
+									<li key={el} onClick={() => changeSex(el)}>
+										<img src={setSign(el)} alt="sign" />
+										<p>я - {printGender(el)}</p>
+									</li>
+								)
+						)}
 				</div>
-				<div className={cls.block}>
-					<p>Пол:</p>
-					<p onClick={() => setShowList(true)}>{printGender(sex)}</p>
-					<div className={cls.menu} onMouseLeave={() => setShowList(false)}>
-						{showList &&
-							genders.map(
-								el =>
-									el !== sex && (
-										<li key={el} onClick={() => changeSex(el)}>
-											<img src={setSign(el)} alt="sign" />
-											<p>я - {printGender(el)}</p>
-										</li>
-									)
-							)}
-					</div>
-				</div>
-				<div className={cls.avatarBlock}>
-					<p>Аватар:</p>
-					<textarea className={cls.avatar} value={avatar} onChange={changeAvatar} placeholder="Ссылка на картинку" />
+			</div>
+			<div className={cls.avatarBlock}>
+				<p>Аватар:</p>
+				<textarea className={cls.avatar} value={avatar} onChange={changeAvatar} placeholder="Ссылка на картинку" />
+				<div>
+					<p>Или загрузи свой файл:</p>
 					<div>
-						<p>Или загрузи свой файл:</p>
-						<div>
-							{/* @ts-ignore */}
-							<HandySvg onClick={redirect} src={uploadImage} fill="#dfdfdf" />
-							{image && <img onClick={() => setImage(null)} className={cls.close} src={close} alt="close" />}
-							<p>{image?.name}</p>
-						</div>
+						{/* @ts-ignore */}
+						<HandySvg onClick={redirect} src={uploadImage} fill="#dfdfdf" />
+						{image && <img onClick={() => setImage(null)} className={cls.close} src={close} alt="close" />}
+						<p>{image?.name}</p>
 					</div>
 				</div>
 			</div>

@@ -1,30 +1,40 @@
 .container {
 	position: relative;
 	overflow: hidden !important;
-	width: calc(60vmax + 1vmin) !important;
-	height: calc(75vmin + 1vmin) !important;
+	width: 320px !important;
+	height: 400px !important;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	border-radius: 2vmax;
+	border-radius: 10px;
+	margin-top: 75px;
 	box-shadow: none !important;
 	box-sizing: border-box;
 }
 
 .wrapper {
-	width: 60vmax;
-	height: 75vmin;
+	width: 315px;
+	height: 395px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	row-gap: 5vmin;
-	border-radius: 2vmax;
+	row-gap: 20px;
+	border-radius: 10px;
 	box-sizing: border-box;
 	background: #141618;
 	z-index: 1;
+}
+
+.wrapper > img {
+	width: 270px;
+}
+
+.wrapper h1,
+.wrapper a {
+	font-size: 20px;
 }
 
 .wrapper > h1 > a {
@@ -43,8 +53,8 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 75vmax;
-	height: 40vmin;
+	width: 500px;
+	height: 100px;
 	background: linear-gradient(transparent, #dfef7a, #dfef7a, #dfef7a, transparent);
 	animation: rotate1 10s linear infinite;
 	z-index: 0;

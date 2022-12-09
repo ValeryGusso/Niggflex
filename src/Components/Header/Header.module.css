@@ -73,10 +73,11 @@
 
 .userInfo {
 	position: absolute;
-	width: 50%;
+	width: 100%;
 	top: 0;
-	padding-left: 10%;
+	padding-right: 10px;
 	display: flex;
+	column-gap: 10px;
 	justify-content: space-around;
 	align-items: center;
 	z-index: 11;
@@ -89,7 +90,7 @@
 }
 
 .topBlock p {
-	font-size: 18px;
+	font-size: 14px;
 	font-style: italic;
 	cursor: pointer;
 }
@@ -259,6 +260,7 @@
 	border-bottom-left-radius: 1vmax;
 	border-bottom-right-radius: 1vmax;
 	background: rgba(0, 0, 0, 0.95);
+	transform: translateX(-40px);
 	transition: 0.3s;
 	z-index: 10;
 }

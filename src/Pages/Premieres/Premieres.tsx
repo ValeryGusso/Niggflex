@@ -69,12 +69,11 @@ const Premieres: FC = () => {
 				<h1>
 					Премьеры{' '}
 					<span>
-						<span onClick={() => setShow(prev => ({ ...prev, month: true }))}>{monthsForPrint[search.month]}</span>
+						<span onClick={() => setShow(prev => ({ ...prev, month: !prev.month }))}>
+							{monthsForPrint[search.month]}
+						</span>
 						{show.month && (
-							<ul
-								onMouseLeave={() => setShow(prev => ({ ...prev, month: false }))}
-								className={show.month ? cls.show : cls.hide}
-							>
+							<ul className={show.month ? cls.show : cls.hide}>
 								{monthsForPrint.map((el, i) => (
 									<li
 										onClick={() => changeSearch('month', i)}
@@ -88,12 +87,9 @@ const Premieres: FC = () => {
 						)}
 					</span>{' '}
 					<span>
-						<span onClick={() => setShow(prev => ({ ...prev, year: true }))}>{search.year}.</span>
+						<span onClick={() => setShow(prev => ({ ...prev, year: !prev.year }))}>{search.year}.</span>
 						{show.year && (
-							<ul
-								onMouseLeave={() => setShow(prev => ({ ...prev, year: false }))}
-								className={show.year ? cls.show : cls.hide}
-							>
+							<ul className={show.year ? cls.show : cls.hide}>
 								{createYears().map(el => (
 									<li
 										className={el === search.year ? cls.active : ''}

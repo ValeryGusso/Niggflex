@@ -1,58 +1,60 @@
 .container {
+	width: 100vw;
+	height: 150px;
 	display: flex;
 	align-items: center;
-	column-gap: 1vmax;
-	padding: 2vmin;
-	border-radius: 1vmax;
-	background: rgba(0,0,0,0.5);
-	box-shadow: 0 0 4vmin rgba(117, 172, 255, 0.25);
+	column-gap: 5px;
+	padding: 5px;
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 20px rgba(117, 172, 255, 0.25);
 }
 
 .container > img {
-	border-radius: 1vmin;
-	max-width: 8vmax;
-	max-height: 20vmin;
+	border-radius: 5px;
+	max-width: 60px;
+	max-height: 80px;
 }
 
 .description {
-	width: 35vmax;
 	display: flex;
 	flex-direction: column;
-	row-gap: 2vmin;
+	row-gap: 10px;
 }
 
 .description a {
 	font-weight: bold;
 	font-style: italic;
-	font-size: 3vmin;
-}
-
-.description h2 {
-	font-size: 2vmin;
+	font-size: 14px;
 }
 
 .info {
 	display: flex;
-	column-gap: 2vmax;
+	column-gap: 10px;
 }
 
 .info > div {
 	display: flex;
 	flex-direction: column;
-	row-gap: 2vmin;
+	row-gap: 10px;
 }
 
 .info > div > h2 {
-	font-size: 2.5vmin;
+	font-size: 12px;
 	font-style: italic;
 }
 
 .buttons {
-	width: 15vmax;
+	width: 80px;
 	display: flex;
+	padding-right: 10px;
 	justify-content: flex-start;
 	flex-direction: column;
-	row-gap: 3vmin;
+	row-gap: 15px;
+}
+
+.buttons svg {
+	height: 30px !important;
 }
 
 .rating {
@@ -79,5 +81,5 @@
 }
 
 .block img {
-	width: 3vmax;
+	width: 25px;
 }

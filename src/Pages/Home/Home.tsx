@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import DancingText from '../../Components/DancingText/DancingText'
 import Loader from '../../Components/Loader/Loader'
 import { authSelector } from '../../Redux/Slices/auth'
 import { backgroundSelector } from '../../Redux/Slices/background'

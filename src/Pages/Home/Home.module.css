@@ -1,11 +1,11 @@
 .wrapper {
-	height: 90vh;
+	/* height: 100vh; */
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	flex-direction: column;
 	row-gap: 15px;
-	padding-top: 10px;
+	padding-top: 5vh;
 }
 
 .wrapper h1 {
@@ -19,13 +19,13 @@
 }
 
 .title > h1 {
-	font-size: 24px;
+	font-size: 20px;
 	border-radius: 2vmin;
 	padding: 0 15px;
 }
 
 .title > h1 > span {
-	font-size: 32px;
+	font-size: 26px;
 	position: relative;
 	color: #e50914;
 	font-style: italic;
@@ -34,12 +34,15 @@
 .title > h1 > span > span {
 	position: absolute;
 	top: 35px;
-	left: -60px;
+	left: -80px;
 	text-align: center;
-	width: 100px;
+	width: 120px;
 	font-size: 16px;
+	padding: 2px 5px;
+	border-radius: 5px;
 	color: #e50914;
 	z-index: 10;
+	background: rgba(0, 0, 0, 0.95);
 }
 
 .title > div {

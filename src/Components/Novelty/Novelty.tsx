@@ -3,21 +3,24 @@ import CardItemOther from '../../Components/CardItem/CardItemOther'
 import Loader from '../../Components/Loader/Loader'
 import cls from './Novelty.module.css'
 import { useSelector } from 'react-redux'
-import { fetchNovelty, noveltySelector } from '../../Redux/Slices/novelty'
+import { clearNovelty, fetchNovelty, noveltySelector } from '../../Redux/Slices/novelty'
 import { useDispatch } from 'react-redux'
 import { InView, useInView } from 'react-intersection-observer'
 import { TypeDispatch } from '../../Redux/store'
+import { useLocation } from 'react-router'
+import { printNoveltyType } from '../../Utils/print'
 
 interface NoveltyProps {
 	type: number
 }
 
 const Novelty: FC<NoveltyProps> = ({ type }) => {
+	const location = useLocation()
 	const dispatch = useDispatch<TypeDispatch>()
 	const { ref, entry } = useInView()
 	const { items, loading, totalItems, totalPages, page } = useSelector(noveltySelector)
 
-	function createQuery(): URL {
+	function createQuery(page: string | number): URL {
 		const url = new URL('https://api.kinopoisk.dev/movie')
 		url.searchParams.append('field', 'year')
 		url.searchParams.append('search', '2022')
@@ -31,12 +34,13 @@ const Novelty: FC<NoveltyProps> = ({ type }) => {
 	}
 
 	useEffect(() => {
-		const query = createQuery()
+		const query = createQuery(1)
+		dispatch(clearNovelty())
 		dispatch(fetchNovelty(query))
-	}, [])
+	}, [location.pathname])
 
 	useEffect(() => {
-		const query = createQuery()
+		const query = createQuery(page)
 		if (entry?.isIntersecting && items.length > 0) {
 			if (page <= totalPages) {
 				dispatch(fetchNovelty(query))
@@ -44,25 +48,9 @@ const Novelty: FC<NoveltyProps> = ({ type }) => {
 		}
 	}, [entry])
 
-	function printType(type: number): string {
-		switch (type) {
-			case 1:
-				return 'кино'
-			case 2:
-				return 'сериалов'
-			case 3:
-				return 'мультфильмов'
-			case 4:
-				return 'аниме'
-			case 5:
-				return 'хз чего'
-			default:
-				return ''
-		}
-	}
 	return (
 		<div className={cls.container}>
-			<h1>Новинки {printType(type)}, выбирай что тебе по душе!</h1>
+			<h1>Новинки {printNoveltyType(type)}, выбирай что тебе по душе!</h1>
 			<div className={cls.content}>
 				<InView>
 					{items.length > 0 && items.map(film => <CardItemOther key={film.id} film={film} />)}

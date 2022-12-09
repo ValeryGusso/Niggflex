@@ -75,7 +75,7 @@ const SmallCard: FC<SmallCardProps> = ({ film }) => {
 				</div>
 			</div>
 			<div className={cls.buttons}>
-				<Favorite id={film.kinopoiskId} type="button" />
+				<Favorite id={film.kinopoiskId} type="icon" />
 				<Viewed id={film.kinopoiskId} type={film.type} />
 			</div>
 		</div>

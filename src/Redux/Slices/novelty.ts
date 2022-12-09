@@ -14,6 +14,7 @@ interface NoveltySliceState {
 
 export const fetchNovelty = createAsyncThunk('novelty/fetchNovelty', async (url: URL) => {
 	const { data } = await axiosKPofficial.get<SearchResponse>(url.toString())
+	console.log(data)
 	return data as SearchResponse
 })
 

@@ -1,39 +1,39 @@
 .container {
-	width: 85vmax;
-	margin-left: 7.5vmax;
+	width: 100vw;
 	display: flex;
 	text-align: center;
 	align-items: center;
 	flex-direction: column;
-	flex-wrap: wrap; 
-	row-gap: 2vmin;
+	flex-wrap: wrap;
+	margin-top: 30px;
+	row-gap: 10px;
 }
 
 .content {
-	width: 95vmax;
-	min-height: 70vmin;
-	max-height: 72vmin;
-	transform: translateX(-5vmax);
+	width: 100%;
+	min-height: 75vh;
+	max-height: 77vh;
+	transform: translateX(-12px);
 	overflow-y: auto;
-	padding-bottom: 2vmin;
+	padding-bottom: 10px;
 	border-bottom: 5px solid #dfdfdf;
 }
 
 .container > h1 {
-	font-size: 5vmin;
+	font-size: 22px;
 	text-align: center;
-	padding: 0 2vmax;
+	padding: 0 20px;
 	cursor: default;
-	border-radius: 2vmin;
+	border-radius: 10px;
 	background: rgba(0, 0, 0, 0.75);
 }
 
 .container > h2 {
-	font-size: 3vmin;
-	padding: 0 2vmax;
+	font-size: 18px;
+	padding: 0 20px;
 	text-align: center;
 	cursor: default;
-	border-radius: 2vmin;
+	border-radius: 10px;
 	background: rgba(0, 0, 0, 0.75);
 }
 
@@ -41,14 +41,14 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding: 0 2vmax;
-	row-gap: 5vmin;
-	margin-top: 5vmin;
+	padding: 0 10px;
+	row-gap: 15px;
+	margin-top: 10px;
 }
 
 .loader {
 	width: 100%;
-	margin-top: 10vmin;
+	margin-top: 45px;
 	transform: scale(2);
 	display: flex;
 	justify-content: center;
@@ -56,6 +56,6 @@
 
 .hidenLine {
 	width: 100%;
-	height: 1vmin;
+	height: 3px;
 	background: transparent;
 }

@@ -18,12 +18,14 @@ const CardItemOther: FC<CardItemOtherProps> = ({ film }) => {
 	const [showDetails, setShowDetails] = useState<boolean>(false)
 
 	return (
-		<div onPointerLeave={() => setShowDetails(false)} className={cls.cartItem}>
+		<div className={cls.cartItem}>
 			<div className={cls.content}>
 				{!showDetails && <Link to={`/film/${film.id}`}>{cut(film.name || film.alternativeName, 30)}</Link>}
 				{showDetails ? (
 					<div className={classNames(cls.back, cls.other)}>
-						<p>{cut(film.shortDescription || film.description || 'Нет данных', 300)}</p>
+						<p onClick={() => setShowDetails(false)}>
+							{cut(film.shortDescription || film.description || 'Нет данных', 300)}
+						</p>
 						<div className={cls.blocks}>
 							<div className={cls.block}>
 								<img src={KP} alt="KP" />

@@ -150,10 +150,10 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	row-gap: 4vmin;
+	row-gap: 50px;
+	padding-bottom: 50px;
 	align-items: center;
 	justify-content: center;
-	padding-bottom: 7vmin;
 }
 
 .activate > div {
@@ -169,7 +169,8 @@
 }
 
 .resend {
-	font-size: 2vmin;
+	margin-top: 30px;
+	font-size: 12px;
 }
 
 .resend > span {

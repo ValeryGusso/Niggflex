@@ -1,49 +1,49 @@
 .container {
-	width: 37vmax;
+	width: 100vw;
 	display: flex;
 	flex-direction: column;
-	row-gap: 2vmin;
+	row-gap: 30px;
 	align-items: center;
-	margin-left: 1vmax;
 	z-index: 1000;
 }
 
 .header {
 	text-align: center;
-	font-size: 4vmin;
+	font-size: 20px;
+	padding: 0 15px;
 	user-select: none;
 	cursor: default;
 }
 
 .header span {
-	padding: 0 1vmax 1vmin 1vmax;
+	padding: 0 10px 5px 10px;
 	cursor: pointer;
 	border-bottom: 5px solid #bccaff;
 	border-top: none;
-	border-bottom-left-radius: 1vmax;
-	border-bottom-right-radius: 1vmax;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .genre {
 	display: flex;
 	flex-direction: column;
-	row-gap: 2vmin;
+	row-gap: 7px;
 }
 
 .genresList {
 	position: relative;
-	width: 37vmax;
-	padding: 2vmin;
+	width: 100%;
+	padding: 10px;
 	display: flex;
 	align-items: center;
-	column-gap: 1vmax;
+	column-gap: 10px;
 }
 
 .genresList img {
 	position: absolute;
-	top: 0;
-	right: 0;
-	width: 2vmax;
+	top: -10px;
+	right: 15px;
+	width: 20px;
 	cursor: pointer;
 }
 
@@ -52,30 +52,28 @@
 }
 
 .genresList p {
-	width: 8vmax;
-	font-size: 3vmin;
+	font-size: 14px;
 	text-align: center;
 	cursor: default;
 }
 
 .genresList > div {
-	width: 25vmax;
-	min-height: 5vmin;
+	min-width: 100px;
+	min-height: 25px;
 	display: flex;
 	flex-wrap: wrap;
-	column-gap: 0.25vmax;
-	padding: 0.25vmin 0.25vmax;
-	row-gap: 1vmin;
-	border-radius: 1vmin;
+	column-gap: 3px;
+	padding: 3px 5px;
+	row-gap: 7px;
+	border-radius: 5px;
 	background: rgba(255, 255, 255, 0.05);
 }
 
 .genresList > div > p {
-	width: 8vmax;
-	padding: 1vmin;
-	font-size: 2vmin;
+	padding: 5px;
+	font-size: 14px;
 	border: 2px solid #212325;
-	border-radius: 1vmin;
+	border-radius: 5px;
 	cursor: pointer;
 }
 
@@ -85,17 +83,19 @@
 }
 
 .allGenres {
-	width: 37vmax;
+	width: 100%;
+	padding: 0 20px;
 	display: flex;
+	justify-content: center;
 	flex-wrap: wrap;
-	column-gap: 1.5vmax;
-	row-gap: 2vmin;
+	column-gap: 15px;
+	row-gap: 15px;
 }
 
 .allGenres p {
 	text-align: center;
 	min-width: 8vmax;
-	font-size: 2vmin;
+	font-size: 14px;
 	cursor: pointer;
 }
 
@@ -114,40 +114,42 @@
 	width: 20vmax;
 	display: flex;
 	flex-direction: column;
-	row-gap: 2vmin;
+	row-gap: 20px;
 }
 
 /* InputBlock */
 
 .inputs {
+	width: 300px;
 	position: relative;
-	padding-top: 7vmin;
+	padding-top: 30px;
 	display: flex;
 	justify-content: space-around;
+	transform: translateX(-25%);
 }
 
 .inputs h1 {
 	position: absolute;
 	top: 0;
 	left: 0;
-	font-size: 4vmin;
+	font-size: 20px;
 }
 
 .block p {
-	font-size: 3vmin;
+	font-size: 18px;
 }
 
 .inputs input {
 	font-family: 'Cormorant Infant', serif;
-	width: 7vmax;
-	height: 5vmin;
+	width: 75px;
+	height: 40px;
 	border: none;
 	color: #212325;
-	font-size: 3.5vmin;
+	font-size: 24px;
 	font-weight: bold;
 	font-style: italic;
 	text-align: center;
-	border-radius: 1vmin;
+	border-radius: 5px;
 	background: rgba(255, 255, 255, 0.5);
 }
 
@@ -157,11 +159,11 @@
 }
 
 .container button {
-	padding: 1vmin 2vmax;
-	font-size: 4vmin;
+	padding: 10px 20px;
+	font-size: 24px;
 	font-weight: bold;
 	font-style: italic;
-	border-radius: 1vmin;
+	border-radius: 10px;
 	cursor: pointer;
 	background: transparent;
 	border: none;

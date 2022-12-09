@@ -1,13 +1,13 @@
 .cartItem {
 	position: relative;
-	width: 20vmax;
+	width: 47.5%;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	padding: 2vmin 0;
+	padding: 10px 0;
 	border-radius: 2vmax;
 	background: rgba(0, 0, 0, 0.75);
-	box-shadow: 0 0 2vmax rgba(104, 131, 182, 0.5);
+	box-shadow: 0 0 15px rgba(104, 131, 182, 0.5);
 }
 
 .cartItem a {

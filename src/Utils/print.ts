@@ -1,6 +1,8 @@
 import { movieType } from '../Assets/constants'
 import { Fees } from '../Interfaces/KPunofficial/fees'
 import { Country, Genre } from '../Interfaces/KPunofficial/keywords'
+import { Country as CountryPremieres } from '../Interfaces/KPunofficial/premieres'
+import { Genre as GenrePremieres } from '../Interfaces/KPunofficial/search'
 
 export function printGenres(array: Genre[]): string {
 	const genres: string[] = []
@@ -26,6 +28,23 @@ export function printType(type: string): string {
 			return 'т ' + movieType[2].title
 		case movieType[3].value:
 			return 'т ' + movieType[3].title
+		default:
+			return ''
+	}
+}
+
+export function printNoveltyType(type: number): string {
+	switch (type) {
+		case 1:
+			return 'кино'
+		case 2:
+			return 'сериалов'
+		case 3:
+			return 'мультфильмов'
+		case 4:
+			return 'аниме'
+		case 5:
+			return 'хз чего'
 		default:
 			return ''
 	}
@@ -64,6 +83,30 @@ export function printPostfix(title: string): string {
 		default:
 			return 'ы'
 	}
+}
+
+export function printPremieresCountry(array: CountryPremieres[]): string {
+	let countries: string[] = []
+	array.forEach(el => countries.push(el.country))
+	let result = countries.join(', ')
+	if (array.length > 1) {
+		result = 'ы: ' + result
+	} else {
+		result = 'а: ' + result
+	}
+	return result
+}
+
+export function printPremieresGenres(array: GenrePremieres[]): string {
+	let genres: string[] = []
+	array.forEach(el => genres.push(el.genre))
+	let result = genres.join(', ')
+	if (array.length > 1) {
+		result = 'ы: ' + result
+	} else {
+		result = ': ' + result
+	}
+	return result
 }
 
 export function cut(string: string | null, limit: number): string {

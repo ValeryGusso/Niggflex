@@ -1,12 +1,14 @@
 .container {
-	width: 80%;
-	margin-top: 1vmin;
-	margin-left: 10%;
-	display: grid;
-	grid-template-columns: 65% 35%;
-	padding: 55px 2vmax;
-	row-gap: 35px;
-	border-radius: 5vmax;
+	width: 90%;
+	margin-top: 5vh;
+	margin-left: 5%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 20px;
+	row-gap: 60px;
+	border-radius: 30px;
 	border: 3px solid #dfdfdf;
 	border-bottom: none;
 	border-top: none;
@@ -17,19 +19,19 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	row-gap: 35px;
-	/* background: gray */
 }
 
 .avatarBlock {
+	min-width: 100%;
 	display: flex;
 	flex-direction: column;
 	row-gap: 35px;
 }
 
 .avatarBlock p {
-	width: 7vmax;
-	font-size: 3vmin;
+	font-size: 16px;
 	cursor: default;
 }
 
@@ -37,29 +39,26 @@
 	min-width: 100%;
 	display: grid;
 	align-items: center;
-	grid-template-columns: 30vmin 1fr;
+	grid-template-columns: 30% 1fr;
 }
 
 .avatarBlock > div > div {
 	position: relative;
 	display: grid;
-	grid-template-columns: 150px 1fr;
-}
-
-.avatarBlock > div > p {
-	width: 30vmin;
+	grid-template-columns: 75px 1fr;
 }
 
 .avatarBlock > div > div > p {
-	width: 100%;
-	color: wheat;
+	overflow-x: hidden;
+	max-width: 100%;
+	padding-top: 3vh;
 }
 
 .close {
 	position: absolute;
 	top: -20px;
-	left: 75px;
-	height: 35px;
+	left: 45px;
+	height: 25px;
 	filter: grayscale(1);
 	transition: 0.3s;
 	cursor: pointer;
@@ -70,8 +69,8 @@
 }
 
 .avatarBlock > div svg {
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
 	transition: 0.3s;
 	cursor: pointer;
 }
@@ -83,31 +82,22 @@
 
 .block {
 	position: relative;
-	width: 40vmax;
-	min-height: 20vmin;
+	width: 100%;
 	display: flex;
 	align-items: center;
-	column-gap: 2vmax;
-	border-radius: 4vmax;
+	column-gap: 20px;
 	transition: 0.25s;
 }
 
-/* .block:hover {
-	width: 60vmax;
-	padding-left: 10vmax;
-	box-shadow: 0 0 5vmin #5fa0ff;
-	transition: 0.5s;
-} */
-
 .block p:nth-child(1) {
-	width: 7vmax;
-	font-size: 3vmin;
+	width: 40px;
+	font-size: 16px;
 	cursor: default;
 }
 
 .block p:nth-child(2) {
-	padding: 1vmin 2vmax;
-	font-size: 3vmin;
+	padding: 5px 15px;
+	font-size: 16px;
 	cursor: pointer;
 	color: wheat;
 }
@@ -115,12 +105,12 @@
 .block li {
 	display: flex;
 	align-items: center;
-	column-gap: 1vmax;
+	column-gap: 10px;
 	cursor: pointer;
 }
 
 .block li img {
-	width: 3vmax;
+	width: 35px;
 	filter: invert(0.75);
 	transition: 0.3s;
 }
@@ -135,27 +125,24 @@
 
 .avatarBlock textarea {
 	overflow: hidden;
-	height: 5vmin;
+	height: 20px;
 	resize: none;
 	padding: 0.5vmin 0.5vmax;
 	transition: 0.3s;
 }
 
 .name {
-	width: 20vmax;
-	height: 8vmin;
-	border-radius: 1vmax;
-	padding: 0 0.5vmax;
-	font-size: 4vmin;
+	height: 35px;
+	border-radius: 15px;
+	padding: 0 10px;
+	font-size: 16px;
 }
 
 .avatar {
-	width: 30vmax;
-	height: 12vmin;
-	border-radius: 1vmax;
-	padding: 0 0.5vmax;
+	border-radius: 10px;
+	padding: 0 10px;
 	text-align: left;
-	font-size: 3vmin;
+	font-size: 15px;
 }
 
 .block input:focus,
@@ -171,17 +158,17 @@
 
 .menu {
 	position: absolute;
-	right: -2vmax;
+	right: -10px;
 	display: flex;
 	flex-direction: column;
 	align-items: left;
-	row-gap: 2vmin;
-	font-size: 3vmin;
-	border-radius: 2vmax;
+	row-gap: 15px;
+	border-radius: 10px;
 	background: rgba(0, 0, 0, 0.75);
 }
 
 .menu li p {
+	font-size: 16px;
 	color: #dfdfdf !important;
 	transition: 0.3s;
 }
@@ -196,47 +183,20 @@
 
 .btn {
 	position: relative;
-	width: 20vmax;
-	height: 10vmin;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 1.5vmin;
+	border-radius: 15px;
 	overflow: hidden;
 }
 
-.btn::after {
-	content: '';
-	position: absolute;
-	width: 22vmax;
-	height: 12vmin;
-	z-index: -1;
-	background: #64c880;
-	animation: blink 5s ease-in-out infinite;
-}
-
-@keyframes blink {
-	0% {
-		filter: opacity(1);
-	}
-
-	50% {
-		filter: opacity(0.25);
-	}
-
-	100% {
-		filter: opacity(1);
-	}
-}
-
 .btn button {
-	width: calc(20vmax - 2vmin);
-	height: 8vmin;
-	font-size: 3vmin;
+	font-size: 18px;
+	padding: 5px 10px;
 	border: none;
 	background: transparent;
 	text-decoration: underline 5px #64c880;
-	border-radius: 1vmin;
+	border-radius: 5px;
 	transition: 0.3s;
 	cursor: pointer;
 }
