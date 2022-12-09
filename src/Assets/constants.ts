@@ -68,7 +68,7 @@ export const headerMenu: headerMenuItem[] = [
 		img: tv,
 	},
 	{
-		title: 'Мультфильмы',
+		title: 'Мультики',
 		value: '/cartoon',
 		img: cartoon,
 	},

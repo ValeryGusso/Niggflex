@@ -52,7 +52,7 @@ const Header: FC = () => {
 
 	return (
 		<div className={cls.header}>
-			 <div className={classNames(cls.logo, open ? cls.open : '')}> 
+			<div className={classNames(cls.logo, open ? cls.open : '')}>
 				<div>
 					<img onClick={() => setOpen(!open)} src={open ? cross : menu} alt="menu" />
 					<img src={logo} alt="logo" />
@@ -78,12 +78,9 @@ const Header: FC = () => {
 						<Loader />
 					</div>
 				) : (
-					<div
-						onMouseLeave={() => setOpenSettings(false)}
-						className={classNames(cls.topBlock, openSettings ? cls.showSettings : '')}
-					>
+					<div className={classNames(cls.topBlock, openSettings ? cls.showSettings : '')}>
 						{isAuth ? (
-							<div onClick={() => setOpenSettings(true)} className={cls.userInfo}>
+							<div onClick={() => setOpenSettings(!openSettings)} className={cls.userInfo}>
 								<p>{name}</p>
 								<img src={avatar || defAva} alt="avatar" />
 							</div>

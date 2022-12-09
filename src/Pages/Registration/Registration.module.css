@@ -1,20 +1,21 @@
 .container {
-	width: calc(50vmax + 2vmin);
-	height: calc(58vmin + 2vmin);
+	width: 350px;
+	height: 600px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transform: translate(50%, 15%);
-	border-radius: 3vmax;
+	margin-left: 50%;
+	transform: translate(-50%, 5vh);
+	border-radius: 20px;
 	z-index: 1;
 	overflow: hidden;
 }
 
 .container > div {
-	width: 50vmax;
-	height: 58vmin;
+	width: 340px;
+	height: 590px;
 	display: flex;
-	border-radius: 2.5vmax;
+	border-radius: 20px;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
@@ -27,8 +28,8 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 60vmax;
-	height: 40vmin;
+	width: 700px;
+	height: 150px;
 	background: linear-gradient(transparent, #57fa86, #57fa86, #57fa86, transparent);
 	animation: rotate1 10s linear infinite;
 	z-index: 0;
@@ -50,15 +51,18 @@
 }
 
 .wrapper {
+	width: 100%;
 	display: flex;
-	margin-top: 2vmin;
-	column-gap: 3vmax;
+	flex-direction: column;
+	margin-top: 30px;
+	row-gap: 20px;
 }
 
 .wrapper > div {
 	display: flex;
 	flex-direction: column;
-	row-gap: 5vmin;
+	align-items: center;
+	row-gap: 5px;
 }
 
 .wrapper > div:nth-child(1) {
@@ -78,12 +82,12 @@
 
 .content {
 	position: relative;
-	width: 50vmax;
-	height: 58vmin;
-	padding-top: 4vmin;
+	width: 340px;
+	height: 590px;
+	padding-top: 15px;
 	display: flex;
 	flex-direction: column;
-	row-gap: 3vmin;
+	row-gap: 15px;
 	align-items: center;
 
 	background: #353937;
@@ -95,21 +99,24 @@
 }
 
 .title {
-	width: 100%;
-	height: 10vmin;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	font-size: 42px;
+	text-align: center;
+	color: #e50914;
+	font-weight: bold;
+	font-style: italic;
 }
 
 .footer {
 	display: flex;
-	column-gap: 0.5vmax;
+	text-align: center;
+	flex-direction: column;
+	margin-top: 40px;
+	column-gap: 5px;
 }
 
 .footer a,
 .footer p {
-	font-size: 2vmin;
+	font-size: 14px;
 }
 
 .footer a {
@@ -118,16 +125,15 @@
 }
 
 .content button {
-	padding: 2vmin 2vmax;
-	font-size: 3vmin;
-	font-weight: bold;
-	font-style: italic;
+	margin-top: 60px;
+	padding: 10px 15px;
+	font-size: 22px;
 	background: #7d8286;
 	color: #171921;
 	border: none;
-	border-radius: 1vmin;
+	border-radius: 5px;
 	cursor: pointer;
-	transition: 0.3s;
+	transition: 1s;
 }
 
 .content button:hover {

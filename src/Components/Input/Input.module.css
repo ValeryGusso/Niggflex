@@ -1,12 +1,12 @@
 .container {
-	width: 20vmax;
-	height: 9vmin;
+	width: 250px;
+	height: 55px;
 	position: relative;
 }
 
 .container img {
 	position: absolute;
-	width: 2vmax;
+	width: 25px;
 	top: 1.5vmin;
 	right: 0.5vmax;
 	z-index: 100;
@@ -16,14 +16,14 @@
 .container input {
 	position: relative;
 	font-family: 'Cormorant Infant', serif;
-	width: 20vmax;
-	height: 7vmin;
-	padding-left: 0.5vmax;
-	padding-right: 3vmax;
+	width: 250px;
+	height: 35px;
+	padding-left: 3px;
+	padding-right: 35px;
 	border: none !important;
-	border-radius: 1vmin;
+	border-radius: 5px;
 	color: #171921;
-	font-size: 4vmin;
+	font-size: 22px;
 	font-style: italic !important;
 	font-weight: 600 !important;
 	background: rgba(117, 172, 255, 0.65);
@@ -50,11 +50,11 @@
 
 .container p {
 	position: absolute;
-	top: 7vmin;
-	left: 5%;
+	top: 40px;
+	left: 10px;
 	width: 90%;
-	min-height: 5vmin;
-	font-size: 2.5vmin;
+	min-height: 20px;
+	font-size: 14px;
 	font-style: italic;
 	text-align: center;
 	color: #ff5435;

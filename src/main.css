@@ -23,18 +23,18 @@
 }
 
 body {
-	overflow-x: hidden;
-	margin-right: 0.75vmax;
-	min-height: 100vh;
+	max-width: 100vw;
+	max-height: 100vh;
+	margin-right: 10px;
 }
 
 #root {
-	max-height: 100vh;
+	width: 100vw;
+	height: 100vh;
 }
 
 .bg {
-	width: 100vw;
-	min-height: 100vh;
+	overflow-x: hidden;
 	background: var(--bg) no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -47,8 +47,8 @@ body {
 }
 
 .content {
-	min-height: 90vmin;
-	margin-bottom: 5vmin;
+	min-height: 95vh;
+	margin-bottom: 5vh;
 }
 
 a {
@@ -56,7 +56,7 @@ a {
 }
 
 ::-webkit-scrollbar {
-	width: 0.75vmax;
+	width: 10px;
 }
 
 ::-webkit-scrollbar-track {

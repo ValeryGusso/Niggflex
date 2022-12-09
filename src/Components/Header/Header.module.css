@@ -1,18 +1,20 @@
 .header {
 	position: relative;
 	width: 100%;
-	height: 10vmin;
+	height: 10vh;
 	display: flex;
 }
 
 .search {
-	margin-left: 10vmax;
+	position: absolute;
+	top: 55px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
 }
 
 .logo {
-	width: 22vmax;
-	height: 10vmin;
-	margin-left: 2vmax;
+	margin-left: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: top;
@@ -21,15 +23,15 @@
 }
 
 .logo > div {
-	height: 10vmin;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding-top: 15px;
 	column-gap: 1vmax;
 }
 
 .logo > div > img:nth-child(1) {
-	width: 2vmax;
+	width: 35px;
 	filter: invert(0.5);
 	transition: 0.3s;
 	cursor: pointer;
@@ -40,7 +42,7 @@
 }
 
 .logo > div > img:nth-child(2) {
-	height: 6vmin;
+	height: 35px;
 }
 
 .logo > img:hover {
@@ -50,7 +52,7 @@
 .rightMenu {
 	position: absolute;
 	top: 0;
-	left: 78vmax;
+	right: 0;
 	width: 20vmax;
 	height: 100%;
 }
@@ -71,38 +73,39 @@
 
 .userInfo {
 	position: absolute;
-	width: 100%;
+	width: 50%;
 	top: 0;
+	padding-left: 10%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	z-index: 11;
 }
 
 .topBlock {
-	height: 10vmin;
+	height: 10vh;
 	position: relative;
 	transition: 1s ease;
 }
 
 .topBlock p {
-	font-size: 3.5vmin;
+	font-size: 18px;
 	font-style: italic;
 	cursor: pointer;
 }
 
 .topBlock img {
-	height: 7vmin;
+	height: 50px;
 	margin-top: 1vmin;
 	border-radius: 1vmin;
 	cursor: pointer;
 }
 
 .userInfo a {
-	margin-top: 1vmin;
-	border-radius: 2vmin;
+	margin-top: 10px;
 	border: none;
-	padding: 1vmin 1vmax;
-	font-size: 3vmin;
+	padding: 5px 5px;
+	font-size: 16px;
 	cursor: pointer;
 	font-style: italic;
 	font-weight: bold;
@@ -160,15 +163,15 @@
 
 .menu {
 	position: absolute;
-	top: 25vmin;
+	top: 8vh;
 	display: flex;
 	flex-direction: column;
-	row-gap: 3vmin;
-	padding-left: 5vmax;
+	row-gap: 15px;
+	padding-left: 15px;
 }
 
 .open {
-	height: 69vmin;
+	height: 420px;
 	border-bottom-left-radius: 1vmax;
 	border-bottom-right-radius: 1vmax;
 	background: rgba(0, 0, 0, 0.95);
@@ -178,13 +181,11 @@
 .menu > div {
 	display: flex;
 	width: 100%;
-	justify-content: flex-start;
-	column-gap: 2vmax;
+	column-gap: 10px;
 	filter: opacity(0);
 }
 
 .menu > div:nth-child(1) {
-	margin-top: 15vmin;
 	animation: show 0.3s linear 0.05s 1 normal forwards;
 }
 
@@ -224,12 +225,12 @@
 }
 
 .menu > div a {
-	font-size: 3vmin;
+	font-size: 20px;
 	transition: 0.3s;
 }
 
 .menu > div > img {
-	width: 2vmax;
+	height: 20px;
 	filter: invert(0.75);
 	transition: 0.3s;
 }
@@ -250,28 +251,28 @@
 	position: absolute;
 	top: 0vmin;
 	width: 100%;
-	padding-top: 10vmin;
+	padding-top: 8vh;
 }
 
 .showSettings {
-	height: 30vmin;
+	height: 200px;
 	border-bottom-left-radius: 1vmax;
 	border-bottom-right-radius: 1vmax;
 	background: rgba(0, 0, 0, 0.95);
 	transition: 0.3s;
-	z-index: 1000;
+	z-index: 10;
 }
 
 .settings > div {
 	display: flex;
 	align-items: center;
-	padding-left: 20%;
-	column-gap: 1vmax;
+	padding-left: 15px;
+	column-gap: 15px;
 	filter: opacity(0);
 }
 
 .settings > div > img {
-	width: 2vmax;
+	width: 24px;
 	filter: invert(0.75);
 	transition: 0.5s;
 	cursor: default;
@@ -279,7 +280,7 @@
 
 .settings > div > a,
 .settings > div > p {
-	font-size: 4vmin;
+	font-size: 20px;
 	font-style: normal;
 	transition: 0.5s;
 	cursor: pointer;

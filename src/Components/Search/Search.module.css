@@ -1,6 +1,6 @@
 .search {
 	position: relative;
-	width: 30vmax;
+	width: 250px;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
@@ -8,20 +8,20 @@
 
 .search input {
 	width: 0vmax;
-	height: 5vmin;
-	margin-top: 2.5vmin;
+	height: 20px;
+	margin-top: 10px;
 	border: none;
-	border-radius: 2vmin;
+	border-radius: 5px;
 	padding-bottom: 0.5vmin;
 	color: #232527;
-	font-size: 3vmin;
+	font-size: 12px;
 	font-style: italic;
 	transition: 0.3s;
 }
 
 .active {
 	padding-left: 0.5vmax !important;
-	width: 27vmax !important;
+	width: 220px !important;
 }
 
 .search input:focus {
@@ -33,8 +33,7 @@
 }
 
 .search > img {
-	width: 5vmin;
-	margin-top: 1.5vmin;
+	width: 25px;
 	transform: rotateZ(270deg);
 	filter: invert(0.75);
 	transition: 0.3s;

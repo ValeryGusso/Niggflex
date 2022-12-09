@@ -45,9 +45,9 @@ export const backgroundSlise = createSlice({
 			const images: string[] = []
 			action.payload.data.films.forEach(el => images.push(el.posterUrlPreview))
 
-			state.row1 = [...images.slice(0, 5), ...images.slice(0, 5)]
-			state.row2 = [...images.slice(6, 11), ...images.slice(6, 11)]
-			state.row3 = [...images.slice(12, 17), ...images.slice(12, 17)]
+			state.row1 = [...images.slice(0, 6), ...images.slice(0, 6)]
+			state.row2 = [...images.slice(7, 13), ...images.slice(7, 13)]
+			state.row3 = [...images.slice(14, 20), ...images.slice(14, 20)]
 			state.loading = false
 		})
 		builder.addCase(fetchBackground.rejected, state => {

@@ -1,20 +1,21 @@
 .container {
-	width: calc(40vmax + 2vmin);
-	height: calc(66vmin + 2vmin);
+	width: 350px;
+	height: 420px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transform: translate(calc(30vmax + 1vmin), 7vmin);
+	margin-left: 50%;
+	transform: translate(-50%, 15vh);
 	border-radius: 2.5vmax;
 	z-index: 1;
 	overflow: hidden;
 }
 
 .container > div {
-	width: 40vmax;
-	height: 66vmin;
+	width: 340px;
+	height: 410px;
 	display: flex;
-	border-radius: 2.5vmax;
+	border-radius: 10px;
 	align-items: center;
 	justify-content: center;
 }
@@ -25,8 +26,8 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 58vmax;
-	height: 40vmin;
+	width: 550px;
+	height: 150px;
 	background: linear-gradient(transparent, #e50914, #e50914, #e50914, transparent);
 	animation: rotate 10s linear infinite;
 	z-index: 0;
@@ -44,45 +45,46 @@
 
 .content {
 	position: relative;
-	width: 40vmax;
-	height: 66vmin;
+	width: 340px;
+	height: 410px;
 	padding-top: 3vmin;
 	display: flex;
 	flex-direction: column;
-	row-gap: 1vmin;
+	row-gap: 15px;
 	align-items: center;
-	border-radius: 2vmax;
+	border-radius: 20px;
 	background: #353937;
 }
 
 .content > form {
 	display: flex;
 	flex-direction: column;
-	row-gap: 3vmin;
+	row-gap: 20px;
 	align-items: center;
 }
 
 .content h2,
 .content h1 {
+	font-size: 22px;
 	user-select: none;
 }
 
 .title {
-	height: 10vmin;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	font-size: 52px;
+	color: #e50914;
+	font-weight: bold;
+	font-style: italic;
 }
 
 .footer {
 	display: flex;
-	column-gap: 0.5vmax;
+	column-gap: 5px;
 }
 
 .footer a,
 .footer p {
-	margin-top: 2vmin;
-	font-size: 2vmin;
+	margin-top: 10px;
+	font-size: 14px;
 }
 
 .footer a {
@@ -91,12 +93,12 @@
 }
 
 .content button {
-	padding: 2vmin 2vmax;
-	font-size: 3vmin;
+	padding: 10px 15px;
+	font-size: 22px;
 	background: #7d8286;
 	color: #171921;
 	border: none;
-	border-radius: 1vmin;
+	border-radius: 5px;
 	cursor: pointer;
 	transition: 1s;
 }
@@ -108,4 +110,8 @@
 .content button:active {
 	transform: scale(0.95);
 	transition: 0.2s;
+}
+
+.loader > div {
+	transform: scale(0.5) translateY(-50%);
 }

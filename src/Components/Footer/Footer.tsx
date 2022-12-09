@@ -37,26 +37,30 @@ const Footer: FC = () => {
 
 	return (
 		<div className={cls.footer}>
-			<div className={cls.logo}>
-				<img src={logo} alt="logo" />
-				<p>всё, что ты любишь, <br /> но немного темнее.</p>
-			</div>
 			<div className={cls.description}>
 				<p>
-					Никакие права не защищены, сайт сделан чисто по-приколу. <br /> Готов работать за еду, Ваши предложения высылать на
-					контактные данные, указанные немного правее.
+					Никакие права не защищены, сайт сделан чисто по-приколу. <br /> Готов работать за еду, Ваши предложения
+					высылать на контактные данные, указанные немного ниже.
 				</p>
 				<p>© {new Date().getFullYear()} Niggflex</p>
 			</div>
-			<div className={cls.contacts}>
-				<p>По всем вопросам обращаться:</p>
-				<div className={classNames(cls.block, isCopiedDisc ? cls.copy : '')}>
-					<img onClick={copyD} src={isCopiedDisc ? check : discord} alt="discord" />
-					<p>{isCopiedDisc ? 'Скопировано!' : 'Gus#6164'}</p>
+			<div className={cls.bottom}>
+				<div className={cls.logo}>
+					<img src={logo} alt="logo" />
+					<p>
+						всё, что ты любишь, <br /> но немного темнее.
+					</p>
 				</div>
-				<div className={classNames(cls.block, isCopiedTel ? cls.copy : '')}>
-					<img onClick={copyT} src={isCopiedTel ? check : telegram} alt="telegram" />
-					<p>{isCopiedTel ? 'Скопировано!' : '@gusso'}</p>
+				<div className={cls.contacts}>
+					<p>По всем вопросам обращаться:</p>
+					<div className={classNames(cls.block, isCopiedDisc ? cls.copy : '')}>
+						<img onClick={copyD} src={isCopiedDisc ? check : discord} alt="discord" />
+						<p>{isCopiedDisc ? 'Скопировано!' : 'Gus#6164'}</p>
+					</div>
+					<div className={classNames(cls.block, isCopiedTel ? cls.copy : '')}>
+						<img onClick={copyT} src={isCopiedTel ? check : telegram} alt="telegram" />
+						<p>{isCopiedTel ? 'Скопировано!' : '@gusso'}</p>
+					</div>
 				</div>
 			</div>
 		</div>

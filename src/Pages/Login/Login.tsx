@@ -1,9 +1,8 @@
-import { FC, useState, useEffect, FormEventHandler } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { ActivateResponse } from '../../Interfaces/UserAPI/userAPIResponses'
 import axiosUserAPI from '../../axios/userAPI'
-import DancingText from '../../Components/DancingText/DancingText'
 import Input from '../../Components/Input/Input'
 import { setUser } from '../../Redux/Slices/auth'
 import { ErrorState } from '../Registration/Registration'
@@ -69,9 +68,7 @@ const Login: FC = () => {
 		<div className={cls.container}>
 			<div>
 				<div className={cls.content}>
-					<div className={cls.title}>
-						<DancingText text="LOGIN" />
-					</div>
+					<p className={cls.title}>LOGIN</p>
 					<form onSubmit={handleSubmit(submit)}>
 						<div className={cls.block}>
 							<h2>Имя пользователя:</h2>
@@ -103,7 +100,13 @@ const Login: FC = () => {
 							<p>Нет аккаунта?</p>
 							<Link to={'/registration'}>Зарегистрируйся сейчас!</Link>
 						</div>
-						{loading ? <Loader /> : <button tabIndex={3}>Войти</button>}
+						{loading ? (
+							<div className={cls.loader}>
+								<Loader />
+							</div>
+						) : (
+							<button tabIndex={3}>Войти</button>
+						)}
 					</form>
 				</div>
 			</div>

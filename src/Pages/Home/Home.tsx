@@ -15,13 +15,11 @@ const Home: FC = () => {
 	return (
 		<div className={cls.wrapper}>
 			<div className={cls.title}>
-				<h1>Добро пожаловать на </h1>
-				<DancingText text="NIGGFLEX" />{' '}
 				<h1>
-					, возможно, самый лучший сайт о кино во Вселенной!
-					<span onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
-						*{show && <span>По версии автора сайта</span>}
-					</span>
+					Добро пожаловать на <br />
+					<span>NIGGFLEX</span>
+					<br /> возможно, самый лучший сайт о кино во Вселенной!
+					<span onClick={() => setShow(!show)}>*{show && <span>По версии автора сайта</span>}</span>
 				</h1>
 			</div>
 			<div className={cls.background}>

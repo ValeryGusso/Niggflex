@@ -172,59 +172,53 @@ const Registration: FC = () => {
 						</form>
 					) : (
 						<form onSubmit={handleSubmit(submit)}>
-							<div className={cls.title}>
-								<DancingText text="REGISTRATION" />
-							</div>
+							<p className={cls.title}>REGISTRATION</p>
 							<div className={cls.wrapper}>
-								<div>
-									<div className={cls.block}>
-										<h2>Имя пользователя:</h2>
-										<Input
-											value={login}
-											onChange={setLogin}
-											type="text"
-											error={loginError.error}
-											errorText={loginError.message}
-											placeholder="Тут почта"
-											tabIndex={1}
-											{...register}
-										/>
-									</div>
-									<div className={cls.loader}>{loading ? <Loader /> : <button tabIndex={4}>ПОЕХАЛИ!</button>}</div>
+								<div className={cls.block}>
+									<h2>Имя пользователя:</h2>
+									<Input
+										value={login}
+										onChange={setLogin}
+										type="text"
+										error={loginError.error}
+										errorText={loginError.message}
+										placeholder="Тут почта"
+										tabIndex={1}
+										{...register}
+									/>
 								</div>
-								<div>
-									<div className={cls.block}>
-										<h2>Пароль:</h2>
-										<Input
-											value={pass}
-											onChange={setPass}
-											type="password"
-											error={passError.error}
-											errorText={passError.message}
-											placeholder="А вот тут пароль"
-											tabIndex={2}
-											{...register}
-										/>
-									</div>
-									<div className={cls.block}>
-										<h2>Подтверди пароль:</h2>
-										<Input
-											value={confirm}
-											onChange={setConfirm}
-											type="password"
-											error={passError.error}
-											errorText={passError.message}
-											placeholder="И ещё раз пароль"
-											tabIndex={3}
-											{...register}
-										/>
-									</div>
+								<div className={cls.block}>
+									<h2>Пароль:</h2>
+									<Input
+										value={pass}
+										onChange={setPass}
+										type="password"
+										error={passError.error}
+										errorText={passError.message}
+										placeholder="А вот тут пароль"
+										tabIndex={2}
+										{...register}
+									/>
+								</div>
+								<div className={cls.block}>
+									<h2>Подтверди пароль:</h2>
+									<Input
+										value={confirm}
+										onChange={setConfirm}
+										type="password"
+										error={passError.error}
+										errorText={passError.message}
+										placeholder="И ещё раз пароль"
+										tabIndex={3}
+										{...register}
+									/>
 								</div>
 							</div>
 							<div className={cls.footer}>
 								<p>Уже есть аккаунт?</p>
 								<Link to={'/login'}>Так чего же ты ждешь? Заходи!</Link>
 							</div>
+							<div className={cls.loader}>{loading ? <Loader /> : <button tabIndex={4}>ПОЕХАЛИ!</button>}</div>
 						</form>
 					)}
 				</div>

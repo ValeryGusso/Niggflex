@@ -1,11 +1,15 @@
 .wrapper {
+	height: 90vh;
 	display: flex;
+	align-items: center;
+	justify-content: space-around;
 	flex-direction: column;
-	row-gap: 3vmin;
-	padding-top: 2vmin;
+	row-gap: 15px;
+	padding-top: 10px;
 }
 
 .wrapper h1 {
+	text-align: center;
 	background: rgba(0, 0, 0, 0.75);
 }
 
@@ -15,31 +19,32 @@
 }
 
 .title > h1 {
-	font-size: 3vmin;
+	font-size: 24px;
 	border-radius: 2vmin;
+	padding: 0 15px;
 }
 
 .title > h1 > span {
+	font-size: 32px;
 	position: relative;
 	color: #e50914;
-	cursor: default;
+	font-style: italic;
 }
 
 .title > h1 > span > span {
-	top: -25px;
-	left: 25px;
-	text-align: center;
-	width: 140px;
-	font-size: 22px;
 	position: absolute;
-
+	top: 35px;
+	left: -60px;
+	text-align: center;
+	width: 100px;
+	font-size: 16px;
 	color: #e50914;
-	cursor: default;
+	z-index: 10;
 }
 
 .title > div {
-	width: 20vmax;
-	height: 5vmin;
+	width: 20vw;
+	height: 5vh;
 }
 
 .background {
@@ -53,18 +58,19 @@
 
 .row {
 	display: flex;
-	animation: leftflow 180s linear infinite;
+	animation: leftflow 20s linear infinite;
 	user-select: none;
 	pointer-events: none;
+	column-gap: 10px;
 }
 
 .row:nth-child(2) {
 	display: flex;
-	animation: rightflow 180s linear infinite;
+	animation: rightflow 20s linear infinite;
 }
 
 .row > div {
-	min-width: 160px;
+	min-width: 80px;
 	display: flex;
 	justify-content: center;
 	user-select: none;
@@ -72,10 +78,11 @@
 }
 
 .row img {
+	width: 70px;
 	user-select: none;
 	pointer-events: none;
-	max-height: 180px;
-	border-radius: 2vmin;
+	max-height: 100px;
+	border-radius: 10px;
 }
 
 @keyframes leftflow {
@@ -84,13 +91,13 @@
 	}
 
 	100% {
-		transform: translateX(-3200px);
+		transform: translateX(-540px);
 	}
 }
 
 @keyframes rightflow {
 	0% {
-		transform: translateX(-3200px);
+		transform: translateX(-540px);
 	}
 
 	100% {
@@ -106,7 +113,8 @@
 .description > h1 {
 	width: 100%;
 	text-align: center;
-	font-size: 2.5vmin;
+	font-size: 20px;
+	padding: 0 15px;
 }
 
 .description > h1 > a {
