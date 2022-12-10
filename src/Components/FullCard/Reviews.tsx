@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { FC, useEffect, useState, useRef } from 'react'
 import { InView, useInView } from 'react-intersection-observer'
 import { useDispatch } from 'react-redux'
@@ -118,7 +119,7 @@ const Reviews: FC<ReviewsProps> = ({ id }) => {
 				<div className={cls.reviewsContent}>
 					<div>
 						<h2>
-							Загруженно {reviews.length} из {totalItems} рецензий (всего: <span>{totalPositive}</span>,
+							Загруженно {reviews.length} из {totalItems} рецензий (всего: <br /> <span>{totalPositive}</span>,
 							<span> {totalNeutral}</span>, <span>{totalNegative}</span>)
 						</h2>
 						<h3>
@@ -139,7 +140,10 @@ const Reviews: FC<ReviewsProps> = ({ id }) => {
 						<h3>
 							Сортировка по <span onClick={() => show('sort')}>{sortType.title}</span>
 							{select.sort && (
-								<ul onMouseLeave={() => show('sort')} className={select.sort ? cls.open : cls.hide}>
+								<ul
+									onMouseLeave={() => show('sort')}
+									className={classNames(select.sort ? cls.open : cls.hide, cls.sortType)}
+								>
 									{reviewsSortTypes.map(el => (
 										<li onClick={() => setSortType(el)} key={el.value}>
 											{el.title}

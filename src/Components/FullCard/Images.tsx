@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useCallback, useRef } from 'react'
+import { FC, useEffect, useState, useCallback, useRef, TouchEventHandler } from 'react'
 import arrow from '../../Assets/img/arrow.svg'
 import close from '../../Assets/img/close.svg'
 import cls from './FullCard.module.css'
@@ -45,22 +45,6 @@ const Images: FC<ImagesProps> = ({ id }) => {
 			})
 	}, [info.page])
 
-	const keydown = useCallback((e: KeyboardEvent) => {
-		if (e.key === 'ArrowRight') {
-			next(selected.current)
-		}
-
-		if (e.key === 'ArrowLeft' && selected.current > 0) {
-			prev(selected.current)
-		}
-	}, [])
-
-	useEffect(() => {
-		window.removeEventListener('keydown', keydown)
-		window.addEventListener('keydown', keydown)
-		return () => window.removeEventListener('keydown', keydown)
-	}, [current])
-
 	function openModal(i: number) {
 		setCurrent(i)
 		selected.current = i
@@ -89,8 +73,40 @@ const Images: FC<ImagesProps> = ({ id }) => {
 		}
 	}
 
+	let xDown: number | null = null
+	let yDown: number | null = null
+
+	function touchStart(e: React.TouchEvent<HTMLDivElement>): void {
+		const firstTouch = e.touches[0]
+		xDown = firstTouch.clientX
+		yDown = firstTouch.clientY
+	}
+
+	function touchMove(e: React.TouchEvent<HTMLDivElement>): void {
+		if (!xDown || !yDown) {
+			return
+		}
+
+		const xUp = e.touches[0].clientX
+		const yUp = e.touches[0].clientY
+
+		const xDiff = xDown - xUp
+		const yDiff = yDown - yUp
+
+		if (Math.abs(xDiff) > Math.abs(yDiff)) {
+			if (xDiff > 0) {
+				next(current)
+			} else {
+				prev(current)
+			}
+		}
+
+		xDown = null
+		yDown = null
+	}
+
 	return (
-		<div>
+		<div onTouchStart={touchStart} onTouchMove={touchMove}>
 			<div className={cls.images}>
 				{images &&
 					images.length > 0 &&

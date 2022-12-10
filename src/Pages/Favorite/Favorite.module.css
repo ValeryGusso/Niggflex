@@ -1,21 +1,21 @@
 .content {
+	height: 100vh;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-  column-gap: 2vmax;
-  row-gap: 5vmin;
-  margin-top: 5vmin;
+	flex-direction: column;
+	row-gap: 20px;
+	margin-top: 30px;
+  margin-left: 2.5%;
 }
 
 .content > div {
-	width: 45vmax;
-  padding: 3vmin 2vmax;
-  border-radius: 2vmax;
+	width: 95%;
+	padding: 5px 10px;
+	border-radius: 15px;
 	display: flex;
-  box-shadow: 0 0 1vmax white;
-  transition: 0.3s;
+	box-shadow: 0 0 10px white;
+	transition: 0.3s;
 }
 
 .content > div:hover {
-  box-shadow: 0 0 2vmax #4992ce;
+	box-shadow: 0 0 10px #4992ce;
 }

@@ -92,16 +92,12 @@
 	width: 100%;
 	height: 100%;
 	display: flex;
-	/* flex-direction: column; */
-	/* justify-content: center; */
 	align-items: center;
-	row-gap: 2vmin;
-	text-align: center;
 }
 
 .viewed p:nth-child(1) {
 	width: 80%;
-	font-size: 2vmin;
+	font-size: 13px;
 	cursor: default;
 }
 
@@ -124,7 +120,7 @@
 
 .viewed > div {
 	width: 20%;
-	height: 7vmin;
+	height: 35px;
 	cursor: pointer;
 }
 

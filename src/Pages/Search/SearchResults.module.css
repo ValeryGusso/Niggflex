@@ -1,24 +1,27 @@
 .wrapper {
 	position: relative;
+	margin-top: 20px;
 	display: grid;
-	grid-template-rows: 83vmin 7vmin;
+	grid-template-rows: 83vh 5vh;
 }
 
 .wrapper > h2 {
-	padding-top: 1vmin;
+	padding-top: 5px;
 	text-align: center;
-	font-size: 3vmin;
+	padding-left: 100px;
+	padding-top: 10px;
+	font-size: 14px;
 	background: rgba(0, 0, 0, 0.5);
 }
 
 .wrapper > a {
 	position: absolute;
-	top: 84.5vmin;
-	left: 15vmax;
+	top: calc(83vh + 10px);
+	left: 20px;
 }
 
 .wrapper > a > h3 {
-	font-size: 2.5vmin;
+	font-size: 14px;
 	cursor: pointer;
 	font-style: italic;
 	color: #efdc7a;
@@ -33,7 +36,6 @@
 
 .films {
 	display: flex;
-	width: 99%;
 	flex-direction: column;
 	align-items: center;
 	overflow-y: auto;
@@ -43,17 +45,16 @@
 
 .actors {
 	display: flex;
-	width: 99%;
 	flex-direction: column;
 	align-items: center;
-	row-gap: 8vmin;
+	row-gap: 10px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	border-bottom: 1px solid #dfdfdf;
 }
 
 .nosearch {
-	width: 45vmax;
+	width: 70vw;
 }
 
 .contentFilms {
@@ -64,10 +65,11 @@
 }
 
 .contentFilms > div {
+	width: 47%;
 	display: flex;
 	align-items: center;
-	padding: 1vmin 1vmax;
-	border-radius: 2vmax;
+	padding: 5px 5px;
+	border-radius: 15px;
 	box-shadow: 0 0 1vmax white;
 }
 
@@ -79,7 +81,7 @@
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
-	row-gap: 3vmin;
+	row-gap: 5px;
 	justify-content: space-around;
 }
 

@@ -47,22 +47,23 @@
 
 .results {
 	position: absolute;
-	width: 200%;
+	width: 350px;
 	top: 100%;
-	left: -50%;
+	left: -50px;
 	z-index: 2000;
 }
 
 /* Results */
 
 .wrapper {
-	width: 100%;
-	height: 75vmin;
+	/* width: 100%; */
+	/* height: 75vmin; */
 	border-bottom-left-radius: 1vmax;
 	border-bottom-right-radius: 1vmax;
 	background: rgba(0, 0, 0, 0.95);
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	row-gap: 15px;
 	justify-items: center;
 }
 
@@ -73,50 +74,50 @@
 
 .films,
 .actors {
-	height: 75vmin;
+	min-width: 100% !important;
+	height: 40vh;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	row-gap: 2vmin;
+	row-gap: 10px;
+	border-bottom: 2px solid white;
 	overflow-y: auto;
 	overflow-x: visible;
 }
 
 .films > h2,
 .actors > h2 {
-	height: 5vmin;
 	text-align: center;
-	font-size: 3vmin;
-	padding-top: 1vmin;
-	padding-left: 5vmax;
+	font-size: 16px;
+	padding-top: 5px;
+	padding-left: 10px;
 	cursor: default;
 }
 
 .block {
 	display: flex;
 	flex-direction: column;
-	row-gap: 1vmin;
+	row-gap: 10px;
 	overflow-y: auto;
 }
 
 .info {
 	width: 100%;
-	height: 10vmin;
 	display: flex;
-	column-gap: 3vmax;
-	padding-left: 3vmax;
-	padding-bottom: 1vmin;
-	font-size: 1.5vmin;
+	column-gap: 5vw;
+	padding-left: 3vw;
+	padding-bottom: 0.5vh;
+	font-size: 12px;
 }
 
 .info h3 {
-	padding: 0.5vmin 1vmax;
+	padding: 5px 10px;
 	color: #232527;
-	border-radius: 0.5vmin;
+	border-radius: 3px;
 	background: #efda4a;
 	user-select: none;
 	cursor: pointer;
-	font-size: 1.75vmin;
+	font-size: 12px;
 	transition: 0.3s;
 }
 
@@ -131,13 +132,13 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	padding: 0 2vmax;
+	padding: 0 2vw;
 	padding-bottom: 10vmin;
 	cursor: default;
 }
 
 .nothing h2 {
-	font-size: 3vmin;
+	font-size: 16px;
 	color: #ed5f3e;
 }
 
@@ -158,16 +159,15 @@
 .film {
 	position: relative;
 	display: flex;
-	height: 17vmin;
 	align-items: center;
 	justify-content: flex-start;
-	padding-left: 1vmax;
-	column-gap: 2vmax;
-	border-bottom: 0.25vmin solid #dfdfdf;
+	padding-left: 5px;
+	column-gap: 10px;
+	border-bottom: 2px solid #dfdfdf;
 }
 
 .film > img {
-	width: 5vmax;
+	width: 50px;
 	cursor: zoom-in;
 }
 
@@ -176,52 +176,61 @@
 	align-items: center;
 }
 
+.filmTitle {
+	font-size: 18px;
+}
+
 .film h3 {
+	font-size: 14px;
 	max-width: 80%;
-	margin-top: 1vmin;
+	margin-top: 3px;
 	cursor: default;
-	line-height: 3vmin;
 }
 
 .film span {
-	padding: 0.5vmin 1vmax;
-	font-size: 2vmin;
+	padding: 2px 10px;
+	font-size: 14px;
 	font-style: italic;
 	color: #232527;
-	margin-left: 1vmax;
-	border-radius: 1vmax;
+	margin-left: 10px;
+	border-radius: 5px;
 	cursor: default;
 }
 
 .heart {
-	width: 2.5vmax;
-	height: 2vmin;
-	margin-left: 1vmax;
-	margin-top: 0.75vmin;
+	width: 25px;
+	height: 15px;
+	margin-left: 10px;
+	margin-top: 3px;
 }
 
 /* ActorItem */
 
 .actor {
+	width: 340px;
 	position: relative;
 	display: flex;
-	height: 17vmin;
 	align-items: center;
 	justify-content: flex-start;
-	padding-left: 1vmax;
-	column-gap: 2vmax;
-	border-bottom: 0.25vmin solid #dfdfdf;
+	padding-left: 10px;
+	column-gap: 10px;
+	border-bottom: 2px solid #dfdfdf;
 }
 
 .actor img {
-	width: 5vmax;
+	width: 50px;
 	cursor: zoom-in;
 }
 
+.actor h2 {
+	font-size: 16px;
+}
+
 .actor h3 {
-	margin-top: 1vmin;
+	margin-top: 5px;
 	cursor: default;
 }
+
 /* Image */
 
 .cart {

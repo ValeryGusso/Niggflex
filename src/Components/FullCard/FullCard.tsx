@@ -62,37 +62,39 @@ const FullCard: FC = () => {
 			) : (
 				<div className={cls.container}>
 					<div className={cls.mainInfo}>
-						<div className={cls.poster}>
-							<img src={film?.posterUrl} alt="poster" />
-							{film ? (
-								<RatingBlock
-									KP={film.ratingKinopoisk}
-									IMDB={film.ratingImdb}
-									GR={film.ratingGoodReview}
-									FC={film.ratingFilmCritics}
-									ageRating={film.ratingAgeLimits}
-								/>
-							) : (
-								''
-							)}
+						<div>
+							<div className={cls.poster}>
+								<img src={film?.posterUrl} alt="poster" />
+								{film ? (
+									<RatingBlock
+										KP={film.ratingKinopoisk}
+										IMDB={film.ratingImdb}
+										GR={film.ratingGoodReview}
+										FC={film.ratingFilmCritics}
+										ageRating={film.ratingAgeLimits}
+									/>
+								) : (
+									''
+								)}
+							</div>
+							<div className={cls.header}>
+								<h1>
+									{film?.nameRu} ({film?.year})
+								</h1>
+								<h2>{film?.nameOriginal}</h2>
+								<div className={cls.aboutDiv}>{film && <About film={film} />}</div>
+							</div>
 						</div>
-						<div className={cls.header}>
-							{film && (
-								<>
-									<div className={cls.favorite}>
-										<Favorite id={film.kinopoiskId} type="button" />
-									</div>
-									<div className={cls.viewed}>
-										<Viewed id={film.kinopoiskId} type={film.type} />
-									</div>
-								</>
-							)}
-							<h1>
-								{film?.nameRu} ({film?.year})
-							</h1>
-							<h2>{film?.nameOriginal}</h2>
-							<div className={cls.aboutDiv}>{film && <About film={film} />}</div>
-						</div>
+						{film && (
+							<div className={cls.buttons}>
+								<div className={cls.favorite}>
+									<Favorite id={film.kinopoiskId} type="icon" />
+								</div>
+								<div className={cls.viewed}>
+									<Viewed id={film.kinopoiskId} type={film.type} />
+								</div>
+							</div>
+						)}
 					</div>
 					<div className={cls.info}>
 						<div className={cls.menuBar}>

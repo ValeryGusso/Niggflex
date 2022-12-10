@@ -21,7 +21,7 @@ const FilmItem: FC<FilmItemProps> = ({ film }) => {
 			<div>
 				<Link to={`/film/${film.filmId}`}>
 					{' '}
-					<h2>{`${film.nameRu || film.nameEn} (${film.year || '---'})`}</h2>
+					<h2 className={cls.filmTitle}>{`${film.nameRu || film.nameEn} (${film.year || '---'})`}</h2>
 				</Link>
 				<div className={cls.country}>
 					<h3>

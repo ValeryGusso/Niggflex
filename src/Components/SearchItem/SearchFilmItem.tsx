@@ -46,7 +46,7 @@ const SearchFilmItem: FC<SearchFilmItemProps> = ({ film }) => {
 										background: ratingColors[0],
 									}}
 								>
-									---
+									-
 								</span>
 							)}
 							<Favorite id={film.filmId} type="icon" />

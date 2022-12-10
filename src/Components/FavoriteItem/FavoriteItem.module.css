@@ -1,19 +1,20 @@
 .wrapper {
 	position: relative;
-	height: 40vmin;
 	display: flex;
-	column-gap: 3vmax;
+	align-items: center;
+	column-gap: 5px;
 	background: rgba(0, 0, 0, 0.75);
 }
 
 .wrapper > img {
-	border-radius: 1vmax;
+	height: 150px;
+	border-radius: 10px;
 }
 
 .title {
 	display: flex;
 	flex-direction: column;
-	row-gap: 2vmin;
+	row-gap: 10px;
 }
 
 .name {
@@ -28,20 +29,21 @@
 
 .rating {
 	display: flex;
-	column-gap: 1vmax;
+	column-gap: 10px;
 }
 
 .rating > h1 {
-	width: 4vmax;
+	font-size: 18px;
+	padding: 5px 10px;
 	text-align: center;
 	font-style: italic;
-	border-radius: 0.5vmax;
+	border-radius: 7px;
 	color: #232527;
 	cursor: default;
 }
 
 .rating > img {
-	height: 4vmin;
+	height: 25px;
 }
 
 .button {

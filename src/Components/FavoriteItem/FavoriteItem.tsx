@@ -46,7 +46,7 @@ const FavoriteItem: FC<FavoriteItemProps> = ({ film }) => {
 						{film.rating?.imdb.toFixed(1) || '---'}
 					</h1>
 				</div>
-				<h3>{cut(film.description || film.shortDescription, 350)}</h3>
+				{/* <h3>{cut(film.description || film.shortDescription, 350)}</h3> */}
 			</div>
 			<div className={cls.button} title="Удалить из избранного">
 				<Favorite id={film.id} type="icon" />
