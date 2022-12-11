@@ -31,6 +31,23 @@ export function printType(type: string): string {
 	}
 }
 
+export function printNoveltyType(type: number): string {
+	switch (type) {
+		case 1:
+			return 'кино'
+		case 2:
+			return 'сериалов'
+		case 3:
+			return 'мультфильмов'
+		case 4:
+			return 'аниме'
+		case 5:
+			return 'хз чего'
+		default:
+			return ''
+	}
+}
+
 export function printFees(fees: Fees[]): string {
 	const result: string[] = []
 	fees.forEach(el => {

@@ -18,7 +18,7 @@ const Letter: FC<LetterProps> = ({ letter }) => {
 
 	function kick(): void {
 		let x = Math.floor(Math.random() * 50) * (Math.random() > 0.5 ? 1 : -1)
-		const y = Math.floor(Math.random() * 200)
+		const y = Math.floor(Math.random() * 250)
 
 		setCoords({ x, y })
 	}
@@ -33,7 +33,7 @@ const Letter: FC<LetterProps> = ({ letter }) => {
 				setActive(false)
 				setCoords({ x: 0, y: 0 })
 				timer.current = null
-			}, 5500)
+			}, 2200)
 		}
 	}
 

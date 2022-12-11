@@ -11,18 +11,23 @@ import seriesBG from './Assets/Backgrounds/series_bg.jpg'
 import cartoonBG from './Assets/Backgrounds/cartoon_bg.png'
 import animeBG from './Assets/Backgrounds/anime_bg.jpg'
 import { setUser, setLoading as setLoadingState } from './Redux/Slices/auth'
-import { useLocation } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { clearNovelty } from './Redux/Slices/novelty'
 import { fetchBackground } from './Redux/Slices/background'
 import { TypeDispatch } from './Redux/store'
 
 const App: FC = () => {
 	const location = useLocation()
+	const navigate = useNavigate()
 	const dispatch = useDispatch<TypeDispatch>()
 	const [loading, setLoading] = useState(false)
 	const [bg, setBg] = useState(mainBG)
 
 	useEffect(() => {
+		if (window.innerHeight > window.innerWidth && process.env.REACT_APP_MOBILE_CLIENT) {
+			navigate(process.env.REACT_APP_MOBILE_CLIENT)
+		}
+
 		const access = localStorage.getItem('access')
 
 		if (access) {

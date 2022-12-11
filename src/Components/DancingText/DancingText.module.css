@@ -26,7 +26,6 @@
 	justify-content: center;
 	text-align: center;
 	z-index: 1000;
-	/* border: 1px solid white; */
 }
 
 .letter {
@@ -35,13 +34,13 @@
 	font-weight: bold;
 	text-align: center;
 	color: #e50914;
-	background: none!important;
-	text-shadow: -0.25vmax -0.5vmin 10px rgba(255, 255, 255, 0.75);
+	background: none !important;
+	text-shadow: -0.25vmax -0.5vmin 10px rgba(255, 255, 255, 0.5);
 	cursor: default;
 }
 
 .active {
-	animation: move 5s linear 0s 1 normal forwards;
+	animation: move 2s linear 0s 1 normal forwards;
 }
 
 @keyframes move {

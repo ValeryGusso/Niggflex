@@ -7,6 +7,7 @@ import { fetchNovelty, noveltySelector } from '../../Redux/Slices/novelty'
 import { useDispatch } from 'react-redux'
 import { InView, useInView } from 'react-intersection-observer'
 import { TypeDispatch } from '../../Redux/store'
+import { printNoveltyType } from '../../Utils/print'
 
 interface NoveltyProps {
 	type: number
@@ -44,25 +45,9 @@ const Novelty: FC<NoveltyProps> = ({ type }) => {
 		}
 	}, [entry])
 
-	function printType(type: number): string {
-		switch (type) {
-			case 1:
-				return 'кино'
-			case 2:
-				return 'сериалов'
-			case 3:
-				return 'мультфильмов'
-			case 4:
-				return 'аниме'
-			case 5:
-				return 'хз чего'
-			default:
-				return ''
-		}
-	}
 	return (
 		<div className={cls.container}>
-			<h1>Новинки {printType(type)}, выбирай что тебе по душе!</h1>
+			<h1>Новинки {printNoveltyType(type)}, выбирай что тебе по душе!</h1>
 			<div className={cls.content}>
 				<InView>
 					{items.length > 0 && items.map(film => <CardItemOther key={film.id} film={film} />)}
