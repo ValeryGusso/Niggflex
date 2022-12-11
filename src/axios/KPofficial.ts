@@ -2,8 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 
 const axiosKPofficial: AxiosInstance = axios.create({
 	params: {
-		// token: process.env.REACT_APP_TOKEN_KP_OFF,
-		token: '4KCTKW4-FNN45QN-NZFVTWV-XW8D358'
+		token: process.env.REACT_APP_TOKEN_KP_OFF,
 	},
 })
 
