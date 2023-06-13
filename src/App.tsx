@@ -25,7 +25,7 @@ const App: FC = () => {
 
 	useEffect(() => {
 		if (window.innerHeight > window.innerWidth && process.env.REACT_APP_MOBILE_CLIENT) {
-			navigate(process.env.REACT_APP_MOBILE_CLIENT)
+			axiosUserAPI.get('/redirect')
 		}
 
 		const access = localStorage.getItem('access')
