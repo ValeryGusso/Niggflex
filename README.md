@@ -6,9 +6,15 @@
 
 The client-side of Niggflex is built using React, a popular JavaScript library for building user interfaces. To handle state management, the widely adopted solution RTK (Redux Toolkit) is utilized, ensuring efficient and effective management of data flow within the application. On the server side, Express, a flexible web application framework, is used in conjunction with the MongoDB database. This combination provides a reliable and optimal solution for developing a REST API, catering to the needs of Niggflex without unnecessary complexity.
 
-_The project was written a long time ago and is my first major work. Therefore, it cannot boast of good code quality and design. The project has many drawbacks, such as the lack of responsive layout, absence of a mobile version, presence of several minor bugs in the interface, and unclear application architecture. That's why I am currently working on developing v2.0, which will address all the previous shortcomings and will have additional features, such as an internal chat and the ability to comment on movies. The development is being carried out based on Next.js._
-
 # [Deployment version](https://niggflex.vercel.app/)
 
 [Frontend repository](https://github.com/ValeryGusso/Niggflex)
 [Backend repository](https://github.com/ValeryGusso/Niggflex-authorization-server)
+
+<div align="center">
+ <img src="./src/Assets/img/v2.0.png" alt="logo">
+</div>
+
+# V2.0 ALREADY IN PROGRESS
+
+_The project was written a long time ago and is my first major work. Therefore, it cannot boast of good code quality and design. The project has many drawbacks, such as the lack of responsive layout, absence of a mobile version, presence of several minor bugs in the interface, and unclear application architecture. That's why I am currently working on developing v2.0, which will address all the previous shortcomings and will have additional features, such as an internal chat and the ability to comment on movies. The development is being carried out based on Next.js._
